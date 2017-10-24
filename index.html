@@ -42,8 +42,8 @@
   <h1 style="color:white;text-shadow:3.5px 3.5px black;" class="slide-in">Vedanta Vidya </br>Peetam</h1>
   <p style="position:relative;top:0.5em;color:white;text-shadow:2px 2px black" class="slide-in-from-right"> Ancient is imminent</p>
 </div>
-<div class="attentionDiv"><p style="position:relative;top:0.5rem;">Attention!! Admission Open for Basic Sloka. Please contact 408-469-6204 for enrolling your child starting this week</div>
-  <div class="overlay"></div>
+<div class="attentionDiv" id="attentionDiv"><p style="position:relative;top:0.5rem;">Attention!! Admission Open for Basic Sloka. Please contact 408-469-6204 for enrolling your child starting this week<br>TAP TO CLOSE</div>
+  <div class="overlay" id="overlay"></div>
 
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
@@ -178,7 +178,7 @@ healthy, stress-free and a happy life</p>
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 <div class="container-fluid" id="volunteer">
     <center> <h2>VOLUNTEER</h2> </center>
-<div class="row slideanim">
+<div class="row slideanim " style="z-index:2;">
   <div class="col-sm-8">
       <h4>If Vedanta Vidya Peetam is a space jet destined to reach the particle horizon, volunteers are the
         imperative fuel necessary to reach such arcane places. The organisation at its core, believes that
@@ -285,6 +285,13 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 var marker = new google.maps.Marker({position: new google.maps.LatLng(37.359697, -122.049843)});
 marker.setMap(map);
 }
+
+var overlay = document.getElementById('overlay');
+overlay.addEventListener("click",function(){
+  console.log("here");
+    overlay.style.display = "none";
+    document.getElementById('attentionDiv').style.opacity = "0";
+});
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxez__0YTMw_rOzEwIuDCmI0RXMCLB8KI&callback=myMap"></script>
