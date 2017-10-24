@@ -213,7 +213,7 @@ footer .glyphicon {
 .attentionDiv{
   align-items: center;
   width:80%;
-  height:4rem;
+  height:5.5rem;
   margin: auto;
   padding:0;
   background: #983456;
@@ -232,11 +232,11 @@ footer .glyphicon {
   color:white;
   background: #000;
   width:80%;
-  height:4rem;
+  height:5.5rem;
   margin:auto;
   opacity: 0.7;
   position: relative;
-  top:-9rem;
+  top:-10.5rem;
   border-radius: 2rem;
   animation-name: pulse;
   animation-duration:0.7s;
@@ -263,7 +263,7 @@ footer .glyphicon {
   }
   .container-fluid{
       position: relative;
-      margin-top: -12rem;
+      margin-top: -7rem;
   }
 
   #contact{
@@ -287,5 +287,5 @@ footer .glyphicon {
 
 .container-fluid{
     position: relative;
-    top:-10rem;
+    top:-12rem;
 }
