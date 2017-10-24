@@ -273,8 +273,8 @@ footer .glyphicon {
 
 @media screen and (max-width:1200px) and (min-width:620px){
   .overlay{
-    height: 4em;
-    top:-11rem;
+    height: 6em;
+    top:-14rem;
 
   }
   .attentionDiv{
