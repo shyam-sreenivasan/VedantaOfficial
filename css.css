@@ -209,3 +209,69 @@ footer .glyphicon {
   background: url('gal1.JPG') no-repeat;
   background-size: 100% 100%;
 }
+
+.attentionDiv{
+  align-items: center;
+  width:80%;
+  height:4rem;
+  margin: auto;
+  padding:0;
+  background: #983456;
+  position: relative;
+  color:white;
+  top:-5rem;
+  border-radius: 2rem;
+  box-shadow: 2px 2px 2px #ccc;
+  z-index: 1;
+  text-align: center;
+  font-family:monospace;
+}
+
+.overlay{
+  position: relative;
+  color:white;
+  background: #000;
+  width:80%;
+  height:4rem;
+  margin:auto;
+  opacity: 0.7;
+  position: relative;
+  top:-9rem;
+  border-radius: 2rem;
+  animation-name: pulse;
+  animation-duration:0.7s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  z-index: 2;
+
+}
+
+@keyframes pulse {
+  from{opacity: 0.5;}
+  to{opacity: 0;}
+}
+
+@media screen and (max-width:620px){
+  .overlay{
+    height: 11rem;
+    top:-20rem;
+
+  }
+  .attentionDiv{
+    height: 11rem;
+    top:-9rem;
+  }
+}
+
+@media screen and (max-width:960px) and (min-width:620px){
+  .overlay{
+    height: 4em;
+    top:-11rem;
+
+  }
+  .attentionDiv{
+    height: 4em;
+    top:-5rem;
+    /*background-color: green;*/
+  }
+}
