@@ -213,10 +213,10 @@ footer .glyphicon {
 .attentionDiv{
   align-items: center;
   width:80%;
-  height:4rem;
+  height:5.5rem;
   margin: auto;
   padding:0;
-  background: #983456;
+  background: #ff3456;
   position: relative;
   color:white;
   top:-5rem;
@@ -232,11 +232,11 @@ footer .glyphicon {
   color:white;
   background: #000;
   width:80%;
-  height:4rem;
+  height:5.5rem;
   margin:auto;
   opacity: 0.7;
   position: relative;
-  top:-9rem;
+  top:-10.5rem;
   border-radius: 2rem;
   animation-name: pulse;
   animation-duration:0.7s;
@@ -261,6 +261,14 @@ footer .glyphicon {
     height: 11rem;
     top:-9rem;
   }
+  .container-fluid{
+      position: relative;
+      margin-top: -7rem;
+  }
+
+  #contact{
+    margin-top: 0.5rem;
+  }
 }
 
 @media screen and (max-width:960px) and (min-width:620px){
@@ -274,4 +282,10 @@ footer .glyphicon {
     top:-5rem;
     /*background-color: green;*/
   }
+
+}
+
+.container-fluid{
+    position: relative;
+    top:-12rem;
 }
