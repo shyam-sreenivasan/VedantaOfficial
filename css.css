@@ -261,6 +261,10 @@ footer .glyphicon {
     height: 11rem;
     top:-9rem;
   }
+  .container-fluid{
+      position: relative;
+      margin-top: -8rem;
+  }
 }
 
 @media screen and (max-width:960px) and (min-width:620px){
@@ -274,4 +278,10 @@ footer .glyphicon {
     top:-5rem;
     /*background-color: green;*/
   }
+
+}
+
+.container-fluid{
+    position: relative;
+    top:-10rem;
 }
