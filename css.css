@@ -263,7 +263,11 @@ footer .glyphicon {
   }
   .container-fluid{
       position: relative;
-      margin-top: -8rem;
+      margin-top: -12rem;
+  }
+
+  #contact{
+    margin-top: 0.5rem;
   }
 }
 
