@@ -27,12 +27,14 @@
       </button>
       <a class="navbar-brand" href="#myPage"><img src="vvplogo1.png"  height="30px" style="position:relative;top:-7px;"> </a>
     </div>
+    <a style="position:absolute;top:3.5vw;left:70vw;" id="bell" onclick="notific()"><i class="fa fa-bell" aria-hidden="true"></i></a>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">ABOUT US</a></li>
         <li><a href="#services">SERVICES</a></li>
         <li><a href="#volunteer">VOLUNTEER</a></li>
         <li><a href="#contact">CONTACT</a></li>
+        <li id="bell1"  onclick="notific()" ><a><i class="fa fa-bell" aria-hidden="true" ></i></a></li>
       </ul>
     </div>
   </div>
@@ -42,9 +44,17 @@
   <h1 style="color:white;text-shadow:3.5px 3.5px black;" class="slide-in">Vedanta Vidya </br>Peetam</h1>
   <p style="position:relative;top:0.5em;color:white;text-shadow:2px 2px black" class="slide-in-from-right"> Ancient is imminent</p>
 </div>
-<div class="attentionDiv" id="attentionDiv"><p style="position:relative;top:0.5rem;">Attention!! Admission Open for Basic Sloka. Please contact <span style="color:blue;;font-weight:600;">408-469-6204</span> for enrolling your child starting this week. <br>TAP TO CLOSE</div>
-  <div class="overlay" id="overlay"></div>
-
+<!-- <div class="attentionDiv" id="attentionDiv"><p style="position:relative;top:0.5rem;">Attention!! Admission Open for Basic Sloka. Please contact <span style="color:blue;;font-weight:600;">408-469-6204</span> for enrolling your child starting this week. <br>TAP TO CLOSE</div>
+  <div class="overlay" id="overlay"></div> -->
+<div id="attention">
+<div id="attentionContent">
+  <h1>Attention!! Admission Open for Basic Sloka. Please contact <span style="color:blue;font-weight:600;">408-469-6204</span> for enrolling your child starting this week.</h1>
+</div>
+  <div id="attention-close">
+    <h4 style="position:relative;top:1.5rem;color:white;">Close</h4>
+  </div>
+</div>
+<!-- <div id="notify-bell"><i class="fa fa-bell" aria-hidden="true"></i></div> -->
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
   <div class="row">
@@ -286,13 +296,54 @@ var marker = new google.maps.Marker({position: new google.maps.LatLng(37.359697,
 marker.setMap(map);
 }
 
-var overlay = document.getElementById('overlay');
-overlay.addEventListener("click",function(){
+var attentionClose = document.getElementById('attention-close');
+var attention = document.getElementById('attention');
+attentionClose.addEventListener("click",function(){
   console.log("here");
-    overlay.style.display = "none";
-    document.getElementById('attentionDiv').style.opacity = "0";
-});
+  op = 0.9;
+  var inter = setInterval(function(){
+      attention.style.opacity = op;
+      op = op - 0.1;
+      console.log(op);
+      if(op < 0){
+        clearInterval(inter);
+          attention.style.display = "none";
+      }
+  },50);
+  });
+var op = 1;
+ function notific(){
+  console.log("Here too");
+      if(attention.style.display == "none"){
+        op = 0;
+      attention.style.display = "block";
+        var inter = setInterval(function(){
+            attention.style.opacity = op;
+            op += 0.1;
+            if(op > 0.9){
+              clearInterval(inter);
+            }
+        },50);
 
+
+      }else{
+        op = 0.9;
+        var inter = setInterval(function(){
+            attention.style.opacity = op;
+            op = op - 0.1;
+            console.log(op);
+            if(op < 0){
+              clearInterval(inter);
+                attention.style.display = "none";
+            }
+        },50);
+
+      }
+}
+
+function toggleNotification(){
+
+}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxez__0YTMw_rOzEwIuDCmI0RXMCLB8KI&callback=myMap"></script>
 
