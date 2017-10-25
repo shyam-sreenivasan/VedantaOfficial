@@ -25,7 +25,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#myPage"><img src="vvplogo1.png"  height="30px" style="position:relative;top:-7px;"> </a>
+      <!-- <a class="navbar-brand" href="#myPage"><img src="vvplogo1.png"  height="30px" style="position:relative;top:-7px;"> </a> -->
     </div>
     <a style="position:absolute;top:3.5vw;left:70vw;" id="bell" onclick="notific()"><i class="fa fa-bell" aria-hidden="true"></i></a>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -34,7 +34,7 @@
         <li><a href="#services">SERVICES</a></li>
         <li><a href="#volunteer">VOLUNTEER</a></li>
         <li><a href="#contact">CONTACT</a></li>
-        <li id="bell1"  onclick="notific()" ><a><i class="fa fa-bell" aria-hidden="true" ></i></a></li>
+        <!-- <li id="bell1"  onclick="notific()" ><a><i class="fa fa-bell" aria-hidden="true" ></i></a></li> -->
       </ul>
     </div>
   </div>
@@ -46,14 +46,16 @@
 </div>
 <!-- <div class="attentionDiv" id="attentionDiv"><p style="position:relative;top:0.5rem;">Attention!! Admission Open for Basic Sloka. Please contact <span style="color:blue;;font-weight:600;">408-469-6204</span> for enrolling your child starting this week. <br>TAP TO CLOSE</div>
   <div class="overlay" id="overlay"></div> -->
-<div id="attention">
-<div id="attentionContent">
-  <h3>Attention!! Admission Open for Basic Sloka. Please contact <span style="color:red;font-weight:600;">408-469-6204 </span> for enrolling your child starting this week.</h3>
-</div>
-  <div id="attention-close">
-    <h4 style="position:relative;top:1.5rem;color:white;">Close</h4>
+<div class="container-fluid" id="attention">
+
+  <div id="attentionContent">
+    <h4 style="color:white">Attention!! Admission Open for Basic Sloka. Please contact <span style="color:red;font-weight:600;">408-469-6204 </span> for enrolling your child starting this week.</h4>
   </div>
+    <!-- <div id="attention-close">
+      <h4 style="position:relative;top:1.5rem;color:white;">Close</h4>
+    </div> -->
 </div>
+
 <!-- <div id="notify-bell"><i class="fa fa-bell" aria-hidden="true"></i></div> -->
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
@@ -296,50 +298,50 @@ var marker = new google.maps.Marker({position: new google.maps.LatLng(37.359697,
 marker.setMap(map);
 }
 
-var attentionClose = document.getElementById('attention-close');
-var attention = document.getElementById('attention');
-attentionClose.addEventListener("click",function(){
-  console.log("here");
-  op = 0.9;
-  var inter = setInterval(function(){
-      attention.style.opacity = op;
-      op = op - 0.1;
-      console.log(op);
-      if(op < 0){
-        clearInterval(inter);
-          attention.style.display = "none";
-      }
-  },50);
-  });
-var op = 1;
- function notific(){
-  console.log("Here too");
-      if(attention.style.display == "none"){
-        op = 0;
-      attention.style.display = "block";
-        var inter = setInterval(function(){
-            attention.style.opacity = op;
-            op += 0.1;
-            if(op > 0.9){
-              clearInterval(inter);
-            }
-        },50);
-
-
-      }else{
-        op = 0.9;
-        var inter = setInterval(function(){
-            attention.style.opacity = op;
-            op = op - 0.1;
-            console.log(op);
-            if(op < 0){
-              clearInterval(inter);
-                attention.style.display = "none";
-            }
-        },50);
-
-      }
-}
+// var attentionClose = document.getElementById('attention-close');
+// var attention = document.getElementById('attention');
+// attentionClose.addEventListener("click",function(){
+//   console.log("here");
+//   op = 0.9;
+//   var inter = setInterval(function(){
+//       attention.style.opacity = op;
+//       op = op - 0.1;
+//       console.log(op);
+//       if(op < 0){
+//         clearInterval(inter);
+//           attention.style.display = "none";
+//       }
+//   },50);
+//   });
+// var op = 1;
+//  function notific(){
+//   console.log("Here too");
+//       if(attention.style.display == "none"){
+//         op = 0;
+//       attention.style.display = "block";
+//         var inter = setInterval(function(){
+//             attention.style.opacity = op;
+//             op += 0.1;
+//             if(op > 0.9){
+//               clearInterval(inter);
+//             }
+//         },50);
+//
+//
+//       }else{
+//         op = 0.9;
+//         var inter = setInterval(function(){
+//             attention.style.opacity = op;
+//             op = op - 0.1;
+//             console.log(op);
+//             if(op < 0){
+//               clearInterval(inter);
+//                 attention.style.display = "none";
+//             }
+//         },50);
+//
+//       }
+// }
 
 function toggleNotification(){
 
