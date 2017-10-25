@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="css.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+          body{
+            background-color:#ccc;
+
+          }
+        .wrapper{
+          width: 100%;
+          /*background-image: url('https://static.pexels.com/photos/355465/pexels-photo-355465.jpeg');
+          background-position: center;
+          background-size: cover;*/
+          /*height: 80rem;*/
+          background-color:#000e23;
+        }
+        .row{
+          width: 100%;
+          /*background-color: #000e23;*/
+          margin: auto;
+          margin-top: 0rem;
+          padding: 1em;
+
+
+        }
+        .col{
+          height: 400px;
+          padding:1em;
+        }
+        .card{
+          width: 100%;
+          height: 100%;
+          background-color: tomato;
+          padding:1em;
+          opacity: 0.8;
+          box-shadow: 4px 4px 8px #000;
+          border-radius: 3em;
+          cursor: pointer;
+        }
+
+      .card:hover{
+        opacity: 0.6;
+      }
+
+        #academic{
+          background: url('https://static.pexels.com/photos/46274/pexels-photo-46274.jpeg') no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+        #health{
+          background: url('https://static.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg') no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+        #entertainment{
+          background: url('https://static.pexels.com/photos/163077/mario-yoschi-figures-funny-163077.jpeg') no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+        #devotional{
+          background: url('https://static.pexels.com/photos/415680/pexels-photo-415680.jpeg') no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+        #social{
+          background: url('https://static.pexels.com/photos/167964/pexels-photo-167964.jpeg') no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+
+      .storeHeading{
+        position:absolute;top:16rem;left:6rem;color:white;font-weight:800;font-size:300%;
+        text-align: center;
+      }
+
+    </style>
+
+  </head>
+
+
+  <body>
+      <div class="wrapper container-fluid">
+          <div class="row row1">
+              <div class="col-sm-6 col">
+                  <div class="card" id="academic"  data-toggle="modal" data-target="#myModal" >
+
+                  </div>
+              <h1 class="storeHeading">Academic Club</h1></center>
+              </div>
+
+              <div class="col-sm-6 col">
+                <div class="card" id="health">
+
+                </div>
+                  <h1 class="storeHeading" style="">Health Club</h1></center>
+              </div>
+          </div>
+          <div class="row row1">
+              <div class="col-sm-4 col" >
+                  <div class="card" id="entertainment">
+
+                  </div>
+                    <h1 class="storeHeading" style="margin-left:-5rem;">Entertainment Club</h1></center>
+
+              </div>
+              <div class="col-sm-4 col" >
+                <div class="card" id="devotional">
+
+                </div>
+                  <h1 class="storeHeading" style="margin-left:-2rem;">Devotional Club</h1></center>
+              </div>
+              <div class="col-sm-4 col" >
+                <div class="card" id="social">
+
+                </div>
+                  <h1 class="storeHeading" style="">Social Club</h1></center>
+              </div>
+            </div>
+      </div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Academic Club</h4>
+      </div>
+      <div class="modal-body">
+          <h5><b>Reading Club</b></h5>
+          <p>Age:   8+ years <br>
+
+Size :  10 students <br><br>
+
+Meets every Sunday @ 11.15AM  - 11.30AM (15 Minutes) <br><br>
+Place: VVP <br><br>
+
+Agenda:<br><br>
+
+     *  Commit the goal for how many words to be read  for next Week<br>
+     *  Submit the actual words read in the current week.<br>
+     *  Q-A on the book read.<br>
+     *  Honor the Weekly Winners.<br>
+     *  Review the monthly standings on Words Read in that month.<br>
+     *  Submit and get feedback on a  write-up of the story.<br><br>
+
+Fee per Session*: $1 for Members,
+                             $5 for  all others</p><br><br>
+        <h5><b>Spelling Club</b></h5> <br>
+        <p> Age: 8+ years <br><br>
+
+Size:  10 students<br><br>
+
+
+Meets: TBD<br><br>
+
+Agenda:<br>
+             * Learn a set of new words for the week<br>
+                       - learn the root,<br>
+                      -  learn patterns,<br>
+                      - learn meaning<br>
+             * Participate in a quiz on previous week's words<br>
+             * Honor the Week's Spelling winners<br>
+             * Maintain the Spell Diary<br><br>
+
+Fee per Session*: TBD</p><br><br>
+<h5><b>Geo Club</b></h5> <br>
+<p>Age:  8+ years <br><br>
+
+Size:  10 students<br><br>
+
+Meets:  TBD<br><br>
+
+Agenda:<br>
+
+          *  Learn new geography facts<br>
+          *  Watch National geographic video<br>
+          *  Participate in a Quiz on the facts learned previous week.<br>
+          *  Honor the Week's Geo Winners<br>
+          *  Maintain the Geo Diary.<br><br>
+
+Fee per Session*:  TBD<br><br>
+
+* Includes 1 Child, 1 Adult.</p><br><br>
+
+<h5><b>Math Club</b></h5> <br>
+<p>
+
+Age:  8+ years<br><br>
+
+Size:  10 students<br><br>
+
+Meets:  TBD<br><br>
+
+Agenda:
+
+          * TBD<br><br>
+
+Fee per Session*:  TBD<br><br>
+
+
+</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// var jsondude = {
+//   "academic":[
+//     {"reading":[
+//       {"Age" : "8+ years"},
+//       {"Size" : "10 students"},
+//       {"Meet" : "Meets every Sunday @ 11.15AM  - 11.30AM (15 Minutes)"},
+//       {"Place" : "VVP"},
+//       {"Agenda" : ""},
+//       {"Fee" : ["$1 for members","$5 for non-members"]}
+//     ]},
+//
+//     {"Spelling":[
+//       {"Age" : "8+ years"},
+//       {"Size" : "10 students"},
+//       {"Meet" : "TBD"},
+//       {"Place" : "VVP"},
+//       {"Agenda" : ""},
+//       {"Fee" :"TBD"}
+//     ]
+//   },
+//     {"Geo":[
+//       {"Age" : "8+ years"},
+//       {"Size" : "10 students"},
+//       {"Meets" : "TBD"},
+//       {"Place" : "VVP"},
+//       {"Agenda" : ""},
+//       {"Fee" :"TBD"} ,
+//       {"Includes":"1 Child 1 Adult"}
+//     ]
+//   },
+//   ]
+// }
+</script>
+  </body>
+</html>
