@@ -292,7 +292,7 @@ footer .glyphicon {
 }*/
 
 #attention{
-  width: 100vw;
+   width: 100vw;
   position: fixed;
   top:60vh;
   z-index: 9999;
