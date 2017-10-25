@@ -32,6 +32,7 @@ h4 {
     z-index: -1;
 }
 .container-fluid {
+
     padding: 60px 50px;
 }
 .bg-grey {
@@ -210,7 +211,7 @@ footer .glyphicon {
   background-size: 100% 100%;
 }
 
-.attentionDiv{
+/*.attentionDiv{
   align-items: center;
   width:80%;
   height:5.5rem;
@@ -245,7 +246,7 @@ footer .glyphicon {
   animation-iteration-count: infinite;
   z-index: 2;
 
-}
+}*/
 
 /*@keyframes pulse {
   from{opacity: 0.5;}
@@ -290,20 +291,24 @@ footer .glyphicon {
     position: relative;
     top:-12rem;
 }*/
-
+#about{
+  position: relative;
+  top:-5em;
+}
 #attention{
-   width: 100vw;
-  position: fixed;
-  top:60vh;
-  z-index: 9999;
+   width: 100%;
+  position: relative;
+  top:-3rem;
   box-shadow: 2px 2px 2px black;
   text-align: center;
   color:white;
   font-family: sans-serif;
   /*margin-left: 3vw;*/
-  padding: 1rem;
-  background-color: #000;
-  opacity: 0.8;
+  padding-top: 0.5rem;
+  padding-bottom: 0.0001rem;
+  background-color: #000e23;
+  opacity: 0.95;
+  margin: 0;
 }
 #attentionContent{
   width: 100%;
@@ -311,10 +316,10 @@ footer .glyphicon {
   text-align: center;
   color:white;
   font-family: sans-serif;
-  background-color: #000;
+  /*background-color: #000;*/
 
 }
-#attention-close{
+/*#attention-close{
   width: 20vh;
   height:6%;
   background-color:red;
@@ -324,7 +329,7 @@ footer .glyphicon {
   padding: 0;
   border-radius: 5rem;
   cursor: pointer
-}
+}*/
 
 
 .fa-bell{
