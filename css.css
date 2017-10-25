@@ -292,19 +292,18 @@ footer .glyphicon {
 }*/
 
 #attention{
-  width: 90vw;
+  width: 100vw;
   position: fixed;
-  top:5rem;
+  top:60vh;
   z-index: 9999;
   box-shadow: 2px 2px 2px black;
   text-align: center;
   color:white;
   font-family: sans-serif;
-  margin-left: 3vw;
-  font-size: 1rem;
+  /*margin-left: 3vw;*/
   padding: 1rem;
   background-color: #000;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 #attentionContent{
   width: 100%;
