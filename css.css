@@ -447,7 +447,11 @@ footer .glyphicon {
 #services{
   background-color: #eee;
 }
-
+#president{
+  background: url('ramaa.JPG') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 p{
   color: black;
 }
