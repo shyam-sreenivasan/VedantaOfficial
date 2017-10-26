@@ -300,7 +300,6 @@ footer .glyphicon {
 }*/
 #about{
   position: relative;
-  top:-5em;
 }
 #attention{
    width: 100%;
@@ -384,4 +383,71 @@ footer .glyphicon {
   top:0;
   left: 0;
   z-index:1;
+}
+
+.colteam{
+  height: 400px;
+  padding:0.5em;
+}
+.cardteam{
+  width: 100%;
+  height: 40rem;
+  background-color: #eee;
+  margin: 0;
+  padding:0;
+  padding:1em;
+  opacity: 1;
+  box-shadow: 4px 4px 8px #000;
+  border-radius: 3em;
+  cursor: pointer;
+}
+
+.cardheading{
+  width: 100%;
+  height: 12vh;
+  background-color: #fff;
+  border-radius: 3em;
+  margin: 0;
+  padding:0;
+}
+
+.cardpic{
+  width: 20%;
+  background: black;
+  height: 100%;
+  border-radius: 3em;
+  float: left;
+}
+
+.cardheaderinfo{
+
+}
+
+#ceo{
+  background: url('gal1.JPG') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#techdirector{
+  background: url('me.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#musicteacher{
+  background: url('Bhuvana.png') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#team{
+  background-color: #000e23;
+}
+
+#services{
+  background-color: #eee;
+}
+
+p{
+  color: black;
 }
