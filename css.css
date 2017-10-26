@@ -386,12 +386,12 @@ footer .glyphicon {
 }
 
 .colteam{
-  height: 400px;
+  height: 40rem;
   padding:0.5em;
 }
 .cardteam{
   width: 100%;
-  height: 40rem;
+  height: 100%;
   background-color: #eee;
   margin: 0;
   padding:0;
@@ -404,7 +404,7 @@ footer .glyphicon {
 
 .cardheading{
   width: 100%;
-  height: 12vh;
+  height: 7rem;
   background-color: #fff;
   border-radius: 3em;
   margin: 0;
@@ -412,7 +412,7 @@ footer .glyphicon {
 }
 
 .cardpic{
-  width: 20%;
+  width: 8rem;
   background: black;
   height: 100%;
   border-radius: 3em;
@@ -448,10 +448,16 @@ footer .glyphicon {
   background-color: #eee;
 }
 #president{
-  background: url('ramaa.JPG') no-repeat;
+  background: url('ramma.JPG') no-repeat;
   background-position: center;
   background-size: cover;
 }
 p{
   color: black;
+}
+
+@media screen and (max-width:960px){
+  .colteam{
+    height:45rem;
+  }
 }
