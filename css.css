@@ -387,7 +387,7 @@ footer .glyphicon {
 
 .colteam{
   height: 40rem;
-  padding:1em;
+  padding:0.5em;
 }
 .cardteam{
   width: 100%;
@@ -448,7 +448,7 @@ footer .glyphicon {
   background-color: #eee;
 }
 #president{
-  background: url('ramma.JPG') no-repeat;
+  background: url('ramaa.JPG') no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -458,6 +458,7 @@ p{
 
 @media screen and (max-width:960px){
   .colteam{
-    height:45rem;
+    height:50rem;
   }
+
 }
