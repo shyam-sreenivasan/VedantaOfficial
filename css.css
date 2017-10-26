@@ -386,7 +386,7 @@ footer .glyphicon {
 }
 
 .colteam{
-  height: 52vh;
+  min-height: 12em;
   padding:0.5em;
 }
 .cardteam{
@@ -400,10 +400,11 @@ footer .glyphicon {
   box-shadow: 4px 4px 8px #000;
   border-radius: 3em;
   cursor: pointer;
+
 }
 
 .cardheading{
-  width: 100%;
+  width: 25rem;
   height: 7rem;
   background-color: #fff;
   border-radius: 3em;
@@ -456,9 +457,9 @@ p{
   color: black;
 }
 
-@media screen and (max-width:450px){
+/*@media screen and (max-width:450px){
   .colteam{
-    height:97vh;
+    height:100vh;
   }
 }
 @media screen and (max-width:858px) and (min-width:450px){
@@ -469,11 +470,11 @@ p{
 
 @media screen and (max-width:1010px) and (min-width:890px){
   .colteam{
-    height:77vh;
+    height:90vh;
   }
 }
 @media screen and (max-width:890px) and (min-width:858px){
   .colteam{
     height:77vh;
-   }
-}
+  }
+}*/
