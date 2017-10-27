@@ -386,7 +386,7 @@ footer .glyphicon {
 }
 
 .colteam{
-  min-height: 12em;
+  min-height: 15em;
   padding:0.5em;
 }
 .cardteam{
@@ -400,11 +400,12 @@ footer .glyphicon {
   box-shadow: 4px 4px 8px #000;
   border-radius: 3em;
   cursor: pointer;
+   min-height: 17em;
 
 }
 
 .cardheading{
-  width: 25rem;
+  width: 23rem;
   height: 7rem;
   background-color: #fff;
   border-radius: 3em;
@@ -456,6 +457,7 @@ footer .glyphicon {
 p{
   color: black;
 }
+
 
 /*@media screen and (max-width:450px){
   .colteam{
