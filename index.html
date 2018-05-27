@@ -42,16 +42,50 @@
     </div>
   </div>
 </nav>
-<div class = "overlay" >
+
+
+   
+<div id="disclaimer">
+ <button type="button" id="disclaimerButton" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Summer Camp! (Sloka and Bhajan)</h4>
+      </div>
+      <div class="modal-body">
+        <p>Ages : 7+</p>
+        <p>June 11 - June 22</p>
+        <p>2 weeks</p>
+        <h3><b>*Introduction to Vishnu Sahasranaamam</b></h3>
+        <h3><b>*Bhajans</b></h3>
+        <h3><b>*Short stories on morals</b></h3>
+        <h3><b>*Fun games</b></h3> 
+        <h2>@Sunnyvale!! Contact -> 408-4696204</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div class="body">
+  <div class = "overlay" >
   <center><h1 style="color:#000e23;text-shadow:2px 2px white;font-size:7rem;position:relative;top:30vh;" class="slide-in">Vedanta Vidya </br>Peetam</h1></center>
   <center><p style="position:relative;font-size:120%;font-family:arial;top:0.5em;color:white;opacity:1;position:relative;top:30vh;background-color:#1280d8;width:25rem;border-radius:2rem" class="slide-in-from-right"> Ancient is imminent</p></center>
  </div>
 <div class="jumbotron text-center">
-
+  
 </div>
-
 <div class="container-fluid" id="attention">
-
   <div id="attentionContent">
     <h4 style="color:white">Attention!! Admission Open for Basic Sloka. Please contact <span style="color:red;font-weight:600;">408-469-6204 </span> for enrolling your child starting this week.</h4>
   </div>
@@ -121,8 +155,6 @@ way.</p><br>
 
       </div>
       </div>
-
-</div>
 
 
 </div>
@@ -300,7 +332,7 @@ The cause should be genuine and reasonable:  health, medical treatment, surgery,
   </a>
   <p>Copyrights <i class="fa fa-copyright" aria-hidden="true"></i>2017 Vedanta Vidya Peetam</p>
 </footer>
-
+</div>
 <script type="text/javascript">
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
@@ -349,12 +381,16 @@ marker.setMap(map);
 
 $(function(){
      var navMain = $(".navbar-collapse"); // avoid dependency on #id
-     // "a:not([data-toggle])" - to avoid issues caused
-     // when you have dropdown inside navbar
      navMain.on("click", "a:not([data-toggle])", null, function () {
          navMain.collapse('hide');
      });
  });
+var x=0;
+$("#disclaimerButton").click();
+$("#myModal").on("hidden.bs.modal", function () {
+    $('.disclaimer').css('display','none');
+    $('.body').css('display','block');
+});
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxez__0YTMw_rOzEwIuDCmI0RXMCLB8KI&callback=myMap"></script>
 
