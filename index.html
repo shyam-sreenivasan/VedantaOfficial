@@ -43,14 +43,42 @@
   </div>
 </nav>
 
+<!--Section: Live preview-->
 
-   
+<button type="button" class="newmodalbutton btn btn-primary invisible" data-toggle="modal" data-target="#modalCoupon">Launch
+  modal</button>
+
+<!--Modal: modalCoupon-->
+  <div class="modal fade top" id="modalCoupon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog modal-frame modal-top modal-notify modal-success" role="document">
+      <!--Content-->
+      <div class="modal-content text-center">
+        <!--Body-->
+        <div class="modal-body">
+          <div class="row d-flex justify-content-center align-items-center">
+            <p class="pt-3 mx-4">VVP is planning to organize FREE daily quiz called "Quizza"  on Math, Science, Social Studies, English Grammar, Computer programming, etc.
+The objective is to stimulate active learning in kids through fun.</strong>.</p>
+
+            <a type="button" href="https://docs.google.com/forms/d/1eEDEtWqJ6kw34o5GmKeoZ4hfYUSbTxOj8pqhtIjQQm4/edit?ts=5e787dbd" class="btn btn-primary" target="_blank">Join
+            </a>
+            <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">No, thanks</a>
+          </div>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!--Modal: modalCoupon-->
+
+  <!--Section: Live preview-->
 
 
 <div class="body">
   <div class = "overlay" >
   <center><h1 style="color:#000e23;text-shadow:2px 2px white;font-size:7rem;position:relative;top:30vh;" class="slide-in">Vedanta Vidya </br>Peetam</h1></center>
   <center><p style="position:relative;font-size:120%;font-family:arial;top:0.5em;color:white;opacity:1;position:relative;top:30vh;background-color:#1280d8;width:25rem;border-radius:2rem" class="slide-in-from-right"> Ancient is imminent</p></center>
+
  </div>
 <div class="jumbotron text-center">
   
@@ -368,6 +396,8 @@ $(function(){
          navMain.collapse('hide');
      });
  });
+
+$(".newmodalbutton").click()
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxez__0YTMw_rOzEwIuDCmI0RXMCLB8KI&callback=myMap"></script>
 
