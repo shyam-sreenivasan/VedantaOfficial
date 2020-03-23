@@ -162,13 +162,14 @@ footer .glyphicon {
   .jumbotron{
     background-image: url('https://static.pexels.com/photos/26681/pexels-photo-26681.jpg');
   }
+
+  
 }
 @keyframes slidein{
 0% {margin-left:-2000px;}
 100% {margin-left:0px;}
 
 }
-
 
 .slide-in{
 -webkit-animation-name: slidein; /* Safari 4.0 - 8.0 */
@@ -403,6 +404,12 @@ footer .glyphicon {
   z-index: 2;
   position: absolute;
   top:5rem;
+}
+
+
+.quizzatext a:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .invisible {
