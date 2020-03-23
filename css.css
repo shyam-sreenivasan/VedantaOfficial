@@ -400,9 +400,9 @@ footer .glyphicon {
     }
 
 .newmodalbutton {
-  z-index: 999;
+  z-index: 2;
   position: absolute;
-  top:200px;
+  top:5rem;
 }
 
 .invisible {
