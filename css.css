@@ -170,27 +170,19 @@ footer .glyphicon {
 100% {margin-left:0px;}
 
 }
-.maintitle {
-  font-size: 8rem;
-}
-
-@media screen and (max-width: 480px) {
-  .quizzatext {
-    width: 200px;
-    background-color: green;
-  }
-
-  .maintitle {
-    color: green;
-    font-size: 2rem;
-    background-color:yellow;
-  }
-}
 
 .quizzatext {
-  font-size: 130%;
+  background-color: #ff3300;
+  width:60rem;
+  padding: 10px;
 }
 
+@media screen and (max-width: 500px) {
+  .quizzatext {
+    width: 35rem;
+    padding: 4px;
+  }
+}
 
 .slide-in{
 -webkit-animation-name: slidein; /* Safari 4.0 - 8.0 */
