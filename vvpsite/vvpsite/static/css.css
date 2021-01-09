@@ -1,0 +1,521 @@
+
+:root {
+  --main-color:#068fff;
+}
+body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: var(--main-color);
+  overflow-x:hidden;
+}
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+.jumbotron {
+    background:url('https://static.pexels.com/photos/26681/pexels-photo-26681.jpg');
+    /*background: url('bluescene.jpg');*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: #000e23;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+    z-index: -1;
+    height: 100vh;
+    opacity: 0.5;
+}
+.container-fluid {
+
+    padding: 60px 50px;
+}
+.bg-grey {
+    background-color: #f6f6f6;
+}
+.logo-small {
+    color: #000e23;
+    font-size: 50px;
+}
+
+.logo-very-small{
+  height:55px;
+}
+.logo {
+    color: #000e23;
+    font-size: 200px;
+}
+.thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+}
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+.carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #f4511e;
+}
+.carousel-indicators li {
+    border-color: #f4511e;
+}
+.carousel-indicators li.active {
+    background-color: #f4511e;
+}
+.item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+}
+.item span {
+    font-style: normal;
+}
+
+
+.navbar {
+    margin-bottom: 0;
+    background-color:#000e23;
+    z-index: 999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+}
+.slideanim {visibility:hidden;}
+.slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+@media screen and (max-width: 768px) {
+  .col-sm-4 {
+    text-align: center;
+    margin: 25px 0;
+  }
+  .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+  }
+
+  .gals{
+    width:100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .logo {
+      font-size: 150px;
+  }
+
+  .jumbotron{
+    background-image: url('https://static.pexels.com/photos/26681/pexels-photo-26681.jpg');
+  }
+
+  
+}
+@keyframes slidein{
+0% {margin-left:-2000px;}
+100% {margin-left:0px;}
+
+}
+
+.quizzatext {
+  background-color: #ff3300;
+  width:60rem;
+  padding: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .quizzatext {
+    width: 35rem;
+    padding: 4px;
+  }
+}
+
+.slide-in{
+-webkit-animation-name: slidein; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+  animation-name: slidein;
+  animation-duration: 2s;
+  animation-delay: 0s;
+}
+
+.slide-in-from-right{
+  -webkit-animation-name: slideinright; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+  animation-name: slideinright;
+  animation-duration: 2s;
+  animation-delay: 0s;
+}
+
+@keyframes slideinright{
+0% {margin-right:-2000px;}
+100% {margin-right:0px;}
+}
+
+
+
+
+#ourteam{
+  width:100%;
+  height: 600px;
+  background-color: #999999;
+
+}
+#teamblock{
+  width:100%;
+  height:200px;
+  margin:auto;
+  background-color: #cccccc;
+}
+
+.teampic{
+  width:100%;
+  height:80%;
+  margin:auto;
+  background-color: #333333;
+  background: url('gal1.JPG') no-repeat;
+  background-size: 100% 100%;
+}
+
+/*.attentionDiv{
+  align-items: center;
+  width:80%;
+  height:5.5rem;
+  margin: auto;
+  padding:0;
+  background: #ccc;
+  position: relative;
+  color:white;
+  top:-5rem;
+  border-radius: 2rem;
+  box-shadow: 2px 2px 2px #ccc;
+  z-index: 1;
+  text-align:center;
+  font-family:monospace;
+  color:black;
+}
+
+.overlay{
+  position: relative;
+  color:white;
+  background: #000;
+  width:80%;
+  height:5.5rem;
+  margin:auto;
+  opacity: 0.7;
+  position: relative;
+  top:-10.5rem;
+  border-radius: 2rem;
+  animation-name: pulse;
+  animation-duration:0.7s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  z-index: 2;
+
+}*/
+
+/*@keyframes pulse {
+  from{opacity: 0.5;}
+  to{opacity: 0;}
+}
+
+@media screen and (max-width:620px){
+  .overlay{
+    height: 14rem;
+    top:-23rem;
+
+  }
+  .attentionDiv{
+    height: 14rem;
+    top:-9rem;
+  }
+  .container-fluid{
+      position: relative;
+      margin-top: -7rem;
+  }
+
+  #contact{
+    margin-top: 0.5rem;
+  }
+}
+
+@media screen and (max-width:1200px) and (min-width:620px){
+  .overlay{
+    height: 6em;
+    top:-14rem;
+
+  }
+  .attentionDiv{
+    height: 6em;
+    top:-5rem;
+    /*background-color: green;*/
+  /*}
+
+}*/
+
+/*.container-fluid{
+    position: relative;
+    top:-12rem;
+}*/
+#about{
+  position: relative;
+}
+#attention{
+   width: 100%;
+  position: relative;
+  top:-3rem;
+  box-shadow: 2px 2px 2px black;
+  text-align: center;
+  color:white;
+  font-family: sans-serif;
+  /*margin-left: 3vw;*/
+  padding-top: 0.5rem;
+  padding-bottom: 0.0001rem;
+  background-color: #000e23;
+  opacity: 0.95;
+  margin: 0;
+}
+#attentionContent{
+  width: 100%;
+  height:90%;
+  text-align: center;
+  color:white;
+  font-family: sans-serif;
+  /*background-color: #000;*/
+
+}
+/*#attention-close{
+  width: 20vh;
+  height:6%;
+  background-color:red;
+  z-index: 100;
+  color: white;
+  margin: auto;
+  padding: 0;
+  border-radius: 5rem;
+  cursor: pointer
+}*/
+
+
+.fa-bell{
+  font-size: 180%;
+  color:white;
+  cursor: pointer;
+}
+
+#bell1:hover{
+  background-color: #000e23;
+  color:white;
+}
+#bell1:hover  .fa-bell{
+  color:#000e23;
+}
+#bell{
+  display: none;
+}
+@media screen and (max-width:960px) {
+    #bell1{
+      display: none;
+    }
+
+    #bell{
+      display: block;
+    }
+}
+
+@keyframes closeAttention {
+    from{opacity: 0.7;}
+    to{opacity: 0;}
+}
+
+#attention:hover #bell{
+  animation-name: closeAttention;
+  animation-duration: 2s;
+
+}
+
+.overlay{
+  width: 100%;
+  height: 100vh;
+  /*background: tomato;*/
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index:1;
+}
+
+@media screen and (min-width: 768px) {
+        .modal-dialog {
+          width: 700px; /* New width for default modal */
+        }
+        .modal-sm {
+          width: 350px; /* New width for small modal */
+        }
+    }
+    @media screen and (min-width: 992px) {
+        .modal-lg {
+          width: 950px; /* New width for large modal */
+        }
+    }
+
+.newmodalbutton {
+  z-index: 2;
+  position: absolute;
+  top:5rem;
+}
+
+
+.quizzatext a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.colteam{
+  min-height: 15em;
+  padding:0.5em;
+}
+.cardteam{
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  margin: 0;
+  padding:0;
+  padding:1em;
+  opacity: 1;
+  box-shadow: 4px 4px 8px #000;
+  border-radius: 3em;
+  cursor: pointer;
+   min-height: 17em;
+
+}
+
+.cardheading{
+  width: 23rem;
+  height: 7rem;
+  background-color: #fff;
+  border-radius: 3em;
+  margin: 0;
+  padding:0;
+}
+
+.cardpic{
+  width: 8rem;
+  background: black;
+  height: 100%;
+  border-radius: 3em;
+  float: left;
+}
+
+.cardheaderinfo{
+
+}
+
+#ceo{
+  background: url('gal1.JPG') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#techdirector{
+  background: url('me.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#musicteacher{
+  background: url('Bhuvana.png') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#team{
+  background-color: #000e23;
+}
+
+#services{
+  background-color: #eee;
+}
+#president{
+  background: url('ramaa.JPG') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+p{
+  color: black;
+}
+
+
+#disclaimerButton{
+  margin-top:200px;
+  z-index: 9999999;
+  display: none;
+}
+
+#disclaimerModal{
+  margin: 200px;
+}
+.content {
+  max-width: 1600px;
+  margin: auto;
+}
+
+
+

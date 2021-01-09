@@ -9,7 +9,9 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css.css">
+      {% load static %}
+  <link href= "{% static 'mainapp/css.css' %}" rel="stylesheet" type="text/css" />
+
    <!-- <link rel="shortcut icon" href="vvplogo1.png" /> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -32,7 +34,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#myPage"><img src="vvplogo1.png"  height="30px" style="position:relative;top:-7px;"> </a>
+      <a class="navbar-brand" href="#myPage"><img src="{% static 'mainapp/vvplogo1.png' %}"  height="30px" style="position:relative;top:-7px;"> </a>
     </div>
     <!-- <a style="position:absolute;top:3.5vw;left:70vw;" id="bell" onclick="notific()"><i class="fa fa-bell" aria-hidden="true"></i></a> -->
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -129,8 +131,8 @@ border-radius:2rem;cursor:pointer;" id="quizzatexti" class="slide-in-from-right 
 <!--        <div class="cardteam" >-->
 <!--          <pre style="height: 12rem"><h4>Sloka classes for kids<br> <br><a type="button" class="btn btn-primary waves-effect" href="https://docs.google.com/forms/d/e/1FAIpQLSfCySFEajna-8mCJqYtVmDveeUI2nzUGjy3JefQocrvShf6yA/viewform?usp=sf_link">Register</a></h4></pre>-->
           <div class="cardcontent">
-            
-            <img src="sloka-learning-pathway.jpeg" width="100%" height="100%">
+
+            <img src="{% static 'mainapp/sloka-learning-pathway.jpeg' %}" width="100%" height="100%">
           </div>
           
         </div>
@@ -138,7 +140,7 @@ border-radius:2rem;cursor:pointer;" id="quizzatexti" class="slide-in-from-right 
 <!--        <div class="cardteam" >-->
 <!--          <pre style="height: 12rem"><h4>Sloka classes for kids<br> <br><a type="button" class="btn btn-primary waves-effect" href="https://docs.google.com/forms/d/e/1FAIpQLSfCySFEajna-8mCJqYtVmDveeUI2nzUGjy3JefQocrvShf6yA/viewform?usp=sf_link">Register</a></h4></pre>-->
           <div id="story" class="cardcontent">
-            <img src="story-time.jpeg" width="100%" height="100%">
+            <img src="{% static 'mainapp/story-time.jpeg' %}" width="100%" height="100%">
           </div>
         </div>
 </div>
@@ -202,7 +204,7 @@ border-radius:2rem;cursor:pointer;" id="quizzatexti" class="slide-in-from-right 
             <div class="col-md-4 testimonial-three-col">
                 <div class="testimonial-inner">
                     <div class="testimonial-image" itemprop="image">
-                        <center><img width="180" height="180" src="testimonials/namagiri.jpeg"></center>
+                        <center><img width="180" height="180" src="{% static 'mainapp/testimonials/namagiri.jpeg' %}"></center>
                     </div>
 
                     <div class="testimonial-content">
@@ -237,7 +239,7 @@ border-radius:2rem;cursor:pointer;" id="quizzatexti" class="slide-in-from-right 
             <div class="col-md-4 testimonial-three-col">
                 <div class="testimonial-inner">
                     <div class="testimonial-image" itemprop="image">
-                        <center><img width="180" height="180" src="testimonials/ram.jpeg"></center>
+                        <center><img width="180" height="180" src="{% static 'mainapp/testimonials/ram.jpeg' %}"></center>
                     </div>
 
                     <div class="testimonial-content">
@@ -255,7 +257,7 @@ border-radius:2rem;cursor:pointer;" id="quizzatexti" class="slide-in-from-right 
             <div class="col-md-4 testimonial-three-col">
                 <div class="testimonial-inner">
                     <div class="testimonial-image" itemprop="image">
-                        <center><img width="180" height="180" src="testimonials/madhavi.jpeg"></center>
+                        <center><img width="180" height="180" src="{% static 'mainapp/testimonials/madhavi.jpeg' %}"></center>
                     </div>
                     <div class="testimonial-content">
                         <p>
@@ -393,7 +395,7 @@ Our son is enjoying music n sloka classes from one year , this journey continues
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-                <img class="card-img-top" src="gyaan/bagavatham.jpg"
+                <img class="card-img-top" src="{% static 'mainapp/gyaan/bagavatham.jpg' %}"
                   alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">Srimad Bhagavatham</h4>
@@ -406,7 +408,7 @@ Our son is enjoying music n sloka classes from one year , this journey continues
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                <img class="card-img-top" src="gyaan/bgita.jpg"
+                <img class="card-img-top" src="{% static 'mainapp/gyaan/bgita.jpg' %}"
                   alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">Bhagwad Gita</h4>
@@ -419,7 +421,7 @@ Our son is enjoying music n sloka classes from one year , this journey continues
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                <img class="card-img-top" src="gyaan/ramayan2.png"
+                <img class="card-img-top" src="{% static 'mainapp/gyaan/ramayan2.png' %}"
                   alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">Ramayana</h4>
@@ -440,7 +442,7 @@ Our son is enjoying music n sloka classes from one year , this journey continues
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-                <img class="card-img-top" src="gyaan/sundarakand.jpg"
+                <img class="card-img-top" src="{% static 'mainapp/gyaan/sundarakand.jpg' %}"
                   alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">Sundarakand</h4>
@@ -453,7 +455,7 @@ Our son is enjoying music n sloka classes from one year , this journey continues
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                <img class="card-img-top" src="gyaan/ugita.jpg"
+                <img class="card-img-top" src="{% static 'mainapp/gyaan/ugita.jpg' %}"
                   alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">Uddav Gita</h4>
@@ -466,7 +468,7 @@ Our son is enjoying music n sloka classes from one year , this journey continues
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                <img class="card-img-top" src="gyaan/upanishads.JPG"
+                <img class="card-img-top" src="{% static 'mainapp/gyaan/upanishads.JPG' %}"
                   alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">The Upanishads</h4>
