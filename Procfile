@@ -1,1 +1,1 @@
-web: gunicorn vvpsite.vvpsite.wsgi --log-file -
+web: gunicorn vvpsite.wsgi --log-file -
