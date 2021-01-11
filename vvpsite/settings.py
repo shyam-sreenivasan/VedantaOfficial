@@ -26,7 +26,8 @@ SECRET_KEY = 'd8t4y34q6=k$-!3ru-1oon-)@=o!yi767g3wzhz!t9wph-p%ef'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hidden-cove-56796.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['hidden-cove-56796.herokuapp.com','www.vedantapeetam.org',
+                 '127.0.0.1', 'localhost']
 
 
 # Application definition
