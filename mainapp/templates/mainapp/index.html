@@ -591,10 +591,12 @@ Our son is enjoying music n sloka classes from one year , this journey continues
     {% for post in posts %}
 
   <div class="column" style="float: left;width: 33.33%;padding: 5px;box-sizing: border-box;">
+      <a href={{post.url}}>
     <img src={{post.image}} alt="Snow" height="200", width="450">
       <div>
-      <a href={{post.url}}>{{post.title}}</a>
+      {{post.title}}
       </div>
+      </a>
   </div>
     {% endfor %}
 </div>

@@ -27,7 +27,7 @@ def index(request):
         counter += 1
         if counter == max_post:
             break
-            
+
     context = {
         'title': item0['title'],
         'date': item0['published'],
