@@ -7,13 +7,15 @@ import html
 from bs4 import BeautifulSoup
 
 def index(request):
-    API_KEY = 'AIzaSyBuRQ2VJSSJxe-ue8g16axeZEcjALEovRU'
-    url = 'https://www.googleapis.com/blogger/v3/blogs/638333160983415815/posts/?key={}'.format(API_KEY)
+    API_KEY = 'AIzaSyA2NQjAtyZg2qzk3ReDyMw9cYcyglGIp8w'
+    url = 'https://www.googleapis.com/blogger/v3/blogs/4014092683200702750/posts/?key={}'.format(API_KEY)
     print ('sending request {}'.format(url))
     response = requests.get(url).text
     d = json.loads(response)
-    item0 = d['items'].pop(0)
+    item0 = d['items'][0]
     posts = []
+    max_post = 4
+    counter = 0
     for item in d['items']:
         soup = BeautifulSoup(item.get('content'))
         image = soup.findAll('img')[0].get('src')
@@ -22,6 +24,10 @@ def index(request):
              'title': item.get('title'),
              'url' : item.get('url')}
         )
+        counter += 1
+        if counter == max_post:
+            break
+            
     context = {
         'title': item0['title'],
         'date': item0['published'],
