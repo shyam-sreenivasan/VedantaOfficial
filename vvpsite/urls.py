@@ -20,10 +20,17 @@ from django.conf import settings
 from django.views.generic import TemplateView # <--
 
 urlpatterns = [
-    #path('', include('mainapp.urls')),
-    path('', TemplateView.as_view(template_name="social_app/index.html")), # <--
+    path('', include('mainapp.urls')),
+
+    path('awards/', TemplateView.as_view(template_name="courses/awards.html")),
+    #path('courses/', TemplateView.as_view(template_name="courses/courses.html")),
+    path('courses/', include('courses.urls')),
     path('main/', include('mainapp.urls')),
     path('blogs/', include('blogs.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')), # <--
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
