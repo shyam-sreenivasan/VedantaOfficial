@@ -41,9 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp.apps.MainappConfig',
     'blogs.apps.BlogsConfig',
-    'accounts',
     'django.contrib.sites',  # <--
-    'courses',
     'rewards'
 
 
