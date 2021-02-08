@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'blogs.apps.BlogsConfig',
     'accounts',
     'django.contrib.sites',  # <--
-    'courses'
+    'courses',
+    'rewards'
 
 
 ]
@@ -138,7 +139,7 @@ AUTHENTICATION_BACKENDS = (
  'allauth.account.auth_backends.AuthenticationBackend',
  )
 SITE_ID = 2
-LOGIN_REDIRECT_URL = '/courses'
+LOGIN_REDIRECT_URL = '/rewards'
 LOGOUT_REDIRECT_URL = '/'
 
 SOCIALACCOUNT_PROVIDERS = {
