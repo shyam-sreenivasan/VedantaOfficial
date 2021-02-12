@@ -43,11 +43,14 @@ class MyStroke(models.Model):
 
 class Reward(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    stroker = models.CharField(max_length=50, default='Unknown')
     category = models.CharField(max_length=50)
     action = models.CharField(max_length=50)
     stroke = models.CharField(max_length=50, choices=Stroke.choices())
     comments = models.CharField(max_length=250, null=True)
     date = models.DateField()
+    stroker_fname = models.CharField(max_length=15, default='Unknown')
+
 
 class Coach(models.Model):
     coach = models.CharField(max_length=50)

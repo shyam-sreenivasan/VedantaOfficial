@@ -8,15 +8,29 @@
   grid-template-columns: auto auto auto;
   background-color: #FFFFFF;
   padding: 10px;
+
 }
 .grid-item {
   background-color: #FFFFFF;
   border: 5px outset;
   padding: 20px;
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
 }
 
+.stroke-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+.stroke-item {
+  background-color: #FFFFFF;
+  border: 0px outset;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
 .content {
   max-width: 1200px;
   margin: auto;
@@ -61,12 +75,13 @@ body {
 /* Style the counter cards */
 .card {
   box-shadow: 2px 4px 8px 3px rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  padding: 0px;
   text-align: center;
   background-color: #ffffff;
   margin: 5px
 
 }
+
 
 
 /* The Modal (background) */
@@ -159,7 +174,7 @@ filterDiv {
 }
 
 .container {
-  margin-top: 20px;
+  margin-top: 5px;
   overflow: hidden;
 }
 
@@ -195,10 +210,61 @@ filterDiv {
   color: #1F6C8B;
   font-family: Arial;
 }
+
+
+</style>
+<!--     flip in and out comment -->
+    <style>
+#panel, #flip {
+  padding: 5px;
+  text-align: center;
+
+
+}
+.cardheader {
+    height: 40px;
+    text-align: center;
+    padding: 0px
+    bottom-margin: -10px;
+    font-size: 18px;
+    font-family: verdana, arial, sans-serif;
+    }
+#panel {
+  padding: 50px;
+  display: none;
+}
+.strokimage {
+    width: 150px;
+    height: 150px;
+    margin-top: -20px;
+    margin-bottom: -10px;
+}
+
+
+.overlay {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background-color: red;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .2s ease-out;
+}
 </style>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-
+<script>
+    function toggleOverlay() {
+  let overlayDiv = document.querySelector(".overlay");
+  console.log(overlayDiv.style.opacity);
+  if (overlayDiv.style.opacity === '0')
+    overlayDiv.style.opacity = 1;
+  else
+    overlayDiv.style.opacity = 0;
+}
+</script>
 <body>
 <div class="content">
 {% load static %}
@@ -233,15 +299,10 @@ filterDiv {
 {% endif %}
 
 <div class="grid-container">
-  <div class="grid-item"><img src="{% static 'mainapp/clap.png' %}" width="150", height="150"> <p>{{WELLDONE}}</p>  </div>
-  <div class="grid-item"><img src="{% static 'mainapp/welldone.png' %}" width="150", height="150" alt="Amazing!"> <p>{{AMAZING}}</p></div>
-  <div class="grid-item"><img src="{% static 'mainapp/awesome.png' %}" width="150", height="150" alt="Good work" > <p>{{GOODWORK}}</p></div>
-  <div class="grid-item"> <img src="{% static 'mainapp/congratulations.png' %}" width="150", height="150" alt="Congratulations"> <p>{{CONGRATULATIONS}}</p></div>
-  <div class="grid-item"><img src="{% static 'mainapp/rock.png' %}" width="150", height="150" alt="You rock!"> <p>{{YOUROCK}}</p></div>
-  <div class="grid-item"><img src="{% static 'mainapp/bravo.png' %}" width="150", height="150" alt="Bravo!" ><p>{{BRAVO}}</p></div>
-  <div class="grid-item"><img src="{% static 'mainapp/fist.png' %}" width="150", height="150" alt="You nailed it!" ><p>{{YOUNAILEDIT}}</p></div>
-  <div class="grid-item"><img src="{% static 'mainapp/loveit.png' %}" width="150", height="150" alt="Love it!" ><p>{{LOVEIT}}</p></div>
-  <div class="grid-item"><img src="{% static 'mainapp/brilliant.png' %}" width="150", height="150" alt="Brilliant!" ><p>{{BRILLIANT}}</p></div>
+    {% static 'mainapp' as base_url %}
+    {% for metric, value in stats.items %}
+        <div class="grid-item"><img src="{{base_url}}/{{metric}}.png" width="150", height="150"> <p>{{value}}</p>  </div>
+     {% endfor %}
 </div>
 
 
@@ -253,9 +314,19 @@ filterDiv {
 </div>
 
 <p></p>
-
 <div class="row">
-      {% if is_coach %}
+    {% if no_strokes_yet %}
+        <div class="column">
+            <div class="card">
+              <h2><button id="myBtn">New Stroke</button></h2>
+              <h3>Add</h3>
+              <p>...</p>
+              <p>...</p>
+            </div>
+          </div>
+    {% endif %}
+    {% for stroke in strokes %}
+      {% if is_coach and forloop.first %}
       <div class="column">
         <div class="card">
           <h2><button id="myBtn">New Stroke</button></h2>
@@ -264,37 +335,31 @@ filterDiv {
           <p>...</p>
         </div>
       </div>
+
       {% endif %}
 
-  {% for stroke in strokes %}
-      <div class="column filterDiv {{stroke.category}}">
+    <div class="column filterDiv {{stroke.category}}">
         <div class="card">
-          <h2>{{stroke.date}}</h2>
-          {% if stroke.stroke == 'WELLDONE' %}
-            <img src="{% static 'mainapp/clap.png' %}" width="100", height="100" >
-          {% elif stroke.stroke == 'AMAZING' %}
-            <img src="{% static 'mainapp/welldone.png' %}" width="100", height="100" alt="Amazing!">
-          {% elif stroke.stroke == 'GOODWORK' %}
-            <img src="{% static 'mainapp/awesome.png' %}" width="100", height="100" alt="Good work" >
-          {% elif stroke.stroke == 'CONGRATULATIONS' %}
-            <img src="{% static 'mainapp/congratulations.png' %}" width="100", height="100" alt="Amazing!">
-          {% elif stroke.stroke == 'YOUROCK' %}
-            <img src="{% static 'mainapp/rock.png' %}" width="100", height="100" alt="Amazing!">
-          {% elif stroke.stroke == 'BRAVO' %}
-            <img src="{% static 'mainapp/bravo.png' %}" width="100", height="100" alt="Amazing!">
-          {% elif stroke.stroke == 'YOUNAILEDIT' %}
-            <img src="{% static 'mainapp/fist.png' %}" width="100", height="100" alt="Amazing!">
-          {% elif stroke.stroke == 'LOVEIT' %}
-            <img src="{% static 'mainapp/loveit.png' %}" width="100", height="100" alt="Amazing!">
-          {% elif stroke.stroke == 'BRILLIANT' %}
-            <img src="{% static 'mainapp/brilliant.png' %}" width="100", height="100" alt="Amazing!">
-          {% endif %}
-          <h2>{{stroke.category}}</h2>
-          <h3>{{stroke.action}}</h3>
+            <div class="cardheader" style="background-color: {{stroke.backcolor}}; ">
+                <h3 style="font-size: 25; font-family: verdana, arial, sans-serif;">{{stroke.category}}</h3>
+
+        </div>
+            {% static 'mainapp' as base_url %}
+            <div class="container">
+                <div style="margin-top: 10px">
+                <h4>{{stroke.action}}</h4></div>
+                </div>
+                <div style="margin-top: 20px">
+                <img class="strokimage" src="{{base_url}}/{{stroke.stroke}}.png"  >
+                    </div>
+
+
+<!--            <h4>{{stroke.stroker_fname}}</h4>-->
+            <h4>{{stroke.date}}</h4>
         </div>
       </div>
     {% endfor %}
-</div>
+    </div>
 </div>
 
 
@@ -406,6 +471,16 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
+</script>
+<script>
+
+   $('#support-people img').hover(function(){
+    var desc = $('#support-person-description');
+    desc.data('oldtext', desc.text()).text(this.getAttribute("data-bio"));
+}, function() {
+    var desc = $('#support-person-description');
+    desc.text(desc.data('oldtext'));
+});
 </script>
 </body>
 </html>
