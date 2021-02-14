@@ -301,21 +301,21 @@ filterDiv {
 <div class="grid-container">
     {% static 'mainapp' as base_url %}
     {% for metric, value in stats.items %}
-        <div class="grid-item"><img src="{{base_url}}/{{metric}}.png" width="150", height="150"> <p>{{value}}</p>  </div>
+        <div class="grid-item"><img src="{{base_url}}/{{metric}}.png" width="150", height="150" alt="{{metric}}"> <p>{{value}}</p>  </div>
      {% endfor %}
 </div>
 
 
-<div id="myBtnContainer">
-    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-    {% for cat in category_list %}
-    <button class="btn" onclick="filterSelection('{{cat}}')">{{cat}}</button>
-    {% endfor %}
-</div>
+<!--<div id="myBtnContainer">-->
+<!--    <button class="btn active" onclick="filterSelection('all')"> Show all</button>-->
+<!--    {% for cat in category_list %}-->
+<!--    <button class="btn" onclick="filterSelection('{{cat}}')">{{cat}}</button>-->
+<!--    {% endfor %}-->
+<!--</div>-->
 
 <p></p>
 <div class="row">
-    {% if no_strokes_yet %}
+    {% if no_strokes_yet and is_coach %}
         <div class="column">
             <div class="card">
               <h2><button id="myBtn">New Stroke</button></h2>
@@ -417,6 +417,7 @@ btn.onclick = function() {
 span.onclick = function() {
   modal.style.display = "none";
 }
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

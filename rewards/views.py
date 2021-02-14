@@ -20,7 +20,7 @@ STROKE_COLOR = {
     'BRILLIANT': '#BCC4BC',
     'AMAZING': '#F8EEF2'
 }
-def rewards(request, student=None):
+def rewards(request, student=None, metric=None):
     strokes = {}
     is_coach = False
     user = request.user.username
@@ -37,7 +37,10 @@ def rewards(request, student=None):
         user = student if student is not None else \
                     strokes['students'][0]['student']
     print ('checking for user {}'.format(user))
-    reward = Reward.objects.filter(user__username=user)
+    if metric is not None:
+        reward = Reward.objects.filter(user__username=user, stroke=metric)
+    else:
+        reward = Reward.objects.filter(user__username=user)
 
     mystrokes = []
     cat_list = set()
@@ -66,9 +69,10 @@ def rewards(request, student=None):
     strokes['form'] = form
     strokes['stats'] = {key : stats[key] if key in stats else 0 for key in STROKE_COLOR}
     strokes['category_list'] = cat_list
+    strokes['filter_set'] = metric is not None
     context = strokes
-    print ('final context is {}'.format(context))
-    template = loader.get_template('rewards/index.html')
+    #print ('final context is {}'.format(context))
+    template = loader.get_template('rewards/index2.html')
 
     return HttpResponse(template.render(context, request))
     #return render(request, 'rewards/index.html')
@@ -90,12 +94,16 @@ def handle_stroke(request):
     else:
         form = StrokeForm()
 
-    return render(request, 'index.html', {'stroke_form': form})
+    return render(request, 'index2.html', {'stroke_form': form})
 
 @require_http_methods(["GET", "POST"])
+def filter(request, metric):
+    return rewards(request, metric=metric)
+
+@require_http_methods(["POST"])
 def add_rewards(request, student):
     import datetime
-
+    print ('Adding rewards to {}'.format(student))
     form = StrokeForm(request.POST)
     # check whether it's valid:
 
@@ -108,6 +116,7 @@ def add_rewards(request, student):
     obj.date = datetime.datetime.now()
     obj.stroker = request.user.username
     obj.stroker_fname = form.data['stroker']
+    print ('Saving {}'.format(obj.__dict__))
     obj.save()
     # process the data in form.cleaned_data as required
     # ...
@@ -117,3 +126,4 @@ def add_rewards(request, student):
     #     print ('form is not valid')
 def logout_user(request):
     logout(request)
+

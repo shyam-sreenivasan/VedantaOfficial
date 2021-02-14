@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -89,25 +89,27 @@ WSGI_APPLICATION = 'vvpsite.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {
-
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'vvp',
-
-        'USER': 'vvp',
-
-        'PASSWORD': 'vedanta750@',
-
-        'HOST': 'localhost',
-
-        'PORT': '5432',
-
-    }
-
-}
+# DATABASES = {
+#
+#     'default': {
+#
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#
+#         'NAME': 'vvpdb',
+#
+#         'USER': 'vvpadmin',
+#
+#         'PASSWORD': 'vedanta750@',
+#
+#         'HOST': 'localhost',
+#
+#         'PORT': '19999',
+#
+#     }
+#
+# }
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -169,3 +171,6 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+# This is new
+options = DATABASES['default'].get('OPTIONS', {})
+options.pop('sslmode', None)
