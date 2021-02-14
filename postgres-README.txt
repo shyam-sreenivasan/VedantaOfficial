@@ -14,3 +14,5 @@ python manage.by createsuperuser
 
 # for new deployment on heroku
 https://blog.usejournal.com/deploying-django-to-heroku-connecting-heroku-postgres-fcc960d290d1
+
+https://simpleit.rocks/python/django/use-postgresql-database-in-heroku-for-testing-django/
