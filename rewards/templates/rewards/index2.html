@@ -213,12 +213,14 @@ input[type=submit] {
      {% if forloop.first %}
         <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+
      {% endif %}
     <div class="w3-quarter">
+      <h2>{{stroke.stroke|lower|capfirst}}</h2>
       <img class="img" src="{{base_url}}/{{stroke.stroke}}.png" alt="Sandwich" style="width:100%">
-      <h2>{{stroke.category}}</h2>
-      <h3>{{stroke.action}}</h3>
-      <p>{{stroke.comments}}</p>
+      <h2  style="margin: 0">{{stroke.category}}</h2>
+      <h3 style="margin: 0">{{stroke.action}}</h3>
+      <p  style="margin: 0">{{stroke.comments}}</p>
     </div>
 
     {% if forloop.last %}
@@ -229,7 +231,7 @@ input[type=submit] {
     {% endif %}
   {% endfor %}
 
-
+<br>
 
 
 <!--  &lt;!&ndash; Pagination &ndash;&gt;-->
