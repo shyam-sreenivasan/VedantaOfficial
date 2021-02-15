@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'd8t4y34q6=k$-!3ru-1oon-)@=o!yi767g3wzhz!t9wph-p%ef'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = ['hidden-cove-56796.herokuapp.com','www.vedantapeetam.org',
                  '127.0.0.1', 'localhost']
@@ -79,7 +79,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vvpsite.wsgi.application'
 
-DEBUG = False
+DEBUG = True
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -90,30 +90,30 @@ DEBUG = False
 #     }
 # }
 
-if DEBUG:
-
-    DATABASES = {
-
-        'default': {
-
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-            'NAME': 'vvpdb',
-
-            'USER': 'vvpadmin',
-
-            'PASSWORD': 'vedanta750@',
-
-            'HOST': 'localhost',
-
-            'PORT': '19999',
-
-        }
-
-    }
-else:
-    DATABASES = {}
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# if DEBUG:
+#
+#     DATABASES = {
+#
+#         'default': {
+#
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#
+#             'NAME': 'vvpdb',
+#
+#             'USER': 'vvpadmin',
+#
+#             'PASSWORD': 'vedanta750@',
+#
+#             'HOST': 'localhost',
+#
+#             'PORT': '19999',
+#
+#         }
+#
+#     }
+# else:
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
