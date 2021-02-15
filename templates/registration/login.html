@@ -183,21 +183,31 @@ input[type=submit]:active {
 
 Resources
 </style>
+
+
+
+
 <div class="login">
-  <h1>Login to Karma</h1>
+  <h1>Login to see Rewards</h1>
   <form method="post" action="">
     {% csrf_token %}
     {{ form.as_p }}
-    <p class="remember_me">
-      <label>
-        <input type="checkbox" name="remember_me" id="remember_me">
-        Remember me on this computer
-      </label>
-    </p>
+<!--    <p class="remember_me">-->
+<!--      <label>-->
+<!--        <input type="checkbox" name="remember_me" id="remember_me">-->
+<!--        Remember me on this computer-->
+<!--      </label>-->
+<!--    </p>-->
     <p class="submit"><input type="submit" name="commit" value="Login"></p>
+    <br/>
+    Don't have an account yet? &nbsp <a href="/rewards/signup">Signup</a>
+
+
   </form>
 </div>
 
-<div class="login-help">
-  <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>
-</div>
+<!--<div class="login-help">-->
+<!--  <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>-->
+
+<!--</div>-->
+

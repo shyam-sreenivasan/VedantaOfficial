@@ -5,8 +5,10 @@ from django.db.models import Sum
 import requests, json
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from .models import Reward, Stroke, Coach
-from .forms import StrokeForm
+from .forms import StrokeForm,SignUpForm
 from django.views.decorators.http import require_http_methods
 # Create your views here.
 STROKE_COLOR = {
@@ -95,6 +97,24 @@ def handle_stroke(request):
         form = StrokeForm()
 
     return render(request, 'index2.html', {'stroke_form': form})
+
+def signup(request):
+    from django.shortcuts import render, redirect
+    form = SignUpForm(request.POST)
+    if form.is_valid():
+        user = form.save()
+        user.refresh_from_db()
+        print ('user form is {}'.format(user.__dict__))
+        user.profile.first_name = form.cleaned_data.get('first_name')
+        user.profile.last_name = form.cleaned_data.get('last_name')
+        user.profile.email = form.cleaned_data.get('email')
+        user.save()
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=password)
+        login(request, user)
+        return redirect('rewards')
+    return render(request, 'rewards/signup.html', {'form': form})
 
 @require_http_methods(["GET", "POST"])
 def filter(request, metric):

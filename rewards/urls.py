@@ -4,6 +4,7 @@ from . import views
 
 from . import views
 urlpatterns = [
+    path('signup/', views.signup, name="signup"),
     path('<str:student>/', views.rewards, name='rewards'),
     path('add/<str:student>/', views.add_rewards, name='add rewards'),
     path('filter/<str:metric>/', views.filter, name="filter"),
