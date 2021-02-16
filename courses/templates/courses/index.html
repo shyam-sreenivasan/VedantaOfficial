@@ -69,7 +69,9 @@ body {font-family: "Lato", sans-serif}
     <h1>Register</h1>
      <form action="/whoami/" method="post">
        {% csrf_token %}
-       {{form}}
+       <center>
+       <table>{{form.as_table}}</table>
+         </center>
       <button type="submit" class="registerbtn">Register</button>
        </form>
 

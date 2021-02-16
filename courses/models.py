@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Course_Signup(models.Model):
-    first_name = models.CharField(max_length=50, help_text='First Name')
-    last_name = models.CharField(max_length=50, help_text='Last Name')
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
     phone = models.CharField(max_length=50, help_text='Phone Number')
 #
