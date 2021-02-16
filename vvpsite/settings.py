@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'mainapp.apps.MainappConfig',
     'blogs.apps.BlogsConfig',
     'django.contrib.sites',  # <--
-    'rewards'
+    'rewards',
+    'courses'
 
 
 ]
@@ -112,6 +113,8 @@ DEBUG = True
 #
 #     }
 # else:
+
+
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
