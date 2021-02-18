@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'blogs.apps.BlogsConfig',
     'django.contrib.sites',  # <--
     'rewards',
-    'courses'
+    'courses',
+    'actstream'
 
 
 ]

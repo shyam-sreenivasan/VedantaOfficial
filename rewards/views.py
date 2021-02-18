@@ -10,6 +10,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Reward, Stroke, Coach
 from .forms import StrokeForm,SignUpForm
 from django.views.decorators.http import require_http_methods
+
+from actstream import action
 # Create your views here.
 STROKE_COLOR = {
     'WELLDONE': '#EAEAEA',
@@ -22,6 +24,7 @@ STROKE_COLOR = {
     'BRILLIANT': '#BCC4BC',
     'AMAZING': '#F8EEF2'
 }
+
 def rewards(request, student=None, metric=None):
     strokes = {}
     is_coach = False
@@ -38,7 +41,9 @@ def rewards(request, student=None, metric=None):
     if is_coach:
         user = student if student is not None else \
                     strokes['students'][0]['student']
-    print ('checking for user {}'.format(user))
+    else:
+        action.send(request.user, verb="logged in")
+
     if metric is not None:
         reward = Reward.objects.filter(user__username=user, stroke=metric)
     else:
@@ -141,9 +146,11 @@ def add_rewards(request, student):
     # process the data in form.cleaned_data as required
     # ...
     # redirect to a new URL:
+    action.send(request.user, verb="assigned gem to {}".format(student))
     return HttpResponseRedirect('/rewards')
     # else:
     #     print ('form is not valid')
+
 def logout_user(request):
     logout(request)
 

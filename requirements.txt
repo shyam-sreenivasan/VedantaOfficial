@@ -4,3 +4,4 @@ django-heroku
 requests
 beautifulsoup4
 django-allauth
+django-activity-stream
