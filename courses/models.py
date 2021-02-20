@@ -7,14 +7,7 @@ class Course_Signup(models.Model):
     email = models.EmailField(max_length=254)
     phone = models.CharField(max_length=50, help_text='Phone Number')
 #
-# class Course(models.Model):
-#     name = models.CharField(max_length=200)
-#     description = models.CharField(max_length=500)
-#     image = models.ImageField(upload_to='images/')
-#
-#     def __str__(self):
-#         return self.name
-#
+
 # class Module(models.Model):
 #     course = models.ForeignKey(Course, on_delete=models.CASCADE)
 #     name   = models.CharField(max_length=200)

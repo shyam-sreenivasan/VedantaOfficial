@@ -8,6 +8,7 @@ from django.views.generic import ListView
 
 from .forms import CourseForm
 
+
 def index(request):
     from django.shortcuts import render, redirect
     form = CourseForm(request.POST)

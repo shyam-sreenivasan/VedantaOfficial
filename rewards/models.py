@@ -77,3 +77,9 @@ def update_profile_signal(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+
+class StudentProgress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lesson = models.ForeignKey('mainapp.Lesson', on_delete=models.CASCADE)
+    stroke = models.CharField(max_length=50, choices=Stroke.choices())
+    date = models.DateField()

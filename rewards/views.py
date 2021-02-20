@@ -7,10 +7,10 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from .models import Reward, Stroke, Coach
+from .models import Reward, Stroke, Coach, StudentProgress
 from .forms import StrokeForm,SignUpForm
 from django.views.decorators.http import require_http_methods
-
+from django.apps import apps
 from actstream import action
 # Create your views here.
 STROKE_COLOR = {
@@ -77,8 +77,35 @@ def rewards(request, student=None, metric=None):
     strokes['stats'] = {key : stats[key] if key in stats else 0 for key in STROKE_COLOR}
     strokes['category_list'] = cat_list
     strokes['filter_set'] = metric is not None
+
+    #get the class completed lessons
+
+    groupMember = apps.get_model('mainapp', 'GroupMember')
+    gm = groupMember.objects.filter(user__username=user).first()
+    if gm is not None:
+        grplesson = apps.get_model('mainapp', 'GroupLesson')
+        grpLessons = grplesson.objects.filter(group=gm.group, status='Completed')
+        lessons = [{'status':grpLson.status,
+                    'date': grpLson.date,
+                    'course' : grpLson.lesson.course,
+                    'module' : grpLson.lesson.module,
+                    'lesson' : grpLson.lesson.lesson,
+                    'resource': grpLson.lesson.resource,
+                    'lessonObj' : grpLson.lesson,
+                    'id' : grpLson.lesson.id
+                    } for grpLson in grpLessons]
+        for l in lessons:
+            p = StudentProgress.objects.filter(lesson=l['lessonObj']).first()
+            if p is not None:
+                l['stroke'] = p.stroke
+
+        print ('setting lessons as {}'.format(lessons))
+        strokes['lessons'] = lessons
+    else:
+        print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
-    #print ('final context is {}'.format(context))
+
+
     template = loader.get_template('rewards/index2.html')
 
     return HttpResponse(template.render(context, request))
@@ -147,10 +174,39 @@ def add_rewards(request, student):
     # ...
     # redirect to a new URL:
     action.send(request.user, verb="assigned gem to {}".format(student))
-    return HttpResponseRedirect('/rewards')
+    return rewards(request, student=student)
     # else:
     #     print ('form is not valid')
 
 def logout_user(request):
     logout(request)
 
+def give_stroke(request, student, lesson_id, stroke):
+    import datetime
+    lesson = apps.get_model('mainapp', 'Lesson')
+    lesson = lesson.objects.filter(id=lesson_id).first()
+    user = User.objects.filter(username=student).first()
+    sp = StudentProgress()
+    sp.lesson = lesson
+    sp.stroke = stroke
+    sp.user = user
+    sp.date = datetime.datetime.now()
+    sp.save()
+
+    old = Reward.objects.filter(user__username=student,comments=lesson.lesson,
+                          action=lesson.module, category=lesson.course).first()
+    if old is None:
+        reward = Reward()
+        reward.user = user
+        reward.stroke = stroke
+        reward.category = lesson.course
+        reward.action = lesson.module
+        reward.comments = lesson.lesson
+        reward.stroker = request.user.username
+        reward.stroker_fname = User.objects.filter(username=request.user.username).first().first_name
+        reward.date = datetime.datetime.now()
+        reward.save()
+    else:
+        print ('this reward is already given')
+
+    return rewards(request, student=student)

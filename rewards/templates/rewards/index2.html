@@ -173,20 +173,21 @@ input[type=submit] {
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
   {% if is_coach %}
-<form>
-  <label>Student</label>
-  <select name="student" onchange="location=this.options[this.selectedIndex].value">
-    {% for student in students %}
-      {% if student.student == selected %}
-    <option value='/rewards/{{student.student}}' selected>{{student.student}}</option>
-       {% else %}
-    <option value='/rewards/{{student.student}}' >{{student.student}}</option>
-       {% endif %}
-    {% endfor %}
+  <h2>Rewards for <b><i>{{selected}}</i></b></h2>
+<!--<form>-->
+<!--  <label>Student</label>-->
+<!--  <select name="student" onchange="location=this.options[this.selectedIndex].value">-->
+<!--    {% for student in students %}-->
+<!--      {% if student.student == selected %}-->
+<!--    <option value='/rewards/{{student.student}}' selected>{{student.student}}</option>-->
+<!--       {% else %}-->
+<!--    <option value='/rewards/{{student.student}}' >{{student.student}}</option>-->
+<!--       {% endif %}-->
+<!--    {% endfor %}-->
 
-  </select>
-  <br><br>
-</form>
+<!--  </select>-->
+<!--  <br><br>-->
+<!--</form>-->
   {% endif %}
   <br>
   <h2 class="w3-bar w3-black">&nbsp Summary</h2>
@@ -251,78 +252,73 @@ input[type=submit] {
 
 <table id="myTable">
   <tr class="header">
-    <th style="width:10%;">Topic</th>
     <th style="width:10%;">Gig</th>
+    <th style="width:10%;">Challenge</th>
     <th style="width:5%;">Gem</th>
-    <th style="width:10%;">Date</th>
+    <th style="width:15%;">Date</th>
     <th style="width:20%;">Giver</th>
-    <th style="width:45%;">Comments</th>
+    <th style="width:40%;">Comments</th>
   </tr>
   {% for stroke in strokes %}
   <tr>
     <td>{{stroke.category}}</td>
     <td>{{stroke.action}}</td>
-    <td>{{stroke.date}}</td>
     <td><img src="{{base_url}}/{{stroke.stroke}}.png" height="50" width="50" ></td>
+    <td>{{stroke.date}}</td>
     <td>{{stroke.stroker_fname}}</td>
     <td>{{stroke.comments}}</td>
   </tr>
   {% endfor %}
 </table>
 
-
   <hr id="about">
+    <h2 background-color="#f1f1f1" class="w3-bar w3-black">Class Lessons</h2>
+         <table id="lessons" class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+      <tr class="header">
+        <b>
+              <th style="width:10%;">Course name</th>
+              <th style="width:10%;">Module</th>
+              <th style="width:10%;">Lesson</th>
+              <th style="width:5%;">Status</th>
+              <th style="width:10%;">Date</th>
+              <th style="width:30%;">Resource</th>
+          {% if is_coach %}
+              <th style="width:20;">Action</th>
+          {% endif %}
+          </b>
+            </tr>
+      {% for lesson in lessons %}
+      <tr>
+        <td>{{lesson.course}}</td>
+        <td>{{lesson.module}}</td>
+        <td>{{lesson.lesson}}</td>
+        <td>{{lesson.status}}</td>
+        <td>{{lesson.date}}</td>
+        {% if lesson.resource != 'NA' %}
+          <td><a href="{{lesson.resource}}">Watch on YouTube  <i class="fa fa-youtube-play" style="color:red"></i>  </a></td>
+          {% else %}
+          <td></td>
+        {% endif %}
+        {% if is_coach %}
+             {% if lesson.stroke == None %}
+                  {% for metric, value in stats.items %}
+                <td>
+                    <a href="/rewards/give_stroke/{{selected}}/{{lesson.id}}/{{metric}}/"><img width="25" height="25" src="{{base_url}}/{{metric}}.png"></a>
+                </td>
+                  {% endfor %}
+              {% else %}
+                 <td>{{lesson.stroke}}</td>
+              {% endif %}
+        {% endif %}
 
-<!--  &lt;!&ndash; About Section &ndash;&gt;-->
-<!--  <div class="w3-container w3-padding-32 w3-center">-->
-<!--    <h3>About Me, The Food Man</h3><br>-->
-<!--    <img src="/w3images/chef.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">-->
-<!--    <div class="w3-padding-32">-->
-<!--      <h4><b>I am Who I Am!</b></h4>-->
-<!--      <h6><i>With Passion For Real, Good Food</i></h6>-->
-<!--      <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <hr>-->
-
-<!--  &lt;!&ndash; Footer &ndash;&gt;-->
-<!--  <footer class="w3-row-padding w3-padding-32">-->
-<!--    <div class="w3-third">-->
-<!--      <h3>FOOTER</h3>-->
-<!--      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>-->
-<!--      <p> <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">Vedanta Peetam</a></p>-->
-<!--    </div>-->
-
-<!--    <div class="w3-third">-->
-<!--      <h3>BLOG POSTS</h3>-->
-<!--      <ul class="w3-ul w3-hoverable">-->
-<!--        <li class="w3-padding-16">-->
-<!--          <img src="/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">-->
-<!--          <span class="w3-large">Lorem</span><br>-->
-<!--          <span>Sed mattis nunc</span>-->
-<!--        </li>-->
-<!--        <li class="w3-padding-16">-->
-<!--          <img src="/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">-->
-<!--          <span class="w3-large">Ipsum</span><br>-->
-<!--          <span>Praes tinci sed</span>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
-
-<!--    <div class="w3-third w3-serif">-->
-<!--      <h3>POPULAR TAGS</h3>-->
-<!--      <p>-->
-<!--        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dinner</span>-->
-<!--        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Salmon</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">France</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Drinks</span>-->
-<!--        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flavors</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cuisine</span>-->
-<!--        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chicken</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dressing</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fried</span>-->
-<!--        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fish</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Duck</span>-->
-<!--      </p>-->
-<!--    </div>-->
-<!--  </footer>-->
+      </tr>
+      {% endfor %}
+    </table><br>
 
 <!-- End page content -->
 </div>
+
+
 <!-- form content -->
 
 <div class="formcontent" >
@@ -364,7 +360,10 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
 </script>
+<script src="https://use.fontawesome.com/7980032ffc.js"></script>
 <script>
 // Script to open and close sidebar
 function w3_open() {

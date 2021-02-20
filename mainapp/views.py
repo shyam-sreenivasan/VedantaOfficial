@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from .models import GroupMember
 import requests
 import json
 import html
+from django.core import serializers
 from bs4 import BeautifulSoup
+from .models import GroupLesson, Group, Course, Lesson, Progress
+from .forms import CourseSelector
+
 
 def index(request):
     API_KEY = 'AIzaSyA2NQjAtyZg2qzk3ReDyMw9cYcyglGIp8w'
@@ -38,3 +43,81 @@ def index(request):
     template = loader.get_template('mainapp/index.html')
     return HttpResponse(template.render(context, request))
     #return render(request, 'mainapp/index.html')
+
+
+def manage(request, group=None):
+    groups = []
+    for g in Group.objects.all():
+        grp = {}
+        grp['group_name'] = g.group_name
+        groups.append(grp)
+
+    sel_group = groups[0] if group is None else \
+        Group.objects.filter(group_name=group).first().__dict__
+
+    print ('sel group is {}'.format(sel_group))
+    students = GroupMember.objects.filter(group__group_name=sel_group['group_name'])
+    s_list = []
+    for st in students:
+        user = st.user
+        s = {}
+        s['username'] = user.username
+        s['first_name'] = user.first_name
+        s['last_name'] = user.last_name
+        s_list.append(s)
+    courses =[]
+    clist = Course.objects.all()
+    for c in clist:
+        courses.append(c.__dict__['name'])
+
+    context = {'group' : sel_group}
+    context['groups'] = groups
+    context['courses'] = courses
+    context['students'] = s_list
+    context['lessons'] = get_lessons(request, sel_group['group_name'])
+    template = loader.get_template('mainapp/manage.html')
+    return HttpResponse(template.render(context, request))
+
+
+
+
+def get_lessons(request, grpId):
+    l_list = GroupLesson.objects.filter(group__group_name=grpId)
+    lessons = []
+    for lesson in l_list:
+        l = {}
+        l['course'] = lesson.lesson.course.name
+        l['lesson'] = lesson.lesson.lesson
+        l['module'] = lesson.lesson.module
+        l['resource'] = lesson.lesson.resource
+        l['status'] = lesson.status
+        lessons.append(l)
+    return lessons
+
+def add_course(request, group):
+    form = CourseSelector(request.POST)
+    course = Course.objects.filter(name=form.data['course']).first()
+    grp = Group.objects.filter(group_name=group).first()
+    lessons = Lesson.objects.filter(course__name=course)
+
+    for l in lessons:
+        old = GroupLesson.objects.filter(group=grp, lesson=l).first()
+        if old is not None:
+            print ('not adding course as already exists')
+            continue
+        gl = GroupLesson()
+        gl.lesson = l
+        gl.group = grp
+        gl.save()
+
+    return manage(request,group=group)
+
+def update_lesson_status(request, group, lesson):
+    import datetime
+    grp = Group.objects.filter(group_name=group).first()
+    l = Lesson.objects.filter(lesson=lesson).first()
+    gl = GroupLesson.objects.filter(group=grp, lesson=l).first()
+    gl.status = 'Completed'
+    gl.date = datetime.datetime.now()
+    gl.save()
+    return manage(request,group=group)
