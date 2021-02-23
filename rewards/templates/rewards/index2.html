@@ -300,15 +300,11 @@ input[type=submit] {
           <td></td>
         {% endif %}
         {% if is_coach %}
-             {% if lesson.stroke == None %}
                   {% for metric, value in stats.items %}
                 <td>
                     <a href="/rewards/give_stroke/{{selected}}/{{lesson.id}}/{{metric}}/"><img width="25" height="25" src="{{base_url}}/{{metric}}.png"></a>
                 </td>
                   {% endfor %}
-              {% else %}
-                 <td>{{lesson.stroke}}</td>
-              {% endif %}
         {% endif %}
 
       </tr>
