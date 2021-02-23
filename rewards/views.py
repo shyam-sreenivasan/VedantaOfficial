@@ -95,7 +95,8 @@ def rewards(request, student=None, metric=None):
                     'id' : grpLson.lesson.id
                     } for grpLson in grpLessons]
         for l in lessons:
-            p = StudentProgress.objects.filter(lesson=l['lessonObj']).first()
+            stud = User.objects.filter(username=user).first()
+            p = StudentProgress.objects.filter(lesson=l['lessonObj'], user=stud.id).first()
             if p is not None:
                 l['stroke'] = p.stroke
 
