@@ -49,14 +49,15 @@ def manage(request, group=None):
     groups = []
     for g in Group.objects.all():
         grp = {}
-        grp['group_name'] = g.group_name
+        grp['id'] = g.id
+        grp['group_label'] = g.group_name
         groups.append(grp)
 
     sel_group = groups[0] if group is None else \
-        Group.objects.filter(group_name=group).first().__dict__
+        Group.objects.filter(id=group).first().__dict__
 
     print ('sel group is {}'.format(sel_group))
-    students = GroupMember.objects.filter(group__group_name=sel_group['group_name'])
+    students = GroupMember.objects.filter(group__id=sel_group['id'])
     s_list = []
     for st in students:
         user = st.user
@@ -74,7 +75,8 @@ def manage(request, group=None):
     context['groups'] = groups
     context['courses'] = courses
     context['students'] = s_list
-    context['lessons'] = get_lessons(request, sel_group['group_name'])
+    context['lessons'] = get_lessons(request, sel_group['id'])
+
     template = loader.get_template('mainapp/manage.html')
     return HttpResponse(template.render(context, request))
 
@@ -82,12 +84,14 @@ def manage(request, group=None):
 
 
 def get_lessons(request, grpId):
-    l_list = GroupLesson.objects.filter(group__group_name=grpId)
+    l_list = GroupLesson.objects.filter(group__id=grpId)
     lessons = []
     for lesson in l_list:
         l = {}
+        l['groupId'] = grpId
         l['course'] = lesson.lesson.course.name
         l['lesson'] = lesson.lesson.lesson
+        l['lessonId'] = lesson.lesson.id
         l['module'] = lesson.lesson.module
         l['resource'] = lesson.lesson.resource
         l['status'] = lesson.status
@@ -97,7 +101,7 @@ def get_lessons(request, grpId):
 def add_course(request, group):
     form = CourseSelector(request.POST)
     course = Course.objects.filter(name=form.data['course']).first()
-    grp = Group.objects.filter(group_name=group).first()
+    grp = Group.objects.filter(id=group).first()
     lessons = Lesson.objects.filter(course__name=course)
 
     for l in lessons:
@@ -114,8 +118,8 @@ def add_course(request, group):
 
 def update_lesson_status(request, group, lesson):
     import datetime
-    grp = Group.objects.filter(group_name=group).first()
-    l = Lesson.objects.filter(lesson=lesson).first()
+    grp = Group.objects.filter(id=group).first()
+    l = Lesson.objects.filter(id=lesson).first()
     gl = GroupLesson.objects.filter(group=grp, lesson=l).first()
     gl.status = 'Completed'
     gl.date = datetime.datetime.now()

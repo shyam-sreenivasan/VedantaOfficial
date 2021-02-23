@@ -71,10 +71,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     {% for grp in groups %}
-      {% if grp.group_name == group.group_name %}
-      <a href="/main/manage/{{grp.group_name}}/" class="w3-bar-item w3-button w3-padding w3-grey w3-hover-black"><i class="fa fa-users fa-fw"></i>  {{grp.group_name}}</a>
+      {% if grp.id == group.id %}
+      <a href="/main/manage/{{grp.id}}/" class="w3-bar-item w3-button w3-padding w3-grey w3-hover-black"><i class="fa fa-users fa-fw"></i>  {{grp.group_label}}</a>
       {% else %}
-      <a href="/main/manage/{{grp.group_name}}/" class="w3-bar-item w3-button w3-padding w3-blue w3-hover-black"><i class="fa fa-users fa-fw"></i>  {{grp.group_name}}</a>
+      <a href="/main/manage/{{grp.id}}/" class="w3-bar-item w3-button w3-padding w3-blue w3-hover-black"><i class="fa fa-users fa-fw"></i>  {{grp.group_label}}</a>
        {% endif %}
     {% endfor %}
 
@@ -218,7 +218,7 @@ function filter(table, input) {
         <td>{{lesson.status}}</td>
         <td>{{lesson.resource}}</td>
         <td>{{lesson.date}}</td>
-        <td><form action="/main/manage/update_lesson_status/{{group.group_name}}/{{lesson.lesson}}/" method="POST">
+        <td><form action="/main/manage/update_lesson_status/{{lesson.groupId}}/{{lesson.lessonId}}/" method="POST">
           {% csrf_token %}
           {% if lesson.status != 'Completed' %}
           <button class="w3-button w3-dark-grey">Finish</button>
@@ -335,7 +335,7 @@ function w3_close() {
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <form action="/main/manage/addcourse/{{group.group_name}}/" method="post">
+    <form action="/main/manage/addcourse/{{group.id}}/" method="post">
     {% csrf_token %}
     <select name="course">
     {% for course in courses %}
