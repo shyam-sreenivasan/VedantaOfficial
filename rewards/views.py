@@ -106,10 +106,8 @@ def rewards(request, student=None, metric=None):
     else:
         print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
-    if not is_coach:
-        context['scores'] = get_global_scores(request)
-    else:
-        context['scores'] = []
+    context['scores'] = get_global_scores(user)
+
 
     template = loader.get_template('rewards/index2.html')
 
@@ -216,7 +214,7 @@ def give_stroke(request, student, lesson_id, stroke):
 
     return rewards(request, student=student)
 
-def get_global_scores(request):
+def get_global_scores(user):
     from datetime import timedelta
     from django.utils import timezone
     from django.db.models import Count
@@ -244,7 +242,7 @@ def get_global_scores(request):
         mcount = members.get(gm.group.id, 0)
         mcount += 1
         members[gm.group.id] = mcount
-        if request.user.username == gm.user.username:
+        if user == gm.user.username:
             user_group = gm.group.id
     score = {}
 
@@ -257,7 +255,7 @@ def get_global_scores(request):
         if score[s] > max_score:
             max_score = score[s]
 
-    user = request.user.username
+
     your_score = {}
     your_score['label'] = 'My score'
     your_score['score'] = (rewards[user] if user in rewards else 0) * 10
