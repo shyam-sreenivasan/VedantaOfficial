@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+{% load static %}
+<link rel="stylesheet" href="{% static 'progress_rings.css' %}">
+
+<!--<link rel="stylesheet" href="{% static 'progress_rings.css' %}">-->
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .w3-bar-block .w3-bar-item {padding:20px}
@@ -144,6 +148,7 @@ input[type=submit] {
 #myTable tr.header, #myTable tr:hover {
   background-color: #f1f1f1;
 }
+
 </style>
 <body>
 
@@ -168,10 +173,27 @@ input[type=submit] {
 </div>
 
 {% load static %}
-
-
+<br>
+<br>
+<br>
 <!-- !PAGE CONTENT! -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.27/dist/shoelace/shoelace.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.27/dist/shoelace/shoelace.esm.js"></script>
+
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+<div class="ring_row">
+
+    {% for score in scores %}
+  <div class="ring_column">
+    <div class="ring_card">
+      <h3>{{score.label}}</h3>
+        <sl-progress-ring percentage="{{score.score}}" size="200" stroke-width="10" class="progress-ring-labels" style="--track-color: {{score.color}}; --indicator-color: {{score.color}}; margin-bottom: .5rem;" ><h1>{{score.score}}</h1></sl-progress-ring>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
   {% if is_coach %}
   <h2>Rewards for <b><i>{{selected}}</i></b></h2>
 <!--<form>-->

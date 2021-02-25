@@ -92,6 +92,7 @@ def rewards(request, student=None, metric=None):
                     'lesson' : grpLson.lesson.lesson,
                     'resource': grpLson.lesson.resource,
                     'lessonObj' : grpLson.lesson,
+
                     'id' : grpLson.lesson.id
                     } for grpLson in grpLessons]
         for l in lessons:
@@ -105,7 +106,7 @@ def rewards(request, student=None, metric=None):
     else:
         print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
-
+    context['scores'] = get_global_scores(request)
 
     template = loader.get_template('rewards/index2.html')
 
@@ -211,3 +212,64 @@ def give_stroke(request, student, lesson_id, stroke):
         print ('this reward is already given')
 
     return rewards(request, student=student)
+
+def get_global_scores(request):
+    from datetime import timedelta
+    from django.utils import timezone
+    from django.db.models import Count
+    some_day_last_week = timezone.now().date() - timedelta(days=7)
+
+    filter = {"date__gte": some_day_last_week}
+    rewards7days = Reward.objects.\
+        filter(**filter)
+    rewards = {}
+    for r in rewards7days:
+        count = rewards.get(r.user.username, 0)
+        count += 1
+        rewards[r.user.username] = count
+
+    gmember = apps.get_model('mainapp', 'GroupMember')
+    gms = gmember.objects.filter()
+    group_score = {}
+    members = {}
+    user_group = None
+    for gm in gms:
+        gcount = group_score.get(gm.group.id, 0)
+        if gm.user.username in rewards :
+            gcount += rewards[gm.user.username]
+            group_score[gm.group.id] = gcount
+        mcount = members.get(gm.group.id, 0)
+        mcount += 1
+        members[gm.group.id] = mcount
+        if request.user.username == gm.user.username:
+            user_group = gm.group.id
+    score = {}
+
+    for g in group_score:
+        s = int(group_score[g]*10/members[g])
+        score[g] = s
+
+    max_score = 0
+    for s in score:
+        if score[s] > max_score:
+            max_score = score[s]
+
+    user = request.user.username
+    your_score = {}
+    your_score['label'] = 'My score'
+    your_score['score'] = (rewards[user] if user in rewards else 0) * 10
+    your_score['color'] = 'tomato'
+
+    team_score = {}
+    team_score['label'] = 'Team score'
+    team_score['score'] = score[user_group]
+    team_score['color'] = 'green'
+
+    bteam_score = {}
+    bteam_score['label'] = 'Best Team'
+    bteam_score['score'] = max_score
+    bteam_score['color'] = 'blue'
+
+    scores = [your_score,team_score, bteam_score]
+    print ('scores {}'.format(scores))
+    return scores
