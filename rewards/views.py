@@ -106,7 +106,10 @@ def rewards(request, student=None, metric=None):
     else:
         print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
-    context['scores'] = get_global_scores(request)
+    if not is_coach:
+        context['scores'] = get_global_scores(request)
+    else:
+        context['scores'] = []
 
     template = loader.get_template('rewards/index2.html')
 
