@@ -12,6 +12,9 @@ from .forms import StrokeForm,SignUpForm
 from django.views.decorators.http import require_http_methods
 from django.apps import apps
 from actstream import action
+from django.contrib.auth.signals import user_logged_in, user_logged_out
+from django.dispatch import receiver
+
 # Create your views here.
 STROKE_COLOR = {
     'WELLDONE': '#EAEAEA',
@@ -24,6 +27,14 @@ STROKE_COLOR = {
     'BRILLIANT': '#BCC4BC',
     'AMAZING': '#F8EEF2'
 }
+
+@receiver(user_logged_in)
+def post_login(sender, user, request, **kwargs):
+    action.send(request.user, verb="logged in")
+
+@receiver(user_logged_out)
+def post_logout(sender, user, request, **kwargs):
+    action.send(request.user, verb="logged out")
 
 def rewards(request, student=None, metric=None):
     strokes = {}
@@ -41,8 +52,6 @@ def rewards(request, student=None, metric=None):
     if is_coach:
         user = student if student is not None else \
                     strokes['students'][0]['student']
-    else:
-        action.send(request.user, verb="logged in")
 
     if metric is not None:
         reward = Reward.objects.filter(user__username=user, stroke=metric)
@@ -106,7 +115,7 @@ def rewards(request, student=None, metric=None):
     else:
         print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
-    context['scores'] = get_global_scores(user)
+    context['scores'] = [] #get_global_scores(user)
 
 
     template = loader.get_template('rewards/index2.html')
