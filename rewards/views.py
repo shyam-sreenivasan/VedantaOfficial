@@ -92,6 +92,7 @@ def rewards(request, student=None, metric=None):
     groupMember = apps.get_model('mainapp', 'GroupMember')
     gmlist = groupMember.objects.filter(user__username=user)
     if gmlist is not None and len(gmlist) > 0:
+        print ('number of groups in which {} is member is {}'.format(user,len(gmlist)))
         grplesson = apps.get_model('mainapp', 'GroupLesson')
         for gm in gmlist:
             grpLessons = grplesson.objects.filter(group=gm.group, status='Completed')
@@ -102,7 +103,6 @@ def rewards(request, student=None, metric=None):
                         'lesson' : grpLson.lesson.lesson,
                         'resource': grpLson.lesson.resource,
                         'lessonObj' : grpLson.lesson,
-
                         'id' : grpLson.lesson.id
                         } for grpLson in grpLessons]
             for l in lessons:
