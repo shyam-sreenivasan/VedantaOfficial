@@ -94,6 +94,7 @@ def rewards(request, student=None, metric=None):
     if gmlist is not None and len(gmlist) > 0:
         print ('number of groups in which {} is member is {}'.format(user,len(gmlist)))
         grplesson = apps.get_model('mainapp', 'GroupLesson')
+        all_lessons = []
         for gm in gmlist:
             grpLessons = grplesson.objects.filter(group=gm.group, status='Completed')
             lessons = [{'status':grpLson.status,
@@ -110,9 +111,10 @@ def rewards(request, student=None, metric=None):
                 p = StudentProgress.objects.filter(lesson=l['lessonObj'], user=stud.id).first()
                 if p is not None:
                     l['stroke'] = p.stroke
+            all_lessons.extend(lessons)
 
-            print ('setting lessons as {}'.format(lessons))
-            strokes['lessons'] = lessons
+        print ('setting lessons as {}'.format(all_lessons))
+        strokes['lessons'] = all_lessons
     else:
         print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
