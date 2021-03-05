@@ -31,6 +31,8 @@ class GroupMember(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return "{} - {}".format(self.user.username, self.group.group_name)
 
 
 class Course(models.Model):
@@ -55,8 +57,14 @@ class GroupCourse(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return "{} - {}".format(self.group.group_name, self.course.name)
+
 class GroupLesson(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     status = models.CharField(max_length=25, choices=Progress.choices(), default='NOT_STARTED')
     date = models.DateField(default='2021-02-18')
+
+    def __str__(self):
+        return "{} - {}".format(self.group.group_name, self.lesson.lesson)

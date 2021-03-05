@@ -43,6 +43,9 @@ class MyStroke(models.Model):
     comments = models.CharField(max_length=250, null=True)
     date = models.DateField()
 
+    def __str__(self):
+        return self.user.username
+
 class Reward(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     stroker = models.CharField(max_length=50, default='Unknown')
@@ -53,12 +56,16 @@ class Reward(models.Model):
     date = models.DateField()
     stroker_fname = models.CharField(max_length=15, default='Unknown')
 
+    def __str__(self):
+        return self.user.username
 
 class Coach(models.Model):
     coach = models.CharField(max_length=50)
     student = models.CharField(max_length=50)
     date = models.DateField()
 
+    def __str__(self):
+        return self.coach
 """
 Refrence: https://dev.to/coderasha/create-advanced-user-sign-up-view-in-django-step-by-step-k9m
 """
@@ -83,3 +90,6 @@ class StudentProgress(models.Model):
     lesson = models.ForeignKey('mainapp.Lesson', on_delete=models.CASCADE)
     stroke = models.CharField(max_length=50, choices=Stroke.choices())
     date = models.DateField()
+
+    def __str__(self):
+        return self.user.username
