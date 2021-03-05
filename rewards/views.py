@@ -90,28 +90,29 @@ def rewards(request, student=None, metric=None):
     #get the class completed lessons
 
     groupMember = apps.get_model('mainapp', 'GroupMember')
-    gm = groupMember.objects.filter(user__username=user).first()
-    if gm is not None:
+    gmlist = groupMember.objects.filter(user__username=user)
+    if gmlist is not None and len(gmlist) > 0:
         grplesson = apps.get_model('mainapp', 'GroupLesson')
-        grpLessons = grplesson.objects.filter(group=gm.group, status='Completed')
-        lessons = [{'status':grpLson.status,
-                    'date': grpLson.date,
-                    'course' : grpLson.lesson.course,
-                    'module' : grpLson.lesson.module,
-                    'lesson' : grpLson.lesson.lesson,
-                    'resource': grpLson.lesson.resource,
-                    'lessonObj' : grpLson.lesson,
+        for gm in gmlist:
+            grpLessons = grplesson.objects.filter(group=gm.group, status='Completed')
+            lessons = [{'status':grpLson.status,
+                        'date': grpLson.date,
+                        'course' : grpLson.lesson.course,
+                        'module' : grpLson.lesson.module,
+                        'lesson' : grpLson.lesson.lesson,
+                        'resource': grpLson.lesson.resource,
+                        'lessonObj' : grpLson.lesson,
 
-                    'id' : grpLson.lesson.id
-                    } for grpLson in grpLessons]
-        for l in lessons:
-            stud = User.objects.filter(username=user).first()
-            p = StudentProgress.objects.filter(lesson=l['lessonObj'], user=stud.id).first()
-            if p is not None:
-                l['stroke'] = p.stroke
+                        'id' : grpLson.lesson.id
+                        } for grpLson in grpLessons]
+            for l in lessons:
+                stud = User.objects.filter(username=user).first()
+                p = StudentProgress.objects.filter(lesson=l['lessonObj'], user=stud.id).first()
+                if p is not None:
+                    l['stroke'] = p.stroke
 
-        print ('setting lessons as {}'.format(lessons))
-        strokes['lessons'] = lessons
+            print ('setting lessons as {}'.format(lessons))
+            strokes['lessons'] = lessons
     else:
         print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
