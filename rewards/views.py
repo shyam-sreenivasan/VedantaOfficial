@@ -115,16 +115,20 @@ def rewards(request, student=None, metric=None):
 
         print ('setting lessons as {}'.format(all_lessons))
         strokes['lessons'] = all_lessons
+        strokes['toppers'] = get_toppers(gmlist)
     else:
         print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
     context['scores'] = []
+
     try:
         context['scores'] = get_global_scores(user)
-    except:
+    except Exception as e:
         #may get here for first timers, so ignore
+        print ('Warning Error {}'.format(e))
         pass
 
+    print ('toppers is {}'.format(context['toppers']))
     template = loader.get_template('rewards/index2.html')
 
     return HttpResponse(template.render(context, request))
@@ -235,58 +239,99 @@ def get_global_scores(user):
     from django.utils import timezone
     from django.db.models import Count
     some_day_last_week = timezone.now().date() - timedelta(days=7)
+    last_month = timezone.now().date() - timedelta(days=30)
 
-    filter = {"date__gte": some_day_last_week}
-    rewards7days = Reward.objects.\
+    last_wk_score = get_score_for_user(some_day_last_week, user,'Last week', 'tomato')
+    last_mnth_score = get_score_for_user(last_month, user, 'Last month', 'green')
+    all_time = get_score_for_user(None, user, 'All time', 'blue')
+
+    return [last_wk_score,last_mnth_score,all_time]
+    # gmember = apps.get_model('mainapp', 'GroupMember')
+    # gms = gmember.objects.filter()
+    # group_score = {}
+    # members = {}
+    # user_group = None
+    # for gm in gms:
+    #     gcount = group_score.get(gm.group.id, 0)
+    #     if gm.user.username in rewards :
+    #         gcount += rewards[gm.user.username]
+    #         group_score[gm.group.id] = gcount
+    #     mcount = members.get(gm.group.id, 0)
+    #     mcount += 1
+    #     members[gm.group.id] = mcount
+    #     if user == gm.user.username:
+    #         user_group = gm.group.id
+    # score = {}
+    #
+    # for g in group_score:
+    #     s = int(group_score[g]*10/members[g])
+    #     score[g] = s
+    #
+    # max_score = 0
+    # for s in score:
+    #     if score[s] > max_score:
+    #         max_score = score[s]
+
+    # for i in range(0,3):
+    #     score = {}
+    #     score['label'] =
+    # your_score = {}
+    # your_score['label'] = 'My score'
+    # your_score['score'] = (rewards[user] if user in rewards else 0) * 10
+    # your_score['color'] = 'tomato'
+    #
+    # team_score = {}
+    # team_score['label'] = 'Team score'
+    # team_score['score'] = score[user_group]
+    # team_score['color'] = 'green'
+    #
+    # bteam_score = {}
+    # bteam_score['label'] = 'Best Team'
+    # bteam_score['score'] = max_score
+    # bteam_score['color'] = 'blue'
+    #
+    # toppers = []
+    # for user in rewards:
+    #     if rewards[user] >= score[user_group]:
+    #         t = {'user': user, 'score' : rewards[user]}
+    #         toppers.append(t)
+    # scores = [your_score, team_score, bteam_score]
+    #
+    # #print ('scores {}'.format(scores))
+    # print ('toppers is {}'.format(toppers))
+    # return scores, toppers
+
+def get_score_for_user(date, user, label, color):
+    count = 0
+    filter = {"user__username" : user}
+    if date is not None:
+        filter["date__gte"] =  date
+
+    rewards7days = Reward.objects. \
         filter(**filter)
     rewards = {}
     for r in rewards7days:
         count = rewards.get(r.user.username, 0)
         count += 1
-        rewards[r.user.username] = count
-
-    gmember = apps.get_model('mainapp', 'GroupMember')
-    gms = gmember.objects.filter()
-    group_score = {}
-    members = {}
-    user_group = None
-    for gm in gms:
-        gcount = group_score.get(gm.group.id, 0)
-        if gm.user.username in rewards :
-            gcount += rewards[gm.user.username]
-            group_score[gm.group.id] = gcount
-        mcount = members.get(gm.group.id, 0)
-        mcount += 1
-        members[gm.group.id] = mcount
-        if user == gm.user.username:
-            user_group = gm.group.id
     score = {}
+    score['label'] = label
+    score['color'] = color
+    score['score'] = count * 10
+    return score
 
-    for g in group_score:
-        s = int(group_score[g]*10/members[g])
-        score[g] = s
-
-    max_score = 0
-    for s in score:
-        if score[s] > max_score:
-            max_score = score[s]
-
-
-    your_score = {}
-    your_score['label'] = 'My score'
-    your_score['score'] = (rewards[user] if user in rewards else 0) * 10
-    your_score['color'] = 'tomato'
-
-    team_score = {}
-    team_score['label'] = 'Team score'
-    team_score['score'] = score[user_group]
-    team_score['color'] = 'green'
-
-    bteam_score = {}
-    bteam_score['label'] = 'Best Team'
-    bteam_score['score'] = max_score
-    bteam_score['color'] = 'blue'
-
-    scores = [your_score,team_score, bteam_score]
-    print ('scores {}'.format(scores))
-    return scores
+def get_toppers(grpList):
+    gmember = apps.get_model('mainapp', 'GroupMember')
+    filter = {"group__group_name__in" : [gm.group.group_name for gm in grpList]}
+    members_list = gmember.objects.filter(**filter)
+    members = {}
+    for m in members_list:
+        scores = get_global_scores(m.user.username)
+        minfo = members.get(m.user.username, {})
+        minfo['fname'] = "{} {}".format(m.user.first_name, m.user.last_name)
+        groups =  minfo.get('groups', [])
+        if m.group.group_name not in groups:
+            groups.append(m.group.group_name)
+        minfo['groups'] = groups
+        minfo['score'] = scores[2]['score']
+        members[m.user.username] = minfo
+    return members.values()

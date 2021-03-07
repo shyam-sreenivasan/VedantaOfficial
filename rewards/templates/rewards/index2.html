@@ -4,11 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 {% load static %}
 <link rel="stylesheet" href="{% static 'progress_rings.css' %}">
 
-<!--<link rel="stylesheet" href="{% static 'progress_rings.css' %}">-->
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .w3-bar-block .w3-bar-item {padding:20px}
@@ -148,7 +152,11 @@ input[type=submit] {
 #myTable tr.header, #myTable tr:hover {
   background-color: #f1f1f1;
 }
-
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+  }
 </style>
 <body>
 
@@ -180,7 +188,11 @@ input[type=submit] {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.27/dist/shoelace/shoelace.css">
 <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.27/dist/shoelace/shoelace.esm.js"></script>
 
+
+<link rel="stylesheet" href="{% static 'carousal/demo.css' %}">
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+
 
 <div class="ring_row">
 
@@ -192,9 +204,15 @@ input[type=submit] {
     </div>
   </div>
     {% endfor %}
-</div>
 
-  {% if is_coach %}
+
+<!--<div id="owl-demo">-->
+<!--    {% static 'mainapp' as base_url %}-->
+<!--{% for metric, value in stats.items %}-->
+<!--  <div class="item"><img src="{{base_url}}/{{metric}}.png"  alt="Owl Image"></div>-->
+<!--  {% endfor %}-->
+<!--</div>-->
+      {% if is_coach %}
   <h2>Rewards for <b><i>{{selected}}</i></b></h2>
 <!--<form>-->
 <!--  <label>Student</label>-->
@@ -337,6 +355,54 @@ input[type=submit] {
       {% endfor %}
     </table><br>
 
+          <h2 id="members" background-color="#f1f1f1" class="w3-bar w3-black">&nbsp Members</h2>
+           <section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class='demo-container'>
+                  <div class='carousel'>
+                    <input checked='checked' class='carousel__activator' id='carousel-slide-activator-1' name='carousel' type='radio'>
+                    <input class='carousel__activator' id='carousel-slide-activator-2' name='carousel' type='radio'>
+                    <input class='carousel__activator' id='carousel-slide-activator-3' name='carousel' type='radio'>
+                    <div class='carousel__controls'>
+                      <label class='carousel__control carousel__control--forward' for='carousel-slide-activator-2'>
+                        👉
+                      </label>
+                    </div>
+                    <div class='carousel__controls'>
+                      <label class='carousel__control carousel__control--backward' for='carousel-slide-activator-1'>
+                        👈
+                      </label>
+                      <label class='carousel__control carousel__control--forward' for='carousel-slide-activator-3'>
+                        👉
+                      </label>
+                    </div>
+                    <div class='carousel__controls'>
+                      <label class='carousel__control carousel__control--backward' for='carousel-slide-activator-2'>
+                        👈
+                      </label>
+                    </div>
+                    <div class='carousel__screen'>
+                      <div class='carousel__track'>
+                          {% for topper in toppers %}
+                        <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                            <div class="c-card">
+                              <img src="{% static 'mainapp/nophoto.png' %}"   alt="{{topper.Member}}" style="width:100%">
+                              <h2>{{ topper.fname }}</h2>
+<!--                              <p class="c-title">Level X</p>-->
+                              <h3>All time Score</h3>
+                                <h4>{{ topper.score }}</h4>
+                              <p><button>View</button></p>
+                            </div>
+                        </div>
+                           {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+		</div>
+    </div>
+</section>
 <!-- End page content -->
 </div>
 
