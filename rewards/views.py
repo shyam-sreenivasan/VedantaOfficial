@@ -309,10 +309,8 @@ def get_score_for_user(date, user, label, color):
 
     rewards7days = Reward.objects. \
         filter(**filter)
-    rewards = {}
-    for r in rewards7days:
-        count = rewards.get(r.user.username, 0)
-        count += 1
+    count = len(rewards7days)
+
     score = {}
     score['label'] = label
     score['color'] = color
