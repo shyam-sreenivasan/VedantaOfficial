@@ -184,5 +184,11 @@ options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
 # config/settings.py
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+#EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+#EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'emailvvpeetam@gmail.com'
+EMAIL_HOST_PASSWORD = 'ramanuja1000@'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
