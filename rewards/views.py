@@ -120,6 +120,7 @@ def rewards(request, student=None, metric=None):
         print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
     context['scores'] = []
+    context['toppers'] = []
 
     try:
         context['scores'] = get_global_scores(user)
@@ -128,7 +129,7 @@ def rewards(request, student=None, metric=None):
         print ('Warning Error {}'.format(e))
         pass
 
-    print ('toppers is {}'.format(context['toppers']))
+    #print ('toppers is {}'.format(context['toppers']))
     template = loader.get_template('rewards/index2.html')
 
     return HttpResponse(template.render(context, request))
