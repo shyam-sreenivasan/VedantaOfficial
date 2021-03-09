@@ -81,7 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vvpsite.wsgi.application'
 
-DEBUG = False
+DEBUG = True
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -92,30 +92,32 @@ DEBUG = False
 #     }
 # }
 
-if DEBUG:
+# if DEBUG:
+#
+#     DATABASES = {
+#
+#         'default': {
+#
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#
+#             'NAME': 'vvpdb',
+#
+#             'USER': 'vvpadmin',
+#
+#             'PASSWORD': 'vedanta750@',
+#
+#             'HOST': 'localhost',
+#
+#             'PORT': '19999',
+#
+#         }
+#
+#     }
+# else:
 
-    DATABASES = {
 
-        'default': {
-
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-            'NAME': 'vvpdb',
-
-            'USER': 'vvpadmin',
-
-            'PASSWORD': 'vedanta750@',
-
-            'HOST': 'localhost',
-
-            'PORT': '19999',
-
-        }
-
-    }
-else:
-    DATABASES = {}
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
