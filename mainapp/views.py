@@ -125,3 +125,8 @@ def update_lesson_status(request, group, lesson):
     gl.date = datetime.datetime.now()
     gl.save()
     return manage(request,group=group)
+
+def view_member(request, name):
+    context = {}
+    template = loader.get_template('mainapp/aboutme.html')
+    return HttpResponse(template.render(context, request))
