@@ -123,14 +123,14 @@ def rewards(request, student=None, metric=None):
     try:
         context['toppers'] = strokes['toppers']
         context['scores'] = get_global_scores(user)
+        #print ('toppers is {}'.format(context['toppers']))
     except Exception as e:
         #may get here for first timers, so ignore
         print ('Warning Error {}'.format(e))
         pass
 
-    print ('toppers is {}'.format(context['toppers']))
-    template = loader.get_template('rewards/index2.html')
 
+    template = loader.get_template('rewards/index2.html')
     return HttpResponse(template.render(context, request))
     #return render(request, 'rewards/index.html')
 
