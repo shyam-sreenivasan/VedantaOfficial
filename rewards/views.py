@@ -120,9 +120,8 @@ def rewards(request, student=None, metric=None):
         print ('There are no group membership found for user {}'.format(request.user.username))
     context = strokes
     context['scores'] = []
-    context['toppers'] = strokes['toppers']
-
     try:
+        context['toppers'] = strokes['toppers']
         context['scores'] = get_global_scores(user)
     except Exception as e:
         #may get here for first timers, so ignore
