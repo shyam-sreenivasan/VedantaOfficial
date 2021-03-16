@@ -207,8 +207,7 @@ body {
            <input type="hidden" name="selectedgift_id" value="{{gift.id}}">
         <h1 class="w3-badge w3-large w3-padding w3-green" style="float: left;">{{gift.cost}}</h1>
         <div class="at-user__avatar"><img src="{{gift.uri}}"/></div>
-        <div class="at-user__name">{{gift.name}}</div>
-        <div class="at-user__title">{{gift.collection}}</div>
+          <div class="at-user__name"><a href="{{gift.ref}}">{{gift.name}}</a></div>
         {% if balance >= gift.cost %}
         <button>Get</button>
         {% else %}
