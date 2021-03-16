@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',  # <--
     'rewards',
     'courses',
-    'audio',
     'actstream'
 
 
