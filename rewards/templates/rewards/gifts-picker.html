@@ -174,8 +174,8 @@ body {
 .container {
   max-width: 1170px;
   width: 100%;
-  margin: 100px auto;
-  padding: 0 20px;
+  margin: 10px auto;
+  padding: 0 5px;
   box-sizing: border-box;
   transform-origin: top center;
   transform: scale(0.8);
@@ -192,13 +192,13 @@ body {
 
 <center><h2>Choose your collectible</h2></center>
 <center><h4>You have {{balance}} points available</h4></center>
-
+<br>
+<br>
 {% for key, gifts in collections.items %}
 <div class="container">
   <div class="at-section">
     <div class="at-section__title">{{key}}</div>
-  </div>
-  <div class="at-grid" data-column="3">
+  </div><div class="at-grid" data-column="3">
     {% for gift in gifts %}
     <div class="at-column">
       <div class="at-user">
