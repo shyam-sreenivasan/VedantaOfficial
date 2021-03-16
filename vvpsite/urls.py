@@ -28,8 +28,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout', include('django.contrib.auth.urls')),
-    path('whoami/', include('courses.urls')),
-    path('audio/', include('audio.urls')),
+    #path('whoami/', include('courses.urls')),
+    #path('audio/', include('audio.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
