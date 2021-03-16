@@ -316,6 +316,7 @@ def pick_gift(request):
 
 
 def claim_gift(request):
+
     from .forms import ClaimGift
     giftform = ClaimGift(request.POST)
     gift = Gift.objects.get(pk=giftform.data['selectedgift_id'])
@@ -325,4 +326,5 @@ def claim_gift(request):
     ug.gift = gift
     ug.collection = gift.collection
     ug.save()
+    action.send(request.user, verb="claimed Gift {}".format(gift.name))
     return redirect('/rewards')
