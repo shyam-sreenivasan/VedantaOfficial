@@ -79,6 +79,21 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+class Gift(models.Model):
+    name = models.CharField(max_length=25, blank=True)
+    collection = models.CharField(max_length=25, blank=True)
+    uri = models.CharField(max_length=250, blank=True)
+    ref = models.CharField(max_length=250, blank=True)
+    attrib = models.CharField(max_length=50, blank=True)
+    cost = models.IntegerField(default=10)
+
+class UserGift(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    gift = models.ForeignKey(Gift, on_delete=models.CASCADE, blank=True, null=True)
+    collection = models.CharField(max_length=25, blank=True)
+
+
+
 @receiver(post_save, sender=User)
 def update_profile_signal(sender, instance, created, **kwargs):
     if created:

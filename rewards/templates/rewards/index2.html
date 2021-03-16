@@ -273,7 +273,69 @@ input[type=submit] {
   {% endfor %}
 
 <br>
+          <h2 id="gems" background-color="#f1f1f1" class="w3-bar w3-black">&nbsp My Collectibles</h2>
+          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+          <link rel="stylesheet" href="{% static 'rewards/gifts.css' %}" >
+         <div class="container">
+                <div class="at-section">
+                <div class="at-section__title">{{key}}</div>
+                </div>
+            <div class="at-grid" data-column="3">
+                {% for gift in gifts %}
+                <div class="at-column">
+                    <div class="at-user">
+                        <h1 class="w3-badge w3-large w3-padding w3-green" style="float: left;">{{gift.gift.cost}}</h1>
+                        <div class="at-user__avatar"><img src="{{gift.gift.uri}}"/></div>
+                            <div class="at-user__name">{{gift.gift.name}}</div>
+                            <div class="at-user__title">{{gift.gift.collection}}</div>
+<!--                            <h10>{{gift.gift.attrib | safe }}</h10>-->
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="at-column">
+                    <div class="at-user">
+                        <form action="/rewards/pick_gift/" method="POST">
+                            {% csrf_token %}
+                        <div class="at-user__avatar"></div>
 
+                            <div class="at-user__name">Checkout</div>
+                            <div class="at-user__title">Collectibles</div>
+<!--                            <h10>{{gift.gift.attrib | safe }}</h10>-->
+                        <button class="w3-button w3-green">Browse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+         </div>
+<!--  {% for gift in gifts %}-->
+<!--     {% if forloop.first %}-->
+<!--        &lt;!&ndash; First Photo Grid&ndash;&gt;-->
+<!--  <div class="w3-row-padding w3-padding-16 w3-center" id="food">-->
+<!--     {% endif %}-->
+<!--    <div class="w3-quarter">-->
+<!--        {% if gift.gift is not None %}-->
+<!--        <div class="card">-->
+<!--      <img class="img" src="{{gift.gift.uri}}" alt="Gift" style="width:250px;height=250px">-->
+<!--        <br>-->
+<!--            <a href="{{gift.gift.ref}}" ><h5>{{gift.gift.name}}</h5></a>-->
+
+<!--        </div>-->
+<!--        {% endif %}-->
+<!--        &lt;!&ndash;      <h2  style="margin: 0">{{stroke.category}}</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;      <h3 style="margin: 0">{{stroke.action}}</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p  style="margin: 0">{{stroke.comments}}</p>&ndash;&gt;-->
+<!--    </div>-->
+<!--    {% if forloop.last %}-->
+<!--        </div>-->
+<!--    {% elif forloop.counter|divisibleby:4 %}-->
+<!--      </div>-->
+<!--      <div class="w3-row-padding w3-padding-16 w3-center" id="food">-->
+<!--    {% endif %}-->
+<!--  {% endfor %}-->
+<!--          <a href="/rewards/pick_gift/"><img class="img"  style="width:250px;height=250px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Question_opening-closing.svg/1920px-Question_opening-closing.svg.png"></a>-->
+
+
+<br>
 
 <!--  &lt;!&ndash; Pagination &ndash;&gt;-->
 <!--  <div class="w3-center w3-padding-32">-->
@@ -453,6 +515,7 @@ window.onclick = function(event) {
 
 
 </script>
+
 <script src="https://use.fontawesome.com/7980032ffc.js"></script>
 <script>
 // Script to open and close sidebar

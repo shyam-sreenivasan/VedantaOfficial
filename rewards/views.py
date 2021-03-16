@@ -7,13 +7,14 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from .models import Reward, Stroke, Coach, StudentProgress
+from .models import Reward, Stroke, Coach, StudentProgress,UserGift, Gift
 from .forms import StrokeForm,SignUpForm
 from django.views.decorators.http import require_http_methods
 from django.apps import apps
 from actstream import action
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
+from django.shortcuts import redirect
 
 # Create your views here.
 STROKE_COLOR = {
@@ -123,12 +124,12 @@ def rewards(request, student=None, metric=None):
     try:
         context['toppers'] = strokes['toppers']
         context['scores'] = get_global_scores(user)
+        context['gifts'] = get_gifts_for_user(user)
         #print ('toppers is {}'.format(context['toppers']))
     except Exception as e:
         #may get here for first timers, so ignore
         print ('Warning Error {}'.format(e))
         pass
-
 
     template = loader.get_template('rewards/index2.html')
     return HttpResponse(template.render(context, request))
@@ -246,60 +247,7 @@ def get_global_scores(user):
     all_time = get_score_for_user(None, user, 'All time', 'blue')
 
     return [last_wk_score,last_mnth_score,all_time]
-    # gmember = apps.get_model('mainapp', 'GroupMember')
-    # gms = gmember.objects.filter()
-    # group_score = {}
-    # members = {}
-    # user_group = None
-    # for gm in gms:
-    #     gcount = group_score.get(gm.group.id, 0)
-    #     if gm.user.username in rewards :
-    #         gcount += rewards[gm.user.username]
-    #         group_score[gm.group.id] = gcount
-    #     mcount = members.get(gm.group.id, 0)
-    #     mcount += 1
-    #     members[gm.group.id] = mcount
-    #     if user == gm.user.username:
-    #         user_group = gm.group.id
-    # score = {}
-    #
-    # for g in group_score:
-    #     s = int(group_score[g]*10/members[g])
-    #     score[g] = s
-    #
-    # max_score = 0
-    # for s in score:
-    #     if score[s] > max_score:
-    #         max_score = score[s]
 
-    # for i in range(0,3):
-    #     score = {}
-    #     score['label'] =
-    # your_score = {}
-    # your_score['label'] = 'My score'
-    # your_score['score'] = (rewards[user] if user in rewards else 0) * 10
-    # your_score['color'] = 'tomato'
-    #
-    # team_score = {}
-    # team_score['label'] = 'Team score'
-    # team_score['score'] = score[user_group]
-    # team_score['color'] = 'green'
-    #
-    # bteam_score = {}
-    # bteam_score['label'] = 'Best Team'
-    # bteam_score['score'] = max_score
-    # bteam_score['color'] = 'blue'
-    #
-    # toppers = []
-    # for user in rewards:
-    #     if rewards[user] >= score[user_group]:
-    #         t = {'user': user, 'score' : rewards[user]}
-    #         toppers.append(t)
-    # scores = [your_score, team_score, bteam_score]
-    #
-    # #print ('scores {}'.format(scores))
-    # print ('toppers is {}'.format(toppers))
-    # return scores, toppers
 
 def get_score_for_user(date, user, label, color):
     count = 0
@@ -334,3 +282,47 @@ def get_toppers(grpList):
         minfo['username'] = m.user.username
         members[m.user.username] = minfo
     return members.values()
+
+def get_gifts_for_user(user):
+    gifts = UserGift.objects.filter(user__username=user)
+    return gifts
+
+def pick_gift(request):
+    gifts = Gift.objects.all()
+    score = get_score_for_user(None, request.user.username, 'All time', 'blue')
+    spent = UserGift.objects.filter(user=request.user).aggregate(Sum('gift__cost'))
+    spent = 0 if spent['gift__cost__sum'] is None else spent['gift__cost__sum']
+    balance = score['score'] - spent
+    if balance < 0:
+        balance = 0
+
+    collections = {}
+    for g in gifts:
+        coll = collections.get(g.collection, [])
+        if coll == []:
+            collections[g.collection] = coll
+        coll.append(g)
+
+
+    print ('collections {}'.format(collections))
+
+
+
+    context = {'collections': collections, 'balance' : balance}
+
+    print ('context {}'.format(context))
+    template = loader.get_template('rewards/gifts-picker.html')
+    return HttpResponse(template.render(context, request))
+
+
+def claim_gift(request):
+    from .forms import ClaimGift
+    giftform = ClaimGift(request.POST)
+    gift = Gift.objects.get(pk=giftform.data['selectedgift_id'])
+    print ('selected gift {}'.format(gift.id))
+    ug = UserGift()
+    ug.user = request.user
+    ug.gift = gift
+    ug.collection = gift.collection
+    ug.save()
+    return redirect('/rewards')
