@@ -84,7 +84,7 @@ class Gift(models.Model):
     collection = models.CharField(max_length=25, blank=True)
     uri = models.CharField(max_length=250, blank=True)
     ref = models.CharField(max_length=250, blank=True)
-    attrib = models.CharField(max_length=50, blank=True)
+    attrib = models.CharField(max_length=250, blank=True)
     cost = models.IntegerField(default=10)
 
     def __str__(self):
