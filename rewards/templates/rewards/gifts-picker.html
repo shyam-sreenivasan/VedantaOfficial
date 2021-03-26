@@ -126,8 +126,8 @@
 }
 .at-user__avatar img {
   display: block;
-  width: 250px;
-  height: 250px;
+
+
 }
 .at-user__name {
   color: #313435;
@@ -206,7 +206,7 @@ body {
           {% csrf_token %}
            <input type="hidden" name="selectedgift_id" value="{{gift.id}}">
         <h1 class="w3-badge w3-large w3-padding w3-green" style="float: left;">{{gift.cost}}</h1>
-        <div class="at-user__avatar"><img src="{{gift.uri}}"/></div>
+          <a href="" target="popup" onclick="window.open('{{gift.uri}}','popup','width=600,height=600,scrollbars=no,resizable=no'); return false;"><div class="at-user__avatar" ><img height="250px" weight="250px" src="{{gift.uri}}"/></div></a>
           <div class="at-user__name">{{gift.name}}</div>
         {% if balance >= gift.cost %}
         <button>Get</button>
