@@ -417,6 +417,37 @@ input[type=submit] {
       {% endfor %}
     </table><br>
 
+          <h2 background-color="#f1f1f1" class="w3-bar w3-black">Practice Logs (in minutes)</h2>
+
+<table style="font-family: arial, sans-serif; border-collapse: collapse;  width: 100%;">
+  <tr>
+      {% for day in practice.minutes %}
+    <th style="border: 1px solid #dddddd; text-align: center; padding: 8px; background-color: green;">{{day}}</th>
+      {% endfor %}
+
+  </tr>
+  <tr>
+      {% for day,mins in practice.minutes.items %}
+       {% if practice.today == False %}
+            {% if 'Today' in day %}
+      <td width="2pc">
+          <form method="POST" action="/rewards/log_practice/" >
+              {% csrf_token %}
+              <input maxlength="4" size="4" type="text" name="mins">
+              <input type="submit" value="Submit">
+          </form>
+                </td>
+            {% else %}
+                <td style="border: 1px solid #dddddd; text-align: center; ">{{mins}}</td>
+            {% endif %}
+       {% else %}
+        <td style="border: 1px solid #dddddd; text-align: center; ">{{mins}}</td>
+       {% endif %}
+      {% endfor %}
+
+  </tr>
+
+</table>
           <h2 id="members" background-color="#f1f1f1" class="w3-bar w3-black">&nbsp Members</h2>
            <section>
     <div class="rt-container">

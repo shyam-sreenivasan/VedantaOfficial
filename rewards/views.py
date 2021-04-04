@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .models import Reward, Stroke, Coach, StudentProgress,UserGift, Gift
+from .models import PracticeLog
 from .forms import StrokeForm,SignUpForm
 from django.views.decorators.http import require_http_methods
 from django.apps import apps
@@ -15,6 +16,8 @@ from actstream import action
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
 from django.shortcuts import redirect
+from datetime import timedelta
+from django.utils import timezone
 
 # Create your views here.
 STROKE_COLOR = {
@@ -131,10 +134,69 @@ def rewards(request, student=None, metric=None):
         print ('Warning Error {}'.format(e))
         pass
 
+    context['practice'] = get_practice_logs(user)
     template = loader.get_template('rewards/index2.html')
     return HttpResponse(template.render(context, request))
     #return render(request, 'rewards/index.html')
 
+def get_practice_logs(user):
+    import datetime
+    dow_lookup = {"6" : "Sun", "0" : "Mon", "1" : "Tue",
+           "2" : "Wed", "3" : "Thu" , "4": "Fri",
+           "5" : "Sat"
+           }
+
+    dow = []
+    print ('today is {}'.format(datetime.datetime.today().weekday()))
+    to_dow = 'Today(' + dow_lookup[str(datetime.datetime.today().weekday())] + ")"
+
+    for d in range(6,0,-1):
+        the_day = datetime.datetime.today() - timedelta(days=d)
+        day = dow_lookup[str(the_day.weekday())]
+        dow.append(day)
+    dow.append(to_dow)
+    some_day_last_week = timezone.now().date() - timedelta(days=7)
+    plogs = PracticeLog.objects.filter(user__username=user,
+                                      date__gte=some_day_last_week)
+    mins = {day:0 for day in dow}
+    total = 0
+    today_logged = False
+    for l in plogs:
+        total += l.minutes
+        if l.date == datetime.date.today():
+            mins[to_dow] = l.minutes
+            today_logged = True
+        else:
+            mins[dow_lookup[str(l.date.weekday())]] = l.minutes
+
+    mins['Total'] = total
+    print ('total mins {}'.format(mins))
+    logs = {'minutes' : mins, 'today' : today_logged}
+    return logs
+
+def log_practice(request):
+    from .forms import PracticeLogForm
+    import datetime
+    print ('logging practice')
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = PracticeLogForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            plog = PracticeLog()
+            plog.user = request.user
+            plog.date = datetime.datetime.today()
+            plog.day = datetime.datetime.today().weekday()
+            plog.comment = ''
+            plog.minutes = int(form.data['mins'])
+            plog.save()
+            print ('saved plog {}'.format(plog))
+            return HttpResponseRedirect('/rewards/')
+        else:
+            print ('not a valid form')
 
 def handle_stroke(request):
     # if this is a POST request we need to process the form data
@@ -236,8 +298,7 @@ def give_stroke(request, student, lesson_id, stroke):
     return rewards(request, student=student)
 
 def get_global_scores(user):
-    from datetime import timedelta
-    from django.utils import timezone
+
     from django.db.models import Count
     some_day_last_week = timezone.now().date() - timedelta(days=7)
     last_month = timezone.now().date() - timedelta(days=30)

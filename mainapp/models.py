@@ -65,6 +65,6 @@ class GroupLesson(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     status = models.CharField(max_length=25, choices=Progress.choices(), default='NOT_STARTED')
     date = models.DateField(default='2021-02-18')
-
+    notes = models.CharField(max_length=300, null=True, default='')
     def __str__(self):
         return "{} - {}".format(self.group.group_name, self.lesson.lesson)

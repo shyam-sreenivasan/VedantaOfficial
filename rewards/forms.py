@@ -25,3 +25,6 @@ class SignUpForm(UserCreationForm):
 
 class ClaimGift(forms.Form):
     selectedgift_id = forms.CharField(label='', max_length=25, required=True)
+
+class PracticeLogForm(forms.Form):
+    mins = forms.CharField(label='', max_length=25, required=True)

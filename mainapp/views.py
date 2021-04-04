@@ -95,6 +95,7 @@ def get_lessons(request, grpId):
         l['module'] = lesson.lesson.module
         l['resource'] = lesson.lesson.resource
         l['status'] = lesson.status
+        l['notes'] = lesson.notes
         lessons.append(l)
     return lessons
 
@@ -122,6 +123,7 @@ def update_lesson_status(request, group, lesson):
     l = Lesson.objects.filter(id=lesson).first()
     gl = GroupLesson.objects.filter(group=grp, lesson=l).first()
     gl.status = 'Completed'
+    gl.notes = request.POST.get('notes', None)
     gl.date = datetime.datetime.now()
     gl.save()
     return manage(request,group=group)

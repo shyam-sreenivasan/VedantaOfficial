@@ -113,3 +113,11 @@ class StudentProgress(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class PracticeLog(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    day = models.CharField(max_length=3)
+    date =  models.DateField()
+    minutes = models.IntegerField()
+    comment = models.CharField(max_length=50, null=True)
+    

@@ -204,10 +204,11 @@ function filter(table, input) {
       <tr class="header">
               <th style="width:10%;">Course name</th>
               <th style="width:10%;">Module</th>
-              <th style="width:40%;">Lesson</th>
+              <th style="width:10%;">Lesson</th>
               <th style="width:5%;">Status</th>
-              <th style="width:20%;">Resource</th>
-              <th style="width:10%;">Date</th>
+              <th style="width:5%;">Resource</th>
+              <th style="width:5%;">Date</th>
+              <th style="width:25%;">Notes</th>
               <th style="width:5%;">Action</th>
             </tr>
       {% for lesson in lessons %}
@@ -218,12 +219,19 @@ function filter(table, input) {
         <td>{{lesson.status}}</td>
         <td>{{lesson.resource}}</td>
         <td>{{lesson.date}}</td>
-        <td><form action="/main/manage/update_lesson_status/{{lesson.groupId}}/{{lesson.lessonId}}/" method="POST">
+        <form action="/main/manage/update_lesson_status/{{lesson.groupId}}/{{lesson.lessonId}}/" method="POST">
+          {% if lesson.status == "Completed" %}
+            <td><label>{{lesson.notes}}</label></td>
+          {% else %}
+        <td><input name="notes" type="text" value="{{lesson.notes}}"></td>
+          {% endif %}
+        <td>
           {% csrf_token %}
           {% if lesson.status != 'Completed' %}
           <button class="w3-button w3-dark-grey">Finish</button>
           {% endif %}
-        </form></td>
+        </td>
+          </form>
       </tr>
       {% endfor %}
     </table><br>
