@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'courses',
     'actstream'
 
-
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,7 +142,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Pacific'
 
 USE_I18N = True
 
@@ -192,3 +191,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'emailvvpeetam@gmail.com'
 EMAIL_HOST_PASSWORD = 'ramanuja1000@'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+

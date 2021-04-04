@@ -147,7 +147,7 @@ def get_practice_logs(user):
            }
 
     dow = []
-    print ('today is {}'.format(datetime.datetime.today().weekday()))
+    
     to_dow = 'Today(' + dow_lookup[str(datetime.datetime.today().weekday())] + ")"
 
     for d in range(6,0,-1):
