@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('mainapp.urls')),
     path('rewards/', include('rewards.urls')),
     path('main/', include('mainapp.urls')),
+    path('ramayana/', include('mainapp.urls')),
     path('blogs/', include('blogs.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),

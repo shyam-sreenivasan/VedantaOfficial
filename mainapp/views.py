@@ -10,6 +10,31 @@ from bs4 import BeautifulSoup
 from .models import GroupLesson, Group, Course, Lesson, Progress
 from .forms import CourseSelector
 
+def ramayana(request, context={}):
+    template = loader.get_template('mainapp/ramayan.html')
+    return HttpResponse(template.render(context, request))
+
+def register_ramayana(request):
+    #send email
+    from django.core.mail import send_mail
+    from vvpsite.settings import EMAIL_HOST_USER
+    from .forms import CampRegistration
+    form = CampRegistration(request.POST)
+
+    if form.is_valid():
+        name = form.data['name']
+        phone = form.data['phone']
+        email = form.data['email']
+        batch = form.data['batch']
+        subject = 'Camp Registration:{} {} {} {}'.format(name,phone, email, batch)
+        message = "Name: {}\n Phone: {}\n Email: {}\n Batch: {}".format(name,phone,email, batch)
+        send_mail(subject,
+                  message, EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
+
+        context = {'registered' : True}
+        return ramayana(request,context)
+    else:
+        return ramayana(request)
 
 def index(request):
     API_KEY = 'AIzaSyA2NQjAtyZg2qzk3ReDyMw9cYcyglGIp8w'
