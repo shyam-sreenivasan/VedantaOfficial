@@ -26,8 +26,9 @@ def register_ramayana(request):
         phone = form.data['phone']
         email = form.data['email']
         batch = form.data['batch']
-        subject = 'Camp Registration:{} {} {} {}'.format(name,phone, email, batch)
-        message = "Name: {}\n Phone: {}\n Email: {}\n Batch: {}".format(name,phone,email, batch)
+        time = form.data['timeslot']
+        subject = 'Camp Registration:{} {} {} {} {}'.format(name,phone, email, batch, time)
+        message = "Name: {}\n Phone: {}\n Email: {}\n Batch: {}\n Time: {}".format(name,phone,email, batch, time)
         send_mail(subject,
                   message, EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
 
