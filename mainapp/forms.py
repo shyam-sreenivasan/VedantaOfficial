@@ -9,3 +9,4 @@ class CampRegistration(forms.Form):
     name = forms.CharField(label="email", required=True)
     name = forms.CharField(label="batch", required=True)
     name = forms.CharField(label="timeslot", required=True)
+    name = forms.CharField(label="city", required=True)
