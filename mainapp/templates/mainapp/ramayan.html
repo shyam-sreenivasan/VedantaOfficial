@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 <style>
 body {font-family: "Times New Roman", Georgia, Serif;}
 h1, h2, h3, h4, h5, h6 {
@@ -23,6 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 <meta property="og:url" content="http://www.vedantapeetam.org/ramayana" />
 <meta property="og:image" content="http://www.vedantapeetam.org/static/mainapp/ramar-lanka.gif" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -40,11 +42,56 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '335636924252935');
 fbq('track', 'PageView');
 </script>
+<script src="https://use.fontawesome.com/7980032ffc.js"></script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
 /></noscript>
+
 <!-- End Facebook Pixel Code -->
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+</style>
 
 <body>
 
@@ -54,9 +101,9 @@ src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
     <a href="#home" class="w3-bar-item w3-button">Kids Summer Camp Ramayana</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">About</a>
-      <a href="#menu" class="w3-bar-item w3-button">Details</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+<!--      <a href="#about" class="w3-bar-item w3-button">About</a>-->
+<!--      <a href="#menu" class="w3-bar-item w3-button">Details</a>-->
+<!--      <a href="#contact" class="w3-bar-item w3-button">Contact</a>-->
     </div>
   </div>
 </div>
@@ -71,12 +118,30 @@ src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
 </header>
 
 {% if registered %}
-   <p><p><p><br> <h1>Congratulations! your spot is reserved.  We will contact you.
+   <p><p><p><br> <h1>Congratulations! your spot is reserved.  We will contact you soon with more details.
   <a href="http://www.vedantapeetam.org/#testimonials">Meanwhile checkout parent testimonials here</a></h1></p>
 {% endif %}
 <!-- Page content -->
 
-<div class="container">
+
+<div class="w3-content" style="max-width:1100px">
+
+
+  <div class="w3-row w3-padding-64" id="signup">
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Kids Summer camp Ramayana Story</h1><br>
+      <h2 class="w3-center">Signup</h2>
+      <form action="ramayana/register" method='POST'>
+      {% csrf_token %}
+      <p><input class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>
+        <p><input class="w3-input w3-padding-16" type="text" name="phone" placeholder="Phone" required ></p>
+      <p><button class="w3-button w3-light-grey w3-section" type="submit">I'm interested, send more details</button></p>
+    </form>
+
+    </div>
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+
+
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -136,9 +201,41 @@ src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
-<div class="w3-content" style="max-width:1100px">
 
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>Listening</h3>
+      <p></p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Focus</h3>
+
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Imagination</h3>
+      <p>Devotion</p>
+      <p>Some text</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Card 4</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+</div>
   <!-- About Section -->
   <div class="w3-row w3-padding-64" id="about">
     <div class="w3-col m6 w3-padding-large w3-hide-small">
@@ -147,8 +244,7 @@ src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
     </div>
 
     <div class="w3-col m6 w3-padding-large">
-      <h1 class="w3-center">Ramayana Kids Story Camp 2021</h1><br>
-      <h2 class="w3-center">How it benefits my child?</h2>
+      <h2 class="w3-center">Benefits</h2>
       <br>
         <p class="w3-large">
             <ul>
@@ -168,56 +264,40 @@ src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
 
   <hr>
 
-  <!-- Menu Section -->
-  <div class="w3-row w3-padding-64" id="menu">
-    <div class="w3-col l6 w3-padding-large">
-      <h1 class="w3-center">Virtual online Camp Details</h1><br>
-      <h4>How long is the virtual camp?</h4>
-      <p class="w3-text-grey">2 Week 10-day camp, Monday to Friday total immersion for two weeks</p><br>
-      <h4>What is the Duration?</h4>
-      <p class="w3-text-grey">30-minute "Katha"(Story) session each day</p><br>
-      <h4>When is this starting?</h4>
-      <p class="w3-text-grey">This Summer: Choose from May,June,July or August batches</p><br>
-      <h4>What is the mode of virtual camp?</h4>
-      <p class="w3-text-grey">Virtual Camp will be online through zoom</p><br>
-      <h4>Fees</h4>
-      <p class="w3-text-grey">$99 (includes 300 minutes of morals, 30 minutes/day for 10 days)</p><br>
-    </div>
-    <div class="w3-col l6 w3-padding-large">
-      <img src="{% static 'mainapp/ramayan-camp.png' %}" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
-    </div>
-  </div>
+<!--  &lt;!&ndash; Menu Section &ndash;&gt;-->
+<!--  <div class="w3-row w3-padding-64" id="menu">-->
+<!--    <div class="w3-col l6 w3-padding-large">-->
+<!--      <h1 class="w3-center">Virtual online Camp Details</h1><br>-->
+<!--      <h4>How long is the virtual camp?</h4>-->
+<!--      <p class="w3-text-grey">2 Week 10-day camp, Monday to Friday total immersion for two weeks</p><br>-->
+<!--      <h4>What is the Duration?</h4>-->
+<!--      <p class="w3-text-grey">30-minute "Katha"(Story) session each day</p><br>-->
+<!--      <h4>When is this starting?</h4>-->
+<!--      <p class="w3-text-grey">This Summer: Choose from May,June,July or August batches</p><br>-->
+<!--      <h4>What is the mode of virtual camp?</h4>-->
+<!--      <p class="w3-text-grey">Virtual Camp will be online through zoom</p><br>-->
+<!--      <h4>Fees</h4>-->
+<!--      <p class="w3-text-grey">$99 (includes 300 minutes of morals, 30 minutes/day for 10 days)</p><br>-->
+<!--    </div>-->
+<!--    <div class="w3-col l6 w3-padding-large">-->
+<!--      <img src="{% static 'mainapp/ramayan-camp.png' %}" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">-->
+<!--    </div>-->
+<!--  </div>-->
 
-  <hr>
+<!--  <hr>-->
 
-  <!-- Contact Section -->
-  <div class="w3-container w3-padding-64" id="contact">
-    <h1>Save a spot Now, and pay later!</h1><br>
-    <p>You will be contacted with more details in the upcoming weeks</p>
-    <p class="w3-text-blue-grey w3-large"><b>You can also send a Whatsapp Message to +1-408-469-6204</b></p>
-    <form action="ramayana/register" method='POST'>
-      {% csrf_token %}
-      <p><input class="w3-input w3-padding-16" type="text" name="name" placeholder="Name" required ></p>
-      <p><input class="w3-input w3-padding-16" type="text" name="phone" placeholder="Phone" required ></p>
-      <p><input class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>
-      <p><input class="w3-input w3-padding-16" type="text" name="city" placeholder="City,State,Country" required></p>
-      <label class="w3-input w3-padding-16">Choose a batch:</label>
-      <select name="batch" class="w3-input w3-padding-16" required id="batch">
-        <option value="May">May</option>
-        <option value="June">June</option>
-        <option value="July">July</option>
-        <option value="August">August</option>
-      </select>
-      <label class="w3-input w3-padding-16">Choose a Timeslot:</label>
-      <select name="timeslot" class="w3-input w3-padding-16" required id="time">
-        <option value="10AM">10:00AM - 10:30AM PST</option>
-        <option value="02PM">02:00PM - 02:30PM PST</option>
-        <option value="04PM">04:00PM - 04:30PM PST</option>
-        <option value="08PM">08:00PM - 08:30PM PST</option>
-      </select>
-      <p><button class="w3-button w3-light-grey w3-section" type="submit">Save my spot, I ll pay later</button></p>
-    </form>
-  </div>
+<!--  &lt;!&ndash; Contact Section &ndash;&gt;-->
+<!--  <div class="w3-container w3-padding-64" id="contact">-->
+<!--    <h1>Signup</h1><br>-->
+<!--&lt;!&ndash;    <p>You will be contacted with more details in the upcoming weeks</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p class="w3-text-blue-grey w3-large"><b>You can also send a Whatsapp Message to +1-408-469-6204</b></p>&ndash;&gt;-->
+<!--    <form action="ramayana/register" method='POST'>-->
+<!--      {% csrf_token %}-->
+<!--      <p><input class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>-->
+<!--        <p><input class="w3-input w3-padding-16" type="text" name="phone" placeholder="Phone" required ></p>-->
+<!--      <p><button class="w3-button w3-light-grey w3-section" type="submit">Save my spot</button></p>-->
+<!--    </form>-->
+<!--  </div>-->
 
 <!-- End page content -->
 </div>
