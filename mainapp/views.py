@@ -22,20 +22,21 @@ def register_ramayana(request):
     form = CampRegistration(request.POST)
 
     if form.is_valid():
-        name = form.data['name']
+        #name = form.data['name']
         phone = form.data['phone']
         email = form.data['email']
-        batch = form.data['batch']
-        time = form.data['timeslot']
-        city = form.data['city']
-        subject = 'Camp Registration:{} {} {} {} {} {}'.format(name,phone, email, batch, time, city)
-        message = "Name: {}\n Phone: {}\n Email: {}\n Batch: {}\n Time: {}\n City: {}".format(name,phone,email, batch, time, city)
+        # batch = form.data['batch']
+        # time = form.data['timeslot']
+        # city = form.data['city']
+        subject = 'Camp Registration:{} {}'.format(phone, email)
+        message = "Phone: {}\n Email: {}\n ".format(phone,email)
         send_mail(subject,
                   message, EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
-
+        print ('Email sent')
         context = {'registered' : True}
         return ramayana(request,context)
     else:
+        print ('cant send email as form is not valid')
         return ramayana(request)
 
 def index(request):
