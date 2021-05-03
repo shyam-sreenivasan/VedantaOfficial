@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+{% load static %}
 <title>Ramayana Summer camp</title>
 <meta property="og:title" content="Ramayana Summer Camp for kids" />
 <meta property="og:description" content="10-day Summer camp on Ramayana for kids 6+ years" />
@@ -9,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
 <style>
 body {font-family: "Times New Roman", Georgia, Serif;}
 h1, h2, h3, h4, h5, h6 {
@@ -19,14 +21,11 @@ h1, h2, h3, h4, h5, h6 {
 
 {% load static %}
 <head>
-<meta property="og:title" content="Ramayana Summer Camp for kids" />
-<meta property="og:description" content="10-day Summer camp on Ramayana for kids 6+ years" />
-<meta property="og:url" content="http://www.vedantapeetam.org/ramayana" />
-<meta property="og:image" content="http://www.vedantapeetam.org/static/mainapp/ramar-lanka.gif" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <!-- Facebook Pixel Code -->
 <script>
@@ -92,7 +91,81 @@ body {
   background-color: #f1f1f1;
 }
 </style>
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
 
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  background: #f1f1f1f1;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #888;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+    text-align: center;
+    padding: 20px;
+    background: #ddd;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic; font-size: 16px;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
+</style>
 <body>
 
 <!-- Navbar (sit on top) -->
@@ -118,7 +191,7 @@ body {
 </header>
 
 {% if registered %}
-   <p><p><p><br> <h1>Congratulations! your spot is reserved.  We will contact you soon with more details.
+   <p><p><p><br> <h1>Your spot is reserved.  We will contact you soon with more details.
   <a href="http://www.vedantapeetam.org/#testimonials">Meanwhile checkout parent testimonials here</a></h1></p>
 {% endif %}
 <!-- Page content -->
@@ -141,9 +214,137 @@ body {
     </div>
     <div class="w3-col m6 w3-padding-large w3-hide-small">
 
+      <center><h2>Testimonials</h2></center>
+      <div class="slideshow-container">
+
+<div class="mySlides">
+  <q>Parthaji is a master storyteller.His narration is very interesting and entertaining yet simple for young kids to understand. His energy and enthusiasm is captivating. Nevertheless,the lessons to be learned are not lost in the fun.”Think before act”. “Never to poison a mind”few lessons that the kids learned
+If we want to instill ethics, righteousness and respect in kids then what better way than obsorbing the values of Ramayana.Heartfelt Thanks to Vedanta Peetam for organizing this summer camp.</q>
+  <br>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+  <p class="author">- Suma Duvvuri, Cupertino, CA</p>
+</div>
+
+<div class="mySlides">
+  <q>Ramayana story time by Parthaji during shloka class, is very engaging and interesting for kids as he narrates the story with lot of expressions. It helps them imbibe lot of moral values. It has helped my daughter learn values like discipline, honesty and concentration as Parthaji always stresses on these values during narration. Ramayana is the greatest love story which I really want my daughter to listen and understand. It has also helped her know the importance of Aadityahrudayam shloka which she is learning in the shloka class.</q>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+  <p class="author">- Shilpa Balaji, Bangalore, India</p>
+</div>
+
+<div class="mySlides">
+  <q>My daughter has been attending Parthajee’s Shloka class every week. We are absolutely amazed how much our daughter learned in these past few months. She has been learning and enjoying the class very much and looks forward to learn more new shlokas every week. We have been receiving the shlokas to practice at home after every shloka class which has helped our daughter get better at the shlokas. The gem system has been really encouraging and helpful for all the children! We can’t wait for our daughter to attend the Ramayan Summer camp!!🙏🏻🙏🏻</q>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+  <p class="author">- Jeya Khemani, New York, US</p>
+</div>
+
+        <div class="mySlides">
+  <q>My daughter has been attending Parthajee’s Shloka class every week. We are absolutely amazed how much our daughter learned in these past few months. She has been learning and enjoying the class very much and looks forward to learn more new shlokas every week. We have been receiving the shlokas to practice at home after every shloka class which has helped our daughter get better at the shlokas. The gem system has been really encouraging and helpful for all the children! We can’t wait for our daughter to attend the Ramayan Summer camp!!🙏🏻🙏🏻</q>
+          <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+  <p class="author">- Jeya Khemani, New York, US</p>
+</div>
+
+        <div class="mySlides">
+  <q>For the past few months, my son has been attending Partha Sir’s sloka lessons where he ends each session with the Ramayana story. He uses simple and descriptive language to help the kids understand the story in an entertaining way. He never fails to finish class by teaching an important life lesson to the kids. As a parent, I too enjoy listening in on the story.</q>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+          <p class="author">- Lakshmi Prasad, Cupertino, US</p>
+</div>
+        <div class="mySlides">
+  <q>Ramayana story for kids is really inspiring and motivates them with positive thoughts, interesting to attend classes every week 😊 Also Partaji narrates the story in a way kids understands in a easy way.</q>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+          <p class="author">- Bindu Musunuru, Cupertino, US</p>
+</div>
+        <div class="mySlides">
+  <q>Parthaji is telling the Ramayana story in very details and a beautiful way. My son really loves to listen. Thank you !!</q>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+          <p class="author">- Meenakshi Srivastava, US</p>
+</div>
+
+        <div class="mySlides">
+  <q>Ramayana story time during the shloka class came as a pleasant surprise to me. Just the shloka class itself was a treat for us. Our children learning these precious texts along with their meanings, is any parents best intentions towards a child, but learning the beautiful story of Ramayana in the shloka class was cherry on the cake. Irrespective of the parent's knowledge of Ramayana, seldom do children and parents find time to sit and talk about anything other than academics or domestic ongoings. The void of grandparents, who would have taken time to tell the children these stories lovingly and patiently is filled with these Ramayana story sessions. Ishaan enjoys these sessions a lot and whenever he makes references to Ramayana story and characters, it just fills us with a feeling of bliss, of "Thank God, I did something right, for once, by enrolling him at Vedanta Peetham" all thanks to Ramaji and Parthaji and their dedication to educating and nurturing our children.</q>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+          <p class="author">- Raki Katta, Cupertino, US</p>
+</div>
+        <div class="mySlides">
+  <q>We like the “Story time “ because it gives the Children a chance to learn about our history, the epic books and the greatness of our culture. We really appreciate the time and effort that goes into the story telling that can keep the kids interested and stay focused. As human beings, we all need a constant reminder to follow a good path to do good for the humanity like the personalities in the stories. Please include stories of the great leaders who fought for our nation in the future.</q>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+          <p class="author">- Soujanya Nallan, Texas, US</p>
+</div>
+        <div class="mySlides">
+  <q>The whole sloka class is really Awesome, especially when it's time for the Ramayana story, Aarna loves it. They say it in simple language where the kids of all age group can understand and follow it. I couldn't ask for more.</q>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+          <p class="author">- Lalitha Uppada, US</p>
+</div>
 
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="mySlides">
+  <q>Aarush is born in USA. But i always wanted him to learn and adhere to our Hindu mythology. I am so glad and thankful for enrolling Aarush to Vedanta Vidya peetam . Within one year i could see a huge difference in him . I will share an example. We live on the north east and the diversity at school
+Is very less. Aarush has been facing the skin color difference issues. He had his friends ask him “Y do you look different from us and y do you eat different from us” . Being a parent i feel so bad my kiddo is undergoing this. Recently when he said someone hurt his feelings saying “ your food looks weird “ i felt so bad and i told him y dont you talk back and say its my traditional food and i like them and i am eating. What bothers you” . But my son told me if i say that it might hurt his feeling . I don’t want to be a mean person. He said he has learnt it from the ramayana stories from his sloka class that we should be kind to others even if they are unkind or unfair. Listening to these stories in early stages of life will definitely helps kids to become a really kind, loving and caring human being .</q>
+  <p> <img src="{% static '/mainapp/icons/star.png' %}" width="25"><img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25"> <img src="{% static '/mainapp/icons/star.png' %}" width="25">  </p>
+          <p class="author">- Vidya Venkataraman, Maine, US</p>
+</div>
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+
+<div class="dot-container">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+
+
+
+    </div>
+  </div>
+
+  
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+
+     <div id="myCarousel2" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -201,16 +402,6 @@ body {
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-    </div>
-  </div>
-
-  
-  <!-- About Section -->
-  <div class="w3-row w3-padding-64" id="about">
-    <div class="w3-col m6 w3-padding-large w3-hide-small">
-
-     <img src="{% static 'mainapp/Jaisriram.jpeg' %}" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
     </div>
 
     <div class="w3-col m6 w3-padding-large">
@@ -256,20 +447,21 @@ body {
 
 <!--  <hr>-->
 
-<!--  &lt;!&ndash; Contact Section &ndash;&gt;-->
-<!--  <div class="w3-container w3-padding-64" id="contact">-->
-<!--    <h1>Signup</h1><br>-->
-<!--&lt;!&ndash;    <p>You will be contacted with more details in the upcoming weeks</p>&ndash;&gt;-->
-<!--&lt;!&ndash;    <p class="w3-text-blue-grey w3-large"><b>You can also send a Whatsapp Message to +1-408-469-6204</b></p>&ndash;&gt;-->
-<!--    <form action="ramayana/register" method='POST'>-->
-<!--      {% csrf_token %}-->
-<!--      <p><input class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>-->
-<!--        <p><input class="w3-input w3-padding-16" type="text" name="phone" placeholder="Phone" required ></p>-->
-<!--      <p><button class="w3-button w3-light-grey w3-section" type="submit">Save my spot</button></p>-->
-<!--    </form>-->
-<!--  </div>-->
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-64" id="contact">
+    <h1>Signup</h1><br>
+<!--    <p>You will be contacted with more details in the upcoming weeks</p>-->
+<!--    <p class="w3-text-blue-grey w3-large"><b>You can also send a Whatsapp Message to +1-408-469-6204</b></p>-->
+    <form action="ramayana/register" method='POST'>
+      {% csrf_token %}
+      <p><input class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>
+        <p><input class="w3-input w3-padding-16" type="text" name="phone" placeholder="Phone" required ></p>
+      <p><button class="w3-button w3-light-grey w3-section" type="submit">I'm interested, Send more details</button></p>
+    </form>
+  </div>
 
 <!-- End page content -->
+
 </div>
 
 <!-- Footer -->
