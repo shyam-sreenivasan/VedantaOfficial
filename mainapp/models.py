@@ -68,3 +68,9 @@ class GroupLesson(models.Model):
     notes = models.CharField(max_length=300, null=True, default='')
     def __str__(self):
         return "{} - {}".format(self.group.group_name, self.lesson.lesson)
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=250)
+    comment = models.CharField(max_length=2500)
+    rating = models.IntegerField()
+    date = models.DateField(default='2021-05-05')

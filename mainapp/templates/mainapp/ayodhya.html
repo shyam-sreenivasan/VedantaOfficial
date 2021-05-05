@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<title>Ramayana Summer Camp</title>
+<meta charset="UTF-8">
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link href="https://fonts.googleapis.com/css?family=Lato|Patua+One&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'>
+      <link rel="stylesheet" href="{% static 'mainapp/ramayana/style.css' %}">
+
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/ram_mandir.jpg");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">SIGNUP</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black">TESTIMONIALS</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#menu" class="w3-button w3-block w3-black">WHY RAMAYANA</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#where" class="w3-button w3-block w3-black"></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class=" w3-display-container w3-grayscale-min" id="home">
+<!--  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">-->
+<!--    <span class="w3-tag">Open from 6am to 5pm</span>-->
+<!--  </div>-->
+<!--  <div class="w3-display-middle w3-center">-->
+<!--    <span class="w3-text-white" style="font-size:90px">the<br>Cafe</span>-->
+<!--  </div>-->
+<!--  <div class="w3-display-bottomright w3-center w3-padding-large">-->
+<!--    <span class="w3-text-white">15 Adr street, 5015</span>-->
+<!--  </div>-->
+</header>
+
+{% if registered %}
+   <p><p><p><br> <h2>Your spot is reserved.  We will contact you soon with more details.
+  <a href="http://www.vedantapeetam.org/#testimonials">Meanwhile checkout parent testimonials here</a></h2></p>
+{% endif %}
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Ramayana Summer Camp 2021</span></h5>
+      <center><h2>Signup</h2></center>
+    <form action="/ramayana/register" method='POST'>
+      {% csrf_token %}
+      <p><input class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>
+        <p><input class="w3-input w3-padding-16" type="text" name="phone" placeholder="Phone" required ></p>
+      <p><button class="w3-button w3-green w3-section" type="submit">I'm interested, send more details</button></p>
+    </form>
+  </div>
+</div>
+
+    <div class="container">
+        <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">TESTIMONIALS</span></h5>
+  <div class="testiSlide">
+      {% for t in testimonials %}
+    <div>
+      <figure class="testimonial">
+        <blockquote>{{t.comment}}
+          <div class="btn"></div>
+        </blockquote>
+        <div class="people">
+          <h4>{{t.name}}</h4>
+        </div>
+      </figure>
+    </div>
+      {% endfor %}
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
+
+    <script>
+        $(document).ready(function () {
+ $('.testiSlide').slick({
+ slidesToShow: 2,
+ slidesToScroll: 1,
+ autoplay: true,
+ autoplaySpeed: 1500,
+ responsive: [{
+ breakpoint: 850,
+ settings: {
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ infinite: true,
+ }
+ }]
+ });
+});
+    </script>
+
+
+
+
+<!-- Contact/Area Container -->
+<div class="w3-container" id="WHY RAMAYANA" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHY RAMAYANA?</span></h5>
+    <p class="w3-large">
+            <ul>
+        <li class="w3-large">listening skills improve when your child follows a story through narration</li>
+        <li class="w3-large">your child's attention span and focus increases through listening. </li>
+        <li class="w3-large">imaginative skills develop in a child when following along several turning points in the story and visualizing the
+            scenes and trying to put pictures for  words</li>
+        <li class="w3-large">devotion towards God can easily be planted in young minds through stories.
+      </ul>
+      <p class="w3-large">
+        Valmiki's Ramayana is one the greatest epics of all time teaching morals and values to humanity. Rama, the hero of Ramayana,  the incarnation of Vishnu, had shown how to live a quality life practicing dharmic principles while being brave and smart.
+        There can be no other better resource to teach behavior and conduct to children than through the story of Ramayana as shown by Rama and Sita.
+
+  </div>
+</div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Visit <a href="http://www.vedantapeetam.org" title="Vedanta Peetam" target="_blank" class="w3-hover-text-green">Vedanta Peetam</a></p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>

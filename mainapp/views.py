@@ -9,9 +9,12 @@ from django.core import serializers
 from bs4 import BeautifulSoup
 from .models import GroupLesson, Group, Course, Lesson, Progress
 from .forms import CourseSelector
+from .models import Testimonial
 
 def ramayana(request, context={}):
-    template = loader.get_template('mainapp/ramayan.html')
+    tlist = Testimonial.objects.all()
+    context['testimonials'] = tlist
+    template = loader.get_template('mainapp/ayodhya.html')
     return HttpResponse(template.render(context, request))
 
 def register_ramayana(request):
