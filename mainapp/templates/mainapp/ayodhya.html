@@ -71,23 +71,23 @@ body, html {
 
 <!-- About Container -->
 
-<!--<div class="w3-container" id="about">-->
-<!--  <div class="w3-content" style="max-width:700px">-->
-<!--    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Ramayana Summer Camp 2021</span></h5>-->
-<!--      <center><h2>Signup</h2></center>-->
-<!--    <form action="/ramayana/register" method='POST'>-->
-<!--      {% csrf_token %}-->
-<!--      <p><input class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>-->
-<!--        <p><input class="w3-input w3-padding-16" type="text" name="phone" placeholder="Phone" required ></p>-->
-<!--      <p><button class="w3-button w3-green w3-section" type="submit">I'm interested, send more details</button></p>-->
-<!--    </form>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Ramayana Summer Camp 2021</span></h5>
+
+    <form action="/ramayana/register" method='POST'>
+      {% csrf_token %}
+      <p><input class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>
+        <p><input class="w3-input w3-padding-16" type="text" name="phone" placeholder="Phone" required ></p>
+      <p><button class="w3-button w3-green w3-section" type="submit">I'm interested, send more details</button></p>
+    </form>
+  </div>
+</div>
 
     <div class="container">
-      <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">SIGNUP</span></h5>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfqeqOm8lNTydB8m21c7pdCHGHKx0lca3qS3ebQY-h5FCJrZQ/viewform?embedded=true" width="1000" height="1200" frameborder="0" marginheight="0" marginwidth="0" >Loading…</iframe>
-        <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">TESTIMONIALS</span></h5>
+<!--      <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">SIGNUP</span></h5>-->
+<!--      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfqeqOm8lNTydB8m21c7pdCHGHKx0lca3qS3ebQY-h5FCJrZQ/viewform?embedded=true" width="640" height="1027" frameborder="0" marginheight="0" marginwidth="0" >Loading…</iframe>-->
+<!--        <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">TESTIMONIALS</span></h5>-->
   <div class="testiSlide">
       {% for t in testimonials %}
     <div>
@@ -109,7 +109,7 @@ body, html {
     <script>
         $(document).ready(function () {
  $('.testiSlide').slick({
- slidesToShow: 2,
+ slidesToShow: 1,
  slidesToScroll: 1,
  autoplay: true,
  autoplaySpeed: 4000,
