@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<title>Ramayana Summer Camp</title>
+<meta charset="UTF-8">
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link href="https://fonts.googleapis.com/css?family=Lato|Patua+One&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'>
+      <link rel="stylesheet" href="{% static 'mainapp/ramayana/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/ram_mandir.jpg");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+
+</style>
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+
+<!-- Header with image -->
+<header class="w3-display-container w3-grayscale-min" id="home">
+
+</header>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+<body background-color="#ffffff">
+<div class="w3-top">
+  <div class="w3-row w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">Home</a>
+    </div>
+
+      <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">FAQ</a>
+    </div>
+      <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">About</a>
+    </div>
+      <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">Contact</a>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<center><h2>Your child's wisdom of Ramayana is just one step away!</h2></center>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Details</h3>
+            <br><br>
+            <label></i>Regular Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; $149.00</label>
+            <label style="background-color: #FFFF00"></i>Early-bird discount&nbsp;:&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;50.00</label>
+            <label></i>Payment due today:&nbsp;&nbsp;&nbsp;$&nbsp;99.00</label>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+    <div id="smart-button-container">
+      <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+<!--  <div class="col-25">-->
+<!--    <div class="container">-->
+<!--      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>-->
+<!--      <p><a href="#">Product 1</a> <span class="price">$15</span></p>-->
+<!--      <p><a href="#">Product 2</a> <span class="price">$5</span></p>-->
+<!--      <p><a href="#">Product 3</a> <span class="price">$8</span></p>-->
+<!--      <p><a href="#">Product 4</a> <span class="price">$2</span></p>-->
+<!--      <hr>-->
+<!--      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>-->
+<!--    </div>-->
+<!--  </div>-->
+</div>
+
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-white w3-large">
+
+<!-- About Container -->
+{% load static %}
+
+<div class="w3-container" id="about">
+    <br><br>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"description":"Ramayana Summer Camp","amount":{"currency_code":"USD","value":1}}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
+</div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
+
+    <script>
+        $(document).ready(function () {
+ $('.testiSlide').slick({
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ autoplay: true,
+ autoplaySpeed: 4000,
+ responsive: [{
+ breakpoint: 850,
+ settings: {
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ infinite: true,
+ }
+ }]
+ });
+});
+    </script>
+
+<center>
+<footer style="max-width:2000px" class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Visit <a href="http://www.vedantapeetam.org" title="Vedanta Peetam" target="_blank" class="w3-hover-text-green">Vedanta Peetam</a></p>
+</footer>
+  </center>
+</body>
+</html>

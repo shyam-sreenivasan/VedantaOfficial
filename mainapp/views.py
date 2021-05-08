@@ -17,6 +17,36 @@ def ramayana(request, context={}):
     template = loader.get_template('mainapp/ayodhya.html')
     return HttpResponse(template.render(context, request))
 
+def confirm_ramayana(request):
+    from django.core.mail import send_mail
+    from vvpsite.settings import EMAIL_HOST_USER
+    from .forms import CampConfirmation
+    form = CampConfirmation(request.POST)
+
+    context = {}
+    tlist = Testimonial.objects.all()
+    context['testimonials'] = tlist
+    if form.is_valid():
+        child = form.data['child']
+        parent = form.data['name']
+        grade = form.data['grade']
+        email = form.data['email']
+        city = form.data['city']
+        subject = \
+            'Camp Confirmation:{} {} {} {} {}'.\
+                format(child, parent, grade, city, email)
+        send_mail(subject,
+                  "", EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
+        context['registered'] = True
+
+        template = loader.get_template('mainapp/show-payment.html')
+        return HttpResponse(template.render(context, request))
+    else:
+        print ('form is not valid {} and form has {}'.format(form.errors, form))
+        template = loader.get_template('mainapp/ramayana-register.html')
+    return HttpResponse(template.render(context, request))
+
+
 def register_ramayana(request):
     #send email
     from django.core.mail import send_mail
