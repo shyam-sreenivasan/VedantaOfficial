@@ -26,6 +26,74 @@ body, html {
 .menu {
   display: none;
 }
+
+main {display: flex;}
+main > * {border: 1px solid;}
+table {border-collapse: collapse; font-family: helvetica}
+td, th {border:  1px solid;
+      padding: 10px;
+      min-width: 200px;
+      background: white;
+      box-sizing: border-box;
+      text-align: left;
+}
+.table-container {
+  position: relative;
+  max-height:  500px;
+  width: 1200px;
+
+}
+
+thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: hsl(20, 50%, 70%);
+}
+
+thead th:first-child {
+  left: 0;
+  z-index: 3;
+}
+
+tfoot {
+  position: -webkit-sticky;
+  bottom: 0;
+  z-index: 2;
+}
+
+tfoot td {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: hsl(20, 50%, 70%);
+}
+
+tfoot td:first-child {
+  z-index: 3;
+}
+
+tbody {
+  overflow: scroll;
+  height: 200px;
+}
+
+/* MAKE LEFT COLUMN FIXEZ */
+tr > :first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  background: hsl(180, 50%, 70%);
+  left: 0;
+}
+/* don't do this */
+tr > :first-child {
+  box-shadow: inset 0px 1px black;
+}
+
+
+
+
 </style>
 <body>
 
@@ -143,7 +211,7 @@ fbq('track', 'PageView');
 
 <!-- Contact/Area Container -->
 <div class="w3-container" id="WHY RAMAYANA" style="padding-bottom:32px;">
-  <div class="w3-content" style="max-width:700px">
+  <div class="w3-content" style="max-width:600px">
     <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHY RAMAYANA?</span></h5>
     <p class="w3-large">
             <ul>
@@ -157,6 +225,27 @@ fbq('track', 'PageView');
         Valmiki's Ramayana is one the greatest epics of all time teaching morals and values to humanity. Rama, the hero of Ramayana,  the incarnation of Vishnu, had shown how to live a quality life practicing dharmic principles while being brave and smart.
         There can be no other better resource to teach behavior and conduct to children than through the story of Ramayana as shown by Rama and Sita.
 
+  </div>
+  <div class="w3-content" style="max-width:700px">
+        <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">Summer Camp Batches</span></h5>
+    <div class="table-container">
+
+  <div class="table-horizontal-container">
+
+    <table class="unfixed-table">
+      <thead>
+        <tr><th>Batch Name</th><th>Month</th><th>Tentative dates</th><th>Tentative Time</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>Panchavati</th><td>June</td><td>14th - 24th of June</td><td>10.30AM - 11.30AM PST</td></tr>
+        <tr><th>Chitrakoot</th><td>July</td><td>19th - 29th of July</td><td>10.30AM - 11.30AM PST</td></tr>
+        <tr><th>Panchavati</th><td>June</td><td>03rd - 13th of August</td><td>10.30AM - 11.30AM PST</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</object>
+</article>
   </div>
 </div>
 
