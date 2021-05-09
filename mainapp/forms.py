@@ -17,3 +17,6 @@ class CampConfirmation(forms.Form):
     child = forms.CharField(label="child", required=True)
     grade = forms.CharField(label="grade", required=True)
     city = forms.CharField(label="city", required=True)
+    pref_1 = forms.CharField(label="pref_1", required=True)
+    pref_1 = forms.CharField(label="pref_2", required=True)
+    pref_1 = forms.CharField(label="pref_3", required=True)

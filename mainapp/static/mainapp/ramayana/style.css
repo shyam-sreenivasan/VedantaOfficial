@@ -224,3 +224,16 @@ figure.testimonial .peopl h3 {
 .slick-next:before {
  content: "";
 }
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+
+}
+
+.flex-container > div {
+  #background-color: #f1f1f1;
+
+  margin: 10px;
+
+}

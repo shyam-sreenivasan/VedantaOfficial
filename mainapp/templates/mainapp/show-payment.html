@@ -169,18 +169,20 @@ for (i = 0; i < acc.length; i++) {
 <div class="w3-top">
   <div class="w3-row w3-black">
     <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">Home</a>
-    </div>
-
-      <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">FAQ</a>
+      <a href="#top" class="w3-button w3-block w3-black">Home</a>
     </div>
       <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">About</a>
+      <a href="#FAQ" class="w3-button w3-block w3-black">FAQ</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#testimonials" class="w3-button w3-block w3-black">Testimonials</a>
     </div>
       <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">Contact</a>
-    </div>
+      <a href="#about" class="w3-button w3-block w3-black">About</a>
+<!--    </div>-->
+<!--      <div class="w3-col s3">-->
+<!--      <a href="#contact" class="w3-button w3-block w3-black">Contact</a>-->
+<!--    </div>-->
   </div>
 </div>
 <br>
@@ -222,7 +224,7 @@ for (i = 0; i < acc.length; i++) {
 <!-- About Container -->
 {% load static %}
 
-<div class="w3-container" id="about">
+<div class="w3-container">
     <br><br>
   <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
   <script>
@@ -279,7 +281,7 @@ for (i = 0; i < acc.length; i++) {
 });
     </script>
 
-<div class="w3-content" >
+<div id="testimonials" class="w3-content" >
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Parent Testimonials</span></h5>
 <!--      <div class="container">-->
 <!--    <div class="testiSlide">-->
@@ -312,7 +314,7 @@ for (i = 0; i < acc.length; i++) {
   </div>
 </div>
   </div>
-    <div class="w3-content" style="max-width:1000px">
+    <div id="FAQ" class="w3-content" style="max-width:1000px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Frequently Asked Questions</span></h5>
 <button class="accordion">Why is it a 9-day camp?</button>
 <div class="panel">
@@ -347,7 +349,7 @@ for (i = 0; i < acc.length; i++) {
 
     </div>
 
-    <div class="w3-content" style="max-width:1000px">
+    <div  id="about" class="w3-content" style="max-width:1000px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">About us</span></h5>
       <div>
 
@@ -362,7 +364,7 @@ Vedanta Peetam also organizes Yoga Meditation classes called Dhyana Yoga through
     </div>
     </div>
 
-  <div class="w3-content" style="max-width:1000px">
+  <div id="contact" class="w3-content" style="max-width:1000px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Contact</span></h5>
     <div class="w3-content" style="max-width:1000px">
         <div class="row">

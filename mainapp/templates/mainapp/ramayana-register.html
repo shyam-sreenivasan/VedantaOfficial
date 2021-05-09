@@ -48,17 +48,17 @@ body {
 <div class="w3-top">
   <div class="w3-row w3-black">
     <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black"><i class="fa fa-institution" color="white"> </i>Home</a>
+      <a href="#top" class="w3-button w3-block w3-black"><i class="fa fa-institution" color="white"> </i>Home</a>
     </div>
 
       <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">Testimonials</a>
+      <a href="#Testimonials" class="w3-button w3-block w3-black">Testimonials</a>
     </div>
       <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">FAQ</a>
+      <a href="#FAQ" class="w3-button w3-block w3-black">FAQ</a>
     </div>
       <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">Contact</a>
+      <a href="#Contact" class="w3-button w3-block w3-black">Contact</a>
     </div>
   </div>
 </div>
@@ -154,17 +154,60 @@ body {
         <div class="row">
           <div class="col-50">
             <label for="child"><i class="fa fa-user"></i>Child's Full Name</label>
-            <input type="text" id="child" name="child" placeholder="John M. Doe">
+            <input type="text" id="child" name="child" placeholder="John M. Doe" required>
             <label for="name"><i class="fa fa-user"></i>Your Full Name</label>
-            <input type="text" id="name" name="name" placeholder="John M. Doe">
+            <input type="text" id="name" name="name" placeholder="John M. Doe" required>
             <label for="grade"><i class="fa fa-user"></i>Child's grade</label>
-            <input type="text" id="grade" name="grade" placeholder="4th">
+            <input type="text" id="grade" name="grade" placeholder="4th" required>
             <label for="email"><i class="fa fa-envelope"></i>Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <input type="text" id="email" name="email" placeholder="john@example.com" required>
             <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
+            <input type="text" id="city" name="city" placeholder="New York" required>
+            <div class="flex-container">
+              <div>
+            <label for="cars">1st preference</label>
+              <select name="pref_1" required>
+                <optgroup label="June">
+                  <option value="June">14th - 24th June</option>
+                </optgroup>
+                <optgroup label="July">
+                  <option value="July">19th - 29th July</option>
+                </optgroup>
+                <optgroup label="August">
+                  <option value="August">3rd - 13th August</option>
+                </optgroup>
+              </select>
+              </div>
+              <div>
+            <label for="cars">2nd preference</label>
+              <select name="pref_2" required>
+                <optgroup label="June">
+                  <option value="June" >14th - 24th June</option>
+                </optgroup>
+                <optgroup label="July">
+                  <option value="July" selected="selected">19th - 29th July</option>
+                </optgroup>
+                <optgroup label="August">
+                  <option value="August">3rd - 13th August</option>
+                </optgroup>
+              </select>
+              </div>
+              <div>
+            <label for="cars">3rd preference</label>
+              <select name="pref_3" id="cars" required>
+                <optgroup label="June">
+                  <option value="June">14th - 24th June</option>
+                </optgroup>
+                <optgroup label="July">
+                  <option value="July">19th - 29th July</option>
+                </optgroup>
+                <optgroup label="August">
+                  <option value="August" selected="selected">3rd - 13th August</option>
+                </optgroup>
+              </select>
+              </div>
+            </div>
             <input type="submit" value="Continue to payment" class="btn">
-
           </div>
         </div>
       </form>

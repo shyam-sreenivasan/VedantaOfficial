@@ -32,9 +32,12 @@ def confirm_ramayana(request):
         grade = form.data['grade']
         email = form.data['email']
         city = form.data['city']
+        p1 = form.data['pref_1']
+        p2 = form.data['pref_2']
+        p3 = form.data['pref_3']
         subject = \
-            'Camp Confirmation:{} {} {} {} {}'.\
-                format(child, parent, grade, city, email)
+            'Camp Confirmation:{} {} {} {} {} {} {} {}'.\
+                format(child, parent, grade, city, email, p1,p2,p3)
         send_mail(subject,
                   "", EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
         context['registered'] = True
