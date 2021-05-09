@@ -17,6 +17,10 @@ def ramayana(request, context={}):
     template = loader.get_template('mainapp/ayodhya.html')
     return HttpResponse(template.render(context, request))
 
+def thankyou(request):
+    template = loader.get_template('mainapp/thankyou.html')
+    return HttpResponse(template.render({}, request))
+
 def confirm_ramayana(request):
     from django.core.mail import send_mail
     from vvpsite.settings import EMAIL_HOST_USER
