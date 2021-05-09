@@ -20,3 +20,8 @@ class CampConfirmation(forms.Form):
     pref_1 = forms.CharField(label="pref_1", required=True)
     pref_1 = forms.CharField(label="pref_2", required=True)
     pref_1 = forms.CharField(label="pref_3", required=True)
+
+class EmailMessage(forms.Form):
+    name = forms.CharField(label="name", required=True)
+    email = forms.CharField(label="email", required=True)
+    message = forms.CharField(label="message", required=True)

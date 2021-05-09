@@ -324,7 +324,7 @@ tr > :first-child {
     </form>
 </div>
 
-      
+
 <button class="accordion">Why is it a 9-day camp?</button>
 <div class="panel">
   <p>It is a tradition that Ramayana should be recited or listened to for 9 days.</p>
@@ -415,16 +415,16 @@ Vedanta Peetam also organizes Yoga Meditation classes called Dhyana Yoga through
         <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="/ramayana/confirm" method="POST">
+      <form action="/ramayana/send_message" method="POST">
       {% csrf_token %}
         <div class="row">
           <div class="col-50">
             <label for="name2"><i class="fa fa-user"></i>Your Full Name</label>
-            <input type="text" id="name2" name="name" placeholder="John M. Doe">
+            <input type="text" id="name2" required name="name" placeholder="John M. Doe">
             <label for="email2"><i class="fa fa-envelope"></i>Email</label>
-            <input type="text" id="email2" name="email" placeholder="john@example.com">
-            <label for="subject"><i class="fa fa-institution"></i> Message</label>
-            <textarea  id="subject" name="subject" rows=5 placeholder="Write something here..."></textarea>
+            <input type="text" id="email2" required name="email" placeholder="john@example.com">
+            <label for="message"><i class="fa fa-institution"></i> Message</label>
+            <textarea  id="message" name="message" rows=5 placeholder="Write something here..."></textarea>
             <input type="submit" value="Send" class="btn">
           </div>
         </div>

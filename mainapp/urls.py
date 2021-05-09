@@ -8,6 +8,7 @@ urlpatterns = [
     path('ramayana/register', views.register_ramayana, name='register_ramayana'),
     path('ramayana/confirm', views.confirm_ramayana, name='confirm_ramayana'),
     path('ramayana/thankyou', views.thankyou, name='ramayana_ty'),
+    path('ramayana/send_message', views.send_message, name="send_message"),
     path('manage', views.manage, name='manage'),
     path('manage/<str:group>/', views.manage, name='manage'),
     path('manage/addcourse/<str:group>/', views.add_course, name='addcourse'),

@@ -17,6 +17,29 @@ def ramayana(request, context={}):
     template = loader.get_template('mainapp/ayodhya.html')
     return HttpResponse(template.render(context, request))
 
+def send_message(request):
+    print ('sending message')
+    from django.core.mail import send_mail
+    from vvpsite.settings import EMAIL_HOST_USER
+    from .forms import EmailMessage
+    form = EmailMessage(request.POST)
+
+    context = {}
+    tlist = Testimonial.objects.all()
+    context['testimonials'] = tlist
+    template = loader.get_template('mainapp/email_response.html')
+    if form.is_valid():
+        name = form.data['name']
+        email = form.data['email']
+        message = form.data['message']
+        subject = \
+            'Message from Customer: {} {}'.format(name, email)
+        send_mail(subject,
+                  message, EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
+        return HttpResponse(template.render({}, request))
+    else:
+        return confirm_ramayana(request)
+
 def thankyou(request):
     template = loader.get_template('mainapp/thankyou.html')
     return HttpResponse(template.render({}, request))
