@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+      <link rel="stylesheet" href="{% static 'mainapp/ramayana/testimonials.css' %}">
+<link rel="stylesheet" href="{% static 'mainapp/ramayana/faq.css' %}">
 <link href="https://fonts.googleapis.com/css?family=Lato|Patua+One&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'>
       <link rel="stylesheet" href="{% static 'mainapp/ramayana/style.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 body, html {
   height: 100%;
@@ -39,99 +41,6 @@ body {
   box-sizing: border-box;
 }
 
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
-}
-
-.col-25 {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-}
-
-.col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-}
-
-.col-75 {
-  -ms-flex: 75%; /* IE10 */
-  flex: 75%;
-}
-
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
-}
-
-.container {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
-
-input[type=text],select,textarea {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-label {
-  margin-bottom: 10px;
-  display: block;
-}
-
-.icon-container {
-  margin-bottom: 20px;
-  padding: 7px 0;
-  font-size: 24px;
-}
-
-.btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 17px;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
-
-a {
-  color: #2196F3;
-}
-
-hr {
-  border: 1px solid lightgrey;
-}
-
-span.price {
-  float: right;
-  color: grey;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-@media (max-width: 800px) {
-  .row {
-    flex-direction: column-reverse;
-  }
-  .col-25 {
-    margin-bottom: 20px;
-  }
-}
 </style>
 <body>
 
@@ -143,10 +52,10 @@ span.price {
     </div>
 
       <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">FAQ</a>
+      <a href="#" class="w3-button w3-block w3-black">Testimonials</a>
     </div>
       <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">About</a>
+      <a href="#" class="w3-button w3-block w3-black">FAQ</a>
     </div>
       <div class="w3-col s3">
       <a href="#" class="w3-button w3-block w3-black">Contact</a>
@@ -157,15 +66,7 @@ span.price {
 <!-- Header with image -->
 <header class="w3-display-container w3-grayscale-min" id="home">
 
-<!--  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">-->
-<!--    <span class="w3-tag">Open from 6am to 5pm</span>-->
-<!--  </div>-->
-<!--  <div class="w3-display-middle w3-center">-->
-<!--    <span class="w3-text-white" style="font-size:90px">the<br>Cafe</span>-->
-<!--  </div>-->
-<!--  <div class="w3-display-bottomright w3-center w3-padding-large">-->
-<!--    <span class="w3-text-white">15 Adr street, 5015</span>-->
-<!--  </div>-->
+
 </header>
 <style>
 .center {
@@ -178,96 +79,6 @@ span.price {
   display: block;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Lato);
-
-@import url(https://fonts.googleapis.com/css?family=Open Sans);
-
-.faq-heading {
-  font-family: Lato;
-  font-weight: 400;
-  font-size: 19px;
-   -webkit-transition: text-indent 0.2s;
-  text-indent: 20px;
-  color: #333;
-}
-
-.faq-text {
-  font-family: Open Sans;
-  font-weight: 400;
-  color: #919191;
-  width:95%;
-  padding-left:20px;
-  margin-bottom:30px;
-}
-
-.faq {
-  width: 1000px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 4px;
-  position: relative;
-  border: 1px solid #E1E1E1;
-}
-.faq label {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  height: 56px;
-  padding-top:1px;
-
-  background-color: #FAFAFA;
-  border-bottom: 1px solid #E1E1E1;
-}
-
-.faq input[type="checkbox"] {
-  display: none;
-}
-
-.faq .faq-arrow {
-  width: 5px;
-  height: 5px;
-  transition: -webkit-transform 0.8s;
-  transition: transform 0.8s;
-  transition: transform 0.8s, -webkit-transform 0.8s;
-  -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  border-top: 2px solid rgba(0, 0, 0, 0.33);
-  border-right: 2px solid rgba(0, 0, 0, 0.33);
-  float: right;
-  position: relative;
-  top: -30px;
-  right: 27px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
- .faq input[type="checkbox"]:checked + label > .faq-arrow {
-  transition: -webkit-transform 0.8s;
-  transition: transform 0.8s;
-  transition: transform 0.8s, -webkit-transform 0.8s;
-  -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
-}
- .faq input[type="checkbox"]:checked + label {
-  display: block;
-  background: rgba(255,255,255,255) !important;
-  color: #4f7351;
-  height: 225px;
-  transition: height 0.8s;
-  -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
- .faq input[type='checkbox']:not(:checked) + label {
-  display: block;
-  transition: height 0.8s;
-  height: 60px;
-  -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
 
 </style>
 <style>
@@ -335,15 +146,6 @@ span.price {
   </div>
 <div class="w3-content" style="max-width:1000px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Register</span></h5>
-<!--    <form action="/ramayana/confirm" method='POST'>-->
-<!--      {% csrf_token %}-->
-<!--        <p><input class="w3-input w3-padding-16" type="text" name="child" placeholder="Child's name (First Last)" required></p>-->
-<!--        <p><input class="w3-input w3-padding-16" type="text" name="name" placeholder="Your Firstname Lastname" required></p>-->
-<!--        <p><input class="w3-input w3-padding-16" type="text" name="grade" placeholder="Child's Grade" required></p>-->
-<!--      <p><input class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>-->
-<!--        <p><input class="w3-input w3-padding-16" type="text" name="city" placeholder="City,State,Country" required></p>-->
-<!--      <p><button style="float: right;color: #0d1f43; background-color:#e1bd75;"  type="submit">Continue to pay >></button></p>-->
-<!--    </form>-->
   <div class="row">
   <div class="col-75">
     <div class="container">
@@ -351,7 +153,6 @@ span.price {
       {% csrf_token %}
         <div class="row">
           <div class="col-50">
-<!--            <h3>Registration</h3>-->
             <label for="child"><i class="fa fa-user"></i>Child's Full Name</label>
             <input type="text" id="child" name="child" placeholder="John M. Doe">
             <label for="name"><i class="fa fa-user"></i>Your Full Name</label>
@@ -362,7 +163,7 @@ span.price {
             <input type="text" id="email" name="email" placeholder="john@example.com">
             <label for="city"><i class="fa fa-institution"></i> City</label>
             <input type="text" id="city" name="city" placeholder="New York">
-            <input type="submit" value="Continue to checkout" class="btn">
+            <input type="submit" value="Continue to payment" class="btn">
 
           </div>
         </div>
@@ -372,24 +173,40 @@ span.price {
   </div>
 </div>
 
-  <div class="w3-content" style="max-width:1000px">
+  <div id="Testimonials" class="w3-content" >
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Parent Testimonials</span></h5>
-    <div class="testiSlide">
-      {% for t in testimonials %}
-    <div>
-      <figure class="testimonial">
-        <blockquote>{{t.comment}}
-          <div class="btn"></div>
-        </blockquote>
-        <div class="people">
-          <h4>{{t.name}}</h4>
-        </div>
-      </figure>
+<!--      <div class="container">-->
+<!--    <div class="testiSlide">-->
+<!--      {% for t in testimonials %}-->
+<!--    <div>-->
+<!--      <figure class="testimonial">-->
+<!--        <blockquote>{{t.comment}}-->
+<!--          <div class="btn"></div>-->
+<!--        </blockquote>-->
+<!--        <div class="people">-->
+<!--          <h4>{{t.name}}</h4>-->
+<!--        </div>-->
+<!--      </figure>-->
+<!--    </div>-->
+<!--      {% endfor %}-->
+<!--  </div>-->
+<!--          </div>-->
+      <div class="content-slider">
+  <div class="slider">
+    <div class="mask">
+      <ul>
+          {% for t in testimonials %}
+        <li class="anim{{forloop.counter}}">
+          <div class="quote">"{{t.comment}}"</div>
+          <div class="source">-- {{t.name}}</div>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
-      {% endfor %}
   </div>
+</div>
   </div>
-    <div class="w3-content" style="max-width:1000px">
+    <div id="FAQ" class="w3-content" style="max-width:1000px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Frequently Asked Questions</span></h5>
 <button class="accordion">Why is it a 9-day camp?</button>
 <div class="panel">
@@ -439,7 +256,7 @@ for (i = 0; i < acc.length; i++) {
 
     </div>
 
-    <div class="w3-content" style="max-width:1000px">
+    <div id="Contact" class="w3-content" style="max-width:1000px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">About us</span></h5>
       <div>
 
