@@ -251,6 +251,14 @@ body {
   </div>
     <div id="FAQ" class="w3-content" style="max-width:1000px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Frequently Asked Questions</span></h5>
+      <button class="accordion">Where can I download Camp flyer?</button>
+<div class="panel">
+  <p>Download from below</p>
+  <form method="get" target='_blank' action="{% static 'mainapp/ramayana/Ramayana_Flyer.pdf' %}">
+      {% csrf_token %}
+    <button style="float: right;color: #0d1f43; background-color:#e1bd75;"><i class="fa fa-download">&nbsp;Download flyer</i></button>
+    </form>
+</div>
 <button class="accordion">Why is it a 9-day camp?</button>
 <div class="panel">
   <p>It is a tradition that Ramayana should be recited or listened to for 9 days.</p>

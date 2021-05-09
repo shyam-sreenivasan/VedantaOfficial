@@ -187,7 +187,11 @@ for (i = 0; i < acc.length; i++) {
 </div>
 <br>
 <br>
-
+<style>
+table, th, td {
+  border: 0px solid black;
+}
+</style>
 <center><h2>Your child's wisdom of Ramayana is just one step away!</h2></center>
 <div class="row">
   <div class="col-75">
@@ -195,19 +199,35 @@ for (i = 0; i < acc.length; i++) {
         <div class="row">
           <div class="col-50">
             <h3>Billing Details</h3>
-            <br><br>
-            <label></i>Regular Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; $149.00</label>
-            <label style="background-color: #FFFF00"></i>Early-bird discount&nbsp;:&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;50.00</label>
-            <label></i>Payment due today:&nbsp;&nbsp;&nbsp;$&nbsp;99.00</label>
+            <table>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td>Regular Price</td>
+                    <td>&nbsp;&nbsp;$149.00 &nbsp;USD</td>
+                  </tr>
+                  <tr>
+                    <td>Early-bird discount</td>
+                    <td>- $50.00 USD</td>
+                  </tr>
+                  <tr background-color="">
+                    <td>Payment due today</td>
+                    <td>&nbsp; $99.00 USD</td>
+                  </tr>
+                </table>
           </div>
 
           <div class="col-50">
             <h3>Payment</h3>
-    <div id="smart-button-container">
-      <div style="text-align: center;">
-        <div id="paypal-button-container"></div>
-      </div>
-    </div>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="2WF39SDU3J56C">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
           </div>
 
         </div>
