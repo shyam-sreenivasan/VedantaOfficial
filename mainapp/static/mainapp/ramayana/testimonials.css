@@ -42,47 +42,55 @@
 }
 
 .slider li.anim1 {
-  animation: cycle 10s linear infinite;
+  animation: cycle 15s linear infinite;
 }
 
 .slider li.anim2 {
-  animation: cycle2 10s linear infinite;
+  animation: cycle2 15s linear infinite;
 }
 
 .slider li.anim3 {
-  animation: cycle3 10s linear infinite;
+  animation: cycle3 15s linear infinite;
 }
 
 .slider li.anim4 {
-  animation: cycle4 10s linear infinite;
+  animation: cycle4 15s linear infinite;
 }
 
 .slider li.anim5 {
-  animation: cycle5 10s linear infinite;
+  animation: cycle5 15s linear infinite;
 }
 
 .slider li.anim6 {
-  animation: cycle5 10s linear infinite;
+  animation: cycle5 15s linear infinite;
 }
 
 .slider li.anim7 {
-  animation: cycle5 10s linear infinite;
+  animation: cycle5 15s linear infinite;
 }
 
 .slider li.anim8 {
-  animation: cycle5 10s linear infinite;
+  animation: cycle5 15s linear infinite;
 }
 
 .slider li.anim9 {
-  animation: cycle5 10s linear infinite;
+  animation: cycle5 15s linear infinite;
 }
 
 .slider li.anim10 {
-  animation: cycle5 10s linear infinite;
+  animation: cycle5 15s linear infinite;
 }
 
 .slider li.anim11 {
-  animation: cycle5 10s linear infinite;
+  animation: cycle5 15s linear infinite;
+}
+
+.slider li.anim12 {
+  animation: cycle5 15s linear infinite;
+}
+
+.slider li.anim13 {
+  animation: cycle5 15s linear infinite;
 }
 
 .slider:hover li {
