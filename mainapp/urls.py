@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('ramayana', views.ramayana, name='ramayana'),
     path('ramayana/register', views.register_ramayana, name='register_ramayana'),
+    path('ramayana/confirm', views.confirm_ramayana, name='confirm_ramayana'),
     path('manage', views.manage, name='manage'),
     path('manage/<str:group>/', views.manage, name='manage'),
     path('manage/addcourse/<str:group>/', views.add_course, name='addcourse'),

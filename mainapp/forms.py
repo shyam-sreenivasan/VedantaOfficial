@@ -10,3 +10,10 @@ class CampRegistration(forms.Form):
     # name = forms.CharField(label="batch", required=True)
     # name = forms.CharField(label="timeslot", required=True)
     # name = forms.CharField(label="city", required=True)
+
+class CampConfirmation(forms.Form):
+    name = forms.CharField(label="name", required=True)
+    email = forms.CharField(label="email", required=True)
+    child = forms.CharField(label="child", required=True)
+    grade = forms.CharField(label="grade", required=True)
+    city = forms.CharField(label="city", required=True)

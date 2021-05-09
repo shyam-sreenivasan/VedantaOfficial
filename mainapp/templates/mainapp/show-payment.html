@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<title>Ramayana Summer Camp</title>
+<meta charset="UTF-8">
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="{% static 'mainapp/ramayana/testimonials.css' %}">
+<link rel="stylesheet" href="{% static 'mainapp/ramayana/faq.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Lato|Patua+One&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'>
+      <link rel="stylesheet" href="{% static 'mainapp/ramayana/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/ram_mandir.jpg");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+
+</style>
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+<script>
+  <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+</script>
+<!-- Header with image -->
+<header class="w3-display-container w3-grayscale-min" id="home">
+
+</header>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+<body background-color="#ffffff">
+<div class="w3-top">
+  <div class="w3-row w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">Home</a>
+    </div>
+
+      <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">FAQ</a>
+    </div>
+      <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">About</a>
+    </div>
+      <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">Contact</a>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<center><h2>Your child's wisdom of Ramayana is just one step away!</h2></center>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Details</h3>
+            <br><br>
+            <label></i>Regular Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; $149.00</label>
+            <label style="background-color: #FFFF00"></i>Early-bird discount&nbsp;:&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;50.00</label>
+            <label></i>Payment due today:&nbsp;&nbsp;&nbsp;$&nbsp;99.00</label>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+    <div id="smart-button-container">
+      <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-white w3-large">
+
+<!-- About Container -->
+{% load static %}
+
+<div class="w3-container" id="about">
+    <br><br>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"description":"Ramayana Summer Camp","amount":{"currency_code":"USD","value":1}}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
+</div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
+
+    <script>
+        $(document).ready(function () {
+ $('.testiSlide').slick({
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ autoplay: true,
+ autoplaySpeed: 4000,
+ responsive: [{
+ breakpoint: 850,
+ settings: {
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ infinite: true,
+ }
+ }]
+ });
+});
+    </script>
+
+<div class="w3-content" >
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Parent Testimonials</span></h5>
+<!--      <div class="container">-->
+<!--    <div class="testiSlide">-->
+<!--      {% for t in testimonials %}-->
+<!--    <div>-->
+<!--      <figure class="testimonial">-->
+<!--        <blockquote>{{t.comment}}-->
+<!--          <div class="btn"></div>-->
+<!--        </blockquote>-->
+<!--        <div class="people">-->
+<!--          <h4>{{t.name}}</h4>-->
+<!--        </div>-->
+<!--      </figure>-->
+<!--    </div>-->
+<!--      {% endfor %}-->
+<!--  </div>-->
+<!--          </div>-->
+      <div class="content-slider">
+  <div class="slider">
+    <div class="mask">
+      <ul>
+          {% for t in testimonials %}
+        <li class="anim{{forloop.counter}}">
+          <div class="quote">"{{t.comment}}"</div>
+          <div class="source">-- {{t.name}}</div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+  </div>
+    <div class="w3-content" style="max-width:1000px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Frequently Asked Questions</span></h5>
+<button class="accordion">Why is it a 9-day camp?</button>
+<div class="panel">
+  <p>It is a tradition that Ramayana should be recited or listened to for 9 days.</p>
+</div>
+
+<button class="accordion">Why should we pay fees to learn Ramayana?</button>
+<div class="panel">
+  <p>From student's perspective, it is a customary practice to give guru dhakshina and learn so that the knowledge acquired stays in tact.
+  <br><br>Moreover, Vedanta Peetam donates a portion of the fees to poor and needy.</p>
+</div>
+
+<button class="accordion">What happens after I register and paid?</button>
+<div class="panel">
+  <p>One of our staff members will contact you with further instructions within a day of your registration</p>
+</div>
+<button class="accordion">What is the refund policy?</button>
+<div class="panel">
+  <p>Your payment is 100% refundable until 3 days(72 hours) before the camp.  However there is no refund after that.</p>
+</div>
+<button class="accordion">What if I have more than one child?</button>
+<div class="panel">
+  <p>Each child needs to be registered separately.</p>
+</div>
+<button class="accordion">What is waiting list and how long it takes for the me to get a confirmation?</button>
+<div class="panel">
+  <p>When there are more people already registered for a batch, you might be placed in Waiting list until when some slot is available or when a new batch is started.
+  <br>It is highly difficult to say how long it will take to get a confirmed seat if you are placed in Waiting list.
+  However, our staff members will keep you posted.  No payment will be accepted from you when you are in waitlisted.</p>
+</div>
+
+
+    </div>
+
+    <div class="w3-content" style="max-width:1000px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">About us</span></h5>
+      <div>
+
+		<p>Vedanta Peetam was established in 2007 by Sri Parthaji to teach Sanskrit slokas to children in the Sunnyvale neighborhood in California, US.  Since then it has grown into an institution teaching not just slokas but imparting ancient wisdom through stories and discourses.  Tens of hundreds of students have benefited in the last few years through passionate and dedicated classes conducted on a weekly basis at the Vedanta Peetam residence in Sunnyvale. Since the introduction of online classes in April 2020, students from across the US are taking advantage of the weekly classes through Vedanta Peetam’s distance learning system.
+<br><p>
+At Vedanta Peetam, we believe ancient moral stories can positively influence a child’s mental and spiritual development.  Stories filled with fun and wisdom are an integral part of every class.  Our experience tells us that children look forward more enthusiastically to sloka classes to listen in to a couple stories every week.
+<br><p>
+To quench the spiritual thirst of adults, Vedanta Peetam introduced knowledge sessions(Gnaana sessions) from April 2020 over zoom.  Ancient wisdom provided by hindu epics and scriptures is taught using an easy and simple-to-understand language and vocabulary so that everyone can appreciate and apply the principles contained therein.
+<br><p>
+Vedanta Peetam also organizes Yoga Meditation classes called Dhyana Yoga through distance learning.  Dhyana yoga follows Patanjali’s Ashtanga Yoga that includes an 8-fold approach to Yoga.  Participants are given step-by-step instructions with periodic review and feedback sessions.
+</p><br>
+    </div>
+    </div>
+
+  <div class="w3-content" style="max-width:1000px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Contact</span></h5>
+    <div class="w3-content" style="max-width:1000px">
+        <div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/ramayana/confirm" method="POST">
+      {% csrf_token %}
+        <div class="row">
+          <div class="col-50">
+            <label for="name2"><i class="fa fa-user"></i>Your Full Name</label>
+            <input type="text" id="name2" name="name" placeholder="John M. Doe">
+            <label for="email2"><i class="fa fa-envelope"></i>Email</label>
+            <input type="text" id="email2" name="email" placeholder="john@example.com">
+            <label for="subject"><i class="fa fa-institution"></i> Message</label>
+            <textarea  id="subject" name="subject" rows=5 placeholder="Write something here..."></textarea>
+            <input type="submit" value="Send" class="btn">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+
+</div>
+  </div>
+<center>
+<footer style="max-width:2000px" class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Visit <a href="http://www.vedantapeetam.org" title="Vedanta Peetam" target="_blank" class="w3-hover-text-green">Vedanta Peetam</a></p>
+</footer>
+  </center>
+</body>
+</html>

@@ -74,3 +74,4 @@ class Testimonial(models.Model):
     comment = models.CharField(max_length=2500)
     rating = models.IntegerField()
     date = models.DateField(default='2021-05-05')
+
