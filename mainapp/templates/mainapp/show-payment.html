@@ -11,19 +11,11 @@
 <link href="https://fonts.googleapis.com/css?family=Lato|Patua+One&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'>
       <link rel="stylesheet" href="{% static 'mainapp/ramayana/style.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body, html {
-  height: 100%;
-  font-family: "Inconsolata", sans-serif;
-}
 
-.bgimg {
-  background-position: center;
-  background-size: cover;
-  background-image: url("/ram_mandir.jpg");
-  min-height: 75%;
-}
+<style>
+
+
+
 
 .menu {
   display: none;
@@ -32,6 +24,8 @@ body, html {
 </style>
 <style>
 body {
+height: 100%;
+  font-family: "Inconsolata", sans-serif;
   font-family: Arial;
   font-size: 17px;
   padding: 8px;
@@ -169,11 +163,11 @@ for (i = 0; i < acc.length; i++) {
 <div class="w3-top">
   <div class="w3-row w3-black">
     <div class="w3-col s3">
-      <a href="#top" class="w3-button w3-block w3-black">Home</a>
+      <a href="/ramayana/confirm" class="w3-button w3-block w3-black">Home</a>
     </div>
 
     <div class="w3-col s3">
-      <a href="#testimonials" class="w3-button w3-block w3-black">Testimonials</a>
+      <a href="/ramayana/confirm#Testimonials" class="w3-button w3-block w3-black">Testimonials</a>
     </div>
 </div>
 <br>
@@ -184,9 +178,7 @@ table, th, td {
 }
 </style>
 <center><h2>Your child's wisdom of Ramayana is just one step away!</h2></center>
-<div class="row">
-  <div class="col-75">
-    <div class="container">
+  <div class="container">
         <div class="row">
           <div class="col-50">
             <h3>Billing Details</h3>
@@ -239,16 +231,6 @@ table, th, td {
 
         </div>
     </div>
-  </div>
-
-</div>
-
-
-<!-- Add a background color and large text to the whole page -->
-<div class="w3-white w3-large">
-
-<!-- About Container -->
-{% load static %}
 
 <div class="w3-container">
     <br><br>
@@ -284,54 +266,27 @@ table, th, td {
     initPayPalButton();
   </script>
 </div>
-</div>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-  <script src='http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
-
-    <script>
-        $(document).ready(function () {
- $('.testiSlide').slick({
- slidesToShow: 1,
- slidesToScroll: 1,
- autoplay: true,
- autoplaySpeed: 4000,
- responsive: [{
- breakpoint: 850,
- settings: {
- slidesToShow: 1,
- slidesToScroll: 1,
- infinite: true,
- }
- }]
- });
-});
-    </script>
-
-<div id="testimonials" class="w3-content" >
+<div id="Testimonials" class="w3-content" >
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Parent Testimonials</span></h5>
-
-      <div class="content-slider">
-        <div class="slider">
-          <div class="mask">
-            <ul>
-                {% for t in testimonials %}
-              <li class="anim{{forloop.counter}}">
-                <div class="quote">"{{t.comment}}"</div>
-                <div class="source">-- {{t.name}}</div>
-              </li>
-              {% endfor %}
-            </ul>
+      {% for t in testimonials %}
+          {% if forloop.counter < 3 %}
+          <div style="margin: 16px 0;padding: 16px;background-color: #e5ffe5;border: 2px solid #ccc;border-radius: 15px;" >
+          <p class="comment">{{t.comment}}</p>
+          <p><span>-- {{t.name}}</span> </p>
           </div>
-        </div>
-      </div>
+          {% endif %}
+    {% endfor %}
   </div>
 
 
 
 
 
+
+
+
 <center>
-<footer style="max-width:2000px" class="w3-center w3-light-grey w3-padding-48 w3-large">
+<footer style="max-width:1000px" class="w3-center w3-light-grey w3-padding-48 w3-large">
   <p>Visit <a href="http://www.vedantapeetam.org" title="Vedanta Peetam" target="_blank" class="w3-hover-text-green">Vedanta Peetam</a></p>
 </footer>
   </center>

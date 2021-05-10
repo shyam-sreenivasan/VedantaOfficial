@@ -18,12 +18,7 @@ body, html {
   font-family: "Inconsolata", sans-serif;
 }
 
-.bgimg {
-  background-position: center;
-  background-size: cover;
-  background-image: url("/ram_mandir.jpg");
-  min-height: 75%;
-}
+
 
 .menu {
   display: none;
@@ -31,11 +26,7 @@ body, html {
 
 </style>
 <style>
-body {
-  font-family: Arial;
-  font-size: 17px;
-  padding: 8px;
-}
+
 
 * {
   box-sizing: border-box;
@@ -67,7 +58,9 @@ body {
 <header class="w3-display-container w3-grayscale-min" id="home">
 
 
+
 </header>
+
 <style>
 .center {
   display: block;
@@ -282,36 +275,12 @@ tr > :first-child {
 
   <div id="Testimonials" class="w3-content" >
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Parent Testimonials</span></h5>
-<!--      <div class="container">-->
-<!--    <div class="testiSlide">-->
-<!--      {% for t in testimonials %}-->
-<!--    <div>-->
-<!--      <figure class="testimonial">-->
-<!--        <blockquote>{{t.comment}}-->
-<!--          <div class="btn"></div>-->
-<!--        </blockquote>-->
-<!--        <div class="people">-->
-<!--          <h4>{{t.name}}</h4>-->
-<!--        </div>-->
-<!--      </figure>-->
-<!--    </div>-->
-<!--      {% endfor %}-->
-<!--  </div>-->
-<!--          </div>-->
-      <div class="content-slider">
-  <div class="slider">
-    <div class="mask">
-      <ul>
-          {% for t in testimonials %}
-        <li class="anim{{forloop.counter}}">
-          <div class="quote">"{{t.comment}}"</div>
-          <div class="source">-- {{t.name}}</div>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-</div>
+      {% for t in testimonials %}
+          <div style="margin: 16px 0;padding: 16px;background-color: #e5ffe5;border: 2px solid #ccc;border-radius: 15px;" >
+          <p class="comment">{{t.comment}}</p>
+          <p><span>-- {{t.name}}</span> </p>
+          </div>
+    {% endfor %}
   </div>
     <div id="FAQ" class="w3-content" style="max-width:1000px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Frequently Asked Questions</span></h5>
@@ -438,6 +407,13 @@ Vedanta Peetam also organizes Yoga Meditation classes called Dhyana Yoga through
 
 </div>
 </div>
+
+<script>
+  <script>
+  $(document).ready(function() {
+      $('.patient-quote').flexslider();
+    });
+</script>
 </body>
 
 </html>
