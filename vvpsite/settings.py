@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',  # <--
     'rewards',
     'courses',
+    'community',
     'actstream'
 
 ]
@@ -61,6 +62,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'vvpsite.urls'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'mainapp/static')
+MESSAGE_LEVEL = 10  # DEBUG
 
 TEMPLATES = [
     {
@@ -91,32 +93,32 @@ DEBUG = True
 #     }
 # }
 
-# if DEBUG:
-#
-#     DATABASES = {
-#
-#         'default': {
-#
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#
-#             'NAME': 'vvpdb',
-#
-#             'USER': 'vvpadmin',
-#
-#             'PASSWORD': 'vedanta750@',
-#
-#             'HOST': 'localhost',
-#
-#             'PORT': '19999',
-#
-#         }
-#
-#     }
-# else:
+if DEBUG:
+
+    DATABASES = {
+
+        'default': {
+
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+            'NAME': 'vvpdb',
+
+            'USER': 'vvpadmin',
+
+            'PASSWORD': 'vedanta750@',
+
+            'HOST': 'localhost',
+
+            'PORT': '19999',
+
+        }
+
+    }
 
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+# DATABASES = {}
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
