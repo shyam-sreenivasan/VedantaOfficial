@@ -91,7 +91,14 @@ tr > :first-child {
 }
 
 
+.comment {
+   font-family:verdana;
+   font-style: italic;
+}
 
+.name {
+font-family:verdana;
+}
 
 </style>
 <body>
@@ -172,19 +179,28 @@ src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
       <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">TESTIMONIALS</span></h5>
 <!--      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfqeqOm8lNTydB8m21c7pdCHGHKx0lca3qS3ebQY-h5FCJrZQ/viewform?embedded=true" width="640" height="1027" frameborder="0" marginheight="0" marginwidth="0" >Loading…</iframe>-->
 <!--        <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">TESTIMONIALS</span></h5>-->
-  <div class="testiSlide">
+<!--  <div class="testiSlide">-->
+<!--      {% for t in testimonials %}-->
+<!--    <div>-->
+<!--      <figure class="testimonial">-->
+<!--        <blockquote>{{t.comment}}-->
+<!--          <div class="btn"></div>-->
+<!--        </blockquote>-->
+<!--        <div class="people">-->
+<!--          <h4>{{t.name}}</h4>-->
+<!--        </div>-->
+<!--      </figure>-->
+<!--    </div>-->
+<!--      {% endfor %}-->
+<!--  </div>-->
+      <div id="Testimonials" class="w3-content" >
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Parent Testimonials</span></h5>
       {% for t in testimonials %}
-    <div>
-      <figure class="testimonial">
-        <blockquote>{{t.comment}}
-          <div class="btn"></div>
-        </blockquote>
-        <div class="people">
-          <h4>{{t.name}}</h4>
-        </div>
-      </figure>
-    </div>
-      {% endfor %}
+          <div style="margin: 16px 0;padding: 16px;background-color: #e5ffe5;border: 2px solid #ccc;border-radius: 15px;" >
+          <p class="comment">{{t.comment}}</p>
+          <p><span>-- {{t.name}}</span> </p>
+          </div>
+    {% endfor %}
   </div>
 </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
