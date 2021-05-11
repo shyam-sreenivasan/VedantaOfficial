@@ -69,7 +69,7 @@ def confirm_ramayana(request):
                   "", EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
         context['registered'] = True
 
-        template = loader.get_template('mainapp/show-payment.html')
+        template = loader.get_template('mainapp/show-payment-2.html')
         return HttpResponse(template.render(context, request))
     else:
         print ('form is not valid {} and form has {}'.format(form.errors, form))
