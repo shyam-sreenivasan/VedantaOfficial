@@ -227,7 +227,7 @@ figure.testimonial .peopl h3 {
 
 .flex-container {
   display: flex;
-
+    flex-wrap: wrap;
 
 }
 
