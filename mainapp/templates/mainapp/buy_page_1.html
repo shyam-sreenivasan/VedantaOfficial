@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<title>Ramayana Summer Camp</title>
+<meta charset="UTF-8">
+
+<!-- Facebook Pixel Code -->
+<script>
+
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '335636924252935');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+      <link rel="stylesheet" href="{% static 'mainapp/ramayana/testimonials.css' %}">
+<link rel="stylesheet" href="{% static 'mainapp/ramayana/faq.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Lato|Patua+One&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'>
+      <link rel="stylesheet" href="{% static 'mainapp/ramayana/style.css' %}">
+
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+
+
+.menu {
+  display: none;
+}
+
+</style>
+<style>
+
+
+* {
+  box-sizing: border-box;
+}
+
+</style>
+<body>
+
+
+<div class="w3-top">
+  <div class="w3-row w3-black">
+    <div class="w3-col s3">
+      <a href="/ramayana/confirm" class="w3-button w3-block w3-black"><i class="fa fa-institution" color="white"> </i>Home</a>
+    </div>
+
+      <div class="w3-col s3">
+      <a href="/ramayana/confirm" class="w3-button w3-block w3-black">Testimonials</a>
+    </div>
+      <div class="w3-col s3">
+      <a href="/ramayana/confirm" class="w3-button w3-block w3-black">FAQ</a>
+    </div>
+      <div class="w3-col s3">
+      <a href="/ramayana/confirm" class="w3-button w3-block w3-black">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="w3-display-container w3-grayscale-min" id="home">
+
+
+
+</header>
+
+<style>
+/*
+COLORS - SAND: #CCC5B9, DARK BROWN: #252422, BLUE: #577590
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  color: #fff;
+}
+
+body {
+
+}
+
+.wrapper {
+  height: 100vh;
+  position: relative;
+  background-color: #ccc5b9;
+}
+
+.card {
+  max-width: 65rem;
+  position: relative;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: -2rem 2rem 3.2rem rgba(0, 0, 0, 0.2);
+}
+
+.product-left {
+  height: 100%;
+  width: 100%;
+  padding: 4rem 2rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  background: #333;
+  color: #fff;
+}
+
+.product-right {
+  background: #fff;
+  height: auto;
+  width: 100%;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-right img {
+  height: 30rem;
+}
+
+.header h1 {
+  text-transform: uppercase;
+  margin: 2rem 0;
+   font-size: 2.5rem;
+}
+
+/* Price */
+
+.header h2 {
+  margin: 0rem 0 2rem 0;
+  font-weight: 300;
+  }
+
+/* Product Description */
+
+.product-main p {
+  opacity: 0.5;
+  margin: 2rem 0;
+  line-height: 1.45;
+}
+
+.focus {
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  padding: 0 0 0.9rem 0;
+  border-bottom: 0.2rem solid rgba(250, 250, 250, 0.3);
+}
+
+.focus span:last-child {
+  margin: 0 0 0 1rem;
+  width: 100%;
+}
+
+.focus span:first-child {
+  border-bottom: 0.2rem solid #fff;
+  padding: 0 0 0.9rem 0;
+}
+
+/* Choose color / quantity  */
+
+.btns-group {
+  width: 100%;
+  margin: 0 0 2rem 0;
+}
+
+/* Total Price  */
+
+.product-total {
+  margin: 0 0 2rem 0;
+}
+
+.product-total p {
+  font-weight: 700;
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.product-total h3{
+  margin: 0 0 1rem 0;
+}
+
+
+/* Add to cart button  */
+
+.product-add {
+  border: 1px solid #fff;
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 5rem;
+  transition: all 0.5s ease-out;
+}
+
+.product-add:hover {
+  background-color: #fff;
+  color: #2e282a;
+  cursor:pointer;
+}
+
+.product-btns button {
+  text-decoration: none;
+  color: white;
+  background-color: green;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+
+<div class="wrapper">
+  <div class="card">
+
+    <div class="product-right">
+      <img src="{% static 'mainapp/ramayana/lordrama.jpeg' %}" alt="">
+    </div>
+      <div class="product-left">
+      <div class="header">
+        <h3>Ramayana Summer Camp</h3>
+        <h2>{{pref}}</h2>
+      </div>
+      <!--DESCRIPITON / DETAILS-->
+      <div class="product-main">
+        <div class="focus">
+<!--          <span>Description</span>-->
+          <span>Participant Details</span>
+        </div>
+<!--        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptatem quam vel, delectus expedita ullam asperiores laudantium modi. Voluptatum eum cum quis ea modi. Reiciendis asperiores aut beatae odit minima.</p>-->
+      </div>
+      <!--CHOOSE PRODUCT DETAILS-->
+<!--      <div class="product-details">-->
+
+<!--        &lt;!&ndash;PRODUCT TOTAL&ndash;&gt;-->
+<!--        <div class="product-total">-->
+<!--          <h3>Total Price</h3>-->
+<!--          <p>$1399.00</p>-->
+<!--        </div>-->
+<!--      </div>-->
+          <form action="ramayana/buy2" method="POST">
+      {% csrf_token %}
+          <div class="row">
+
+        <div class="row">
+          <div class="col-50">
+            <input type="text" id="child" name="child" placeholder="Child's name" required>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+            <input type="text" id="grade" name="grade" placeholder="Child'grade" required>
+            <input type="text" id="email" name="email" placeholder="E-mail address" required>
+            <input type="text" id="city" name="city" placeholder="City, State, Country" required>
+              <input type="hidden" name="pref" value="{{pref}}" />
+            </div>
+          </div>
+  </div>
+      <!-- ADD TO CART BUTTON -->
+      <div class="product-btns">
+        <button class="product-add">Continue to payment >></button>
+      </div>
+          </form>
+    </div>
+  </div>
+
+</div>
+</body>
+
+</html>

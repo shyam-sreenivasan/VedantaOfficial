@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<title>Ramayana Summer Camp</title>
+<meta charset="UTF-8">
+
+<!-- Facebook Pixel Code -->
+<script>
+
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '335636924252935');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+      <link rel="stylesheet" href="{% static 'mainapp/ramayana/testimonials.css' %}">
+<link rel="stylesheet" href="{% static 'mainapp/ramayana/faq.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Lato|Patua+One&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'>
+      <link rel="stylesheet" href="{% static 'mainapp/ramayana/style.css' %}">
+
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+
+
+.menu {
+  display: none;
+}
+
+</style>
+<style>
+
+
+* {
+  box-sizing: border-box;
+}
+
+</style>
+<body>
+
+
+<div class="w3-top">
+  <div class="w3-row w3-black">
+    <div class="w3-col s3">
+      <a href="/ramayana/confirm" class="w3-button w3-block w3-black"><i class="fa fa-institution" color="white"> </i>Home</a>
+    </div>
+
+      <div class="w3-col s3">
+      <a href="/ramayana/confirm" class="w3-button w3-block w3-black">Testimonials</a>
+    </div>
+      <div class="w3-col s3">
+      <a href="/ramayana/confirm" class="w3-button w3-block w3-black">FAQ</a>
+    </div>
+      <div class="w3-col s3">
+      <a href="/ramayana/confirm" class="w3-button w3-block w3-black">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="w3-display-container w3-grayscale-min" id="home">
+
+
+
+</header>
+
+<style>
+/*
+COLORS - SAND: #CCC5B9, DARK BROWN: #252422, BLUE: #577590
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  color: #fff;
+}
+
+body {
+
+}
+
+.wrapper {
+  height: 100vh;
+  position: relative;
+  background-color: #ccc5b9;
+}
+
+.card {
+  max-width: 65rem;
+  position: relative;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: -2rem 2rem 3.2rem rgba(0, 0, 0, 0.2);
+}
+
+.product-left {
+  height: 100%;
+  width: 100%;
+  padding: 4rem 2rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  background: #333;
+  color: #fff;
+}
+
+.product-right {
+  background: #fff;
+  height: auto;
+  width: 100%;
+  color: #000;
+
+  justify-content: left;
+  align-items: left;
+}
+
+.product-right img {
+
+}
+
+.header h1 {
+  text-transform: uppercase;
+  margin: 2rem 0;
+   font-size: 2.5rem;
+}
+
+/* Price */
+
+.header h2 {
+  margin: 0rem 0 2rem 0;
+  font-weight: 300;
+  }
+
+/* Product Description */
+
+.product-main p {
+  opacity: 0.5;
+  margin: 2rem 0;
+  line-height: 1.45;
+}
+
+.focus {
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  padding: 0 0 0.9rem 0;
+  border-bottom: 0.2rem solid rgba(250, 250, 250, 0.3);
+}
+
+.focus span:last-child {
+  margin: 0 0 0 1rem;
+  width: 100%;
+}
+
+.focus span:first-child {
+  border-bottom: 0.2rem solid #fff;
+  padding: 0 0 0.9rem 0;
+}
+
+/* Choose color / quantity  */
+
+.btns-group {
+  width: 100%;
+  margin: 0 0 2rem 0;
+}
+
+/* Total Price  */
+
+.product-total {
+  margin: 0 0 2rem 0;
+}
+
+.product-total p {
+  font-weight: 700;
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.product-total h3{
+  margin: 0 0 1rem 0;
+}
+
+
+/* Add to cart button  */
+
+.product-add {
+  border: 1px solid #fff;
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 5rem;
+  transition: all 0.5s ease-out;
+}
+
+.product-add:hover {
+  background-color: #fff;
+  color: #2e282a;
+}
+
+.product-btns button {
+  text-decoration: none;
+  color: white;
+  background-color: green;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-top: 5px;
+    margin: 10px;
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+</style>
+
+
+<div class="wrapper">
+  <div class="card">
+      <div class="product-right">
+<h3 style="margin-top: 10px; text-align: center;">Payment (Paypal or Credit Card)</h3>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ramayana Summer Camp(Regular Price)</td>
+            <td>$149.00</td>
+        </tr>
+
+        <tr>
+            <td>Service charges @3%</td>
+            <td>$2.97</td>
+        </tr>
+        <tr>
+            <td>Early-bird discount</td>
+            <td>-$50.00</td>
+        </tr>
+        <tr class="active-row">
+            <td>Total due today</td>
+            <td>$101.97</td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+</table>
+          <br>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="2WF39SDU3J56C">
+<center><input type="image" src="{% static 'mainapp/icons/paypalbtn.png' %}"  width=250 name="submit" alt="PayPal - The safer, easier way to pay online!"></center>
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+    </div>
+
+      <div class="product-left">
+      <div class="header">
+        <h3>Ramayana Summer Camp</h3>
+        <h2>{{pref}}</h2>
+      </div>
+      <!--DESCRIPITON / DETAILS-->
+      <div class="product-main">
+        <div class="focus">
+<!--          <span>Description</span>-->
+          <span>Participant Details</span>
+        </div>
+      </div>
+
+
+      {% csrf_token %}
+          <div class="row">
+
+        <div class="row">
+          <div class="col-50">
+              <label><p style="color: yellow;">Child's name:</p> {{child}}</label>
+
+              <label><p style="color: yellow;">Parent's name:</p> {{name}}</label>
+
+              <label><p style="color: yellow;">Child's Grade:</p>  {{grade}}</label>
+
+              <label><p style="color: yellow;">Email:</p> {{email}}</label>
+
+              <label><p style="color: yellow;">City,State,Country:</p>  {{city}}</label>
+            <label></label>
+              <br>
+              <br>
+            </div>
+<!--            <input type="submit" value="Continue to payment" class="btn">-->
+
+          </div>
+<!--      </form>-->
+
+  </div>
+
+
+
+    </div>
+
+
+
+
+  </div>
+
+</div>
+
+</body>
+
+</html>

@@ -17,11 +17,13 @@ class CampConfirmation(forms.Form):
     child = forms.CharField(label="child", required=True)
     grade = forms.CharField(label="grade", required=True)
     city = forms.CharField(label="city", required=True)
-    pref_1 = forms.CharField(label="pref_1", required=True)
-    pref_1 = forms.CharField(label="pref_2", required=True)
-    pref_1 = forms.CharField(label="pref_3", required=True)
+    pref = forms.CharField(label="pref", required=True)
+
 
 class EmailMessage(forms.Form):
     name = forms.CharField(label="name", required=True)
     email = forms.CharField(label="email", required=True)
     message = forms.CharField(label="message", required=True)
+
+class BatchPreference(forms.Form):
+    pref = forms.CharField(label="pref", required=True)

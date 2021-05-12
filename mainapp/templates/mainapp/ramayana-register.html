@@ -31,11 +31,12 @@ src="https://www.facebook.com/tr?id=335636924252935&ev=PageView&noscript=1"
 <link href="https://fonts.googleapis.com/css?family=Lato|Patua+One&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'>
       <link rel="stylesheet" href="{% static 'mainapp/ramayana/style.css' %}">
-
+      <link rel="stylesheet" href="{% static 'mainapp/ramayana/cards.css' %}">
 <style>
 body, html {
   height: 100%;
   font-family: "Inconsolata", sans-serif;
+  background-color: #fdf1ec;
 }
 
 
@@ -214,83 +215,179 @@ tr > :first-child {
 <!--    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Ramayana Summer Camp</span></h5>-->
         <img src="{% static 'mainapp/ramayana/ramayana-banner.png' %}" class="center">
   </div>
-
+<!-- Flyer banner -->
   <div class="w3-content">
-    <form method="get" target='_blank' action="{% static 'mainapp/ramayana/Ramayana_Flyer.pdf' %}">
-      {% csrf_token %}
-    <button style="float: right;color: #0d1f43; background-color:#e1bd75;"><i class="fa fa-download">&nbsp;Download flyer</i></button>
-    </form>
+<!--    <form method="get" target='_blank' action="{% static 'mainapp/ramayana/Ramayana_Flyer.pdf' %}">-->
+<!--       -->
+<!--    <button style="float: right;color: #0d1f43; background-color:#e1bd75;"><i class="fa fa-download">&nbsp;Download flyer</i></button>-->
+<!--    </form>-->
   </div>
-<div class="w3-content" style="max-width:1000px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Register</span></h5>
-  <div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="/ramayana/confirm" method="POST">
-      {% csrf_token %}
-        <div class="row">
-          <div class="col-50">
-            <label for="child"><i class="fa fa-user"></i>Child's Full Name</label>
-            <input type="text" id="child" name="child" placeholder="John M. Doe" required>
-            <label for="name"><i class="fa fa-user"></i>Your Full Name</label>
-            <input type="text" id="name" name="name" placeholder="John M. Doe" required>
-            <label for="grade"><i class="fa fa-user"></i>Child's grade</label>
-            <input type="text" id="grade" name="grade" placeholder="4th" required>
-            <label for="email"><i class="fa fa-envelope"></i>Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com" required>
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York" required>
-            <div class="flex-container">
-              <div>
-            <label for="cars">1st preference</label>
-              <select name="pref_1" required>
-                <optgroup label="June">
-                  <option value="June">14th - 24th June</option>
-                </optgroup>
-                <optgroup label="July">
-                  <option value="July">19th - 29th July</option>
-                </optgroup>
-                <optgroup label="August">
-                  <option value="August">3rd - 13th August</option>
-                </optgroup>
-              </select>
-              </div>
-              <div>
-            <label for="cars">2nd preference</label>
-              <select name="pref_2" required>
-                <optgroup label="June">
-                  <option value="June" >14th - 24th June</option>
-                </optgroup>
-                <optgroup label="July">
-                  <option value="July" selected="selected">19th - 29th July</option>
-                </optgroup>
-                <optgroup label="August">
-                  <option value="August">3rd - 13th August</option>
-                </optgroup>
-              </select>
-              </div>
-              <div>
-            <label for="cars">3rd preference</label>
-              <select name="pref_3" id="cars" required>
-                <optgroup label="June">
-                  <option value="June">14th - 24th June</option>
-                </optgroup>
-                <optgroup label="July">
-                  <option value="July">19th - 29th July</option>
-                </optgroup>
-                <optgroup label="August">
-                  <option value="August" selected="selected">3rd - 13th August</option>
-                </optgroup>
-              </select>
-              </div>
-            </div>
-            <input type="submit" value="Continue to payment" class="btn">
-          </div>
+
+  <!-- Register button -->
+<div class="w3-content" style="max-width:1100px">
+<!--    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Register</span></h5>-->
+<!--  <div class="row">-->
+<!--  <div class="col-75">-->
+<!--    <div class="container">-->
+<!--      <form action="/ramayana/confirm" method="POST">-->
+<!--      {% csrf_token %}-->
+<!--        <div class="row">-->
+<!--          <div class="col-50">-->
+<!--            <label for="child"><i class="fa fa-user"></i>Child's Full Name</label>-->
+<!--            <input type="text" id="child" name="child" placeholder="John M. Doe" required>-->
+<!--            <label for="name"><i class="fa fa-user"></i>Your Full Name</label>-->
+<!--            <input type="text" id="name" name="name" placeholder="John M. Doe" required>-->
+<!--            <label for="grade"><i class="fa fa-user"></i>Child's grade</label>-->
+<!--            <input type="text" id="grade" name="grade" placeholder="4th" required>-->
+<!--            <label for="email"><i class="fa fa-envelope"></i>Email</label>-->
+<!--            <input type="text" id="email" name="email" placeholder="john@example.com" required>-->
+<!--            <label for="city"><i class="fa fa-institution"></i> City</label>-->
+<!--            <input type="text" id="city" name="city" placeholder="New York" required>-->
+<!--            <div class="flex-container">-->
+<!--              <div>-->
+<!--            <label for="cars">1st preference</label>-->
+<!--              <select name="pref_1" required>-->
+<!--                <optgroup label="June">-->
+<!--                  <option value="June">14th - 24th June</option>-->
+<!--                </optgroup>-->
+<!--                <optgroup label="July">-->
+<!--                  <option value="July">19th - 29th July</option>-->
+<!--                </optgroup>-->
+<!--                <optgroup label="August">-->
+<!--                  <option value="August">3rd - 13th August</option>-->
+<!--                </optgroup>-->
+<!--              </select>-->
+<!--              </div>-->
+<!--              <div>-->
+<!--            <label for="cars">2nd preference</label>-->
+<!--              <select name="pref_2" required>-->
+<!--                <optgroup label="June">-->
+<!--                  <option value="June" >14th - 24th June</option>-->
+<!--                </optgroup>-->
+<!--                <optgroup label="July">-->
+<!--                  <option value="July" selected="selected">19th - 29th July</option>-->
+<!--                </optgroup>-->
+<!--                <optgroup label="August">-->
+<!--                  <option value="August">3rd - 13th August</option>-->
+<!--                </optgroup>-->
+<!--              </select>-->
+<!--              </div>-->
+<!--              <div>-->
+<!--            <label for="cars">3rd preference</label>-->
+<!--              <select name="pref_3" id="cars" required>-->
+<!--                <optgroup label="June">-->
+<!--                  <option value="June">14th - 24th June</option>-->
+<!--                </optgroup>-->
+<!--                <optgroup label="July">-->
+<!--                  <option value="July">19th - 29th July</option>-->
+<!--                </optgroup>-->
+<!--                <optgroup label="August">-->
+<!--                  <option value="August" selected="selected">3rd - 13th August</option>-->
+<!--                </optgroup>-->
+<!--              </select>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <input type="submit" value="Continue to payment" class="btn">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  </div>-->
+</div>
+<br>
+  <br>
+  <div class="w3-content" >
+    <div class="flex-container">
+    <div class="product-card">
+	<a href="www.google.com" >
+  <img src="{% static 'mainapp/ramayana/lordrama.jpeg' %}" alt="Denim Jeans" style="width:100%;height: 400px;">
+  </a>
+  <h3>Ramayana Summer Camp</h3>
+      <h5>June 13th - 23rd</h5>
+  <p class="product-price">$99.00</p>
+<!--  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>-->
+  <div class="flex-container" style="margin-bottom: 0px">
+        <div style="width: 50%">
+          <form action="/ramayana/buy1" method="POST">
+              {% csrf_token %}
+                <input type="hidden" name="pref" value="June 13th - 23rd">
+          <p><button style="background-color: green">Buy Now</button></p>
+                </form>
         </div>
-      </form>
+        <div style="width: 50%">
+          <form method="get" target='_blank' action="{% static 'mainapp/ramayana/Ramayana_Flyer.pdf' %}">
+            {% csrf_token %}
+        <p><button>View Details</button></p>
+          </form>
+        </div>
+      </div>
+
+</div>
+      <div class="product-card">
+	<a href="www.google.com" >
+  <img src="{% static 'mainapp/ramayana/ramasita.jpeg' %}" alt="Denim Jeans" style="width:100%;height: 400px;">
+  </a>
+  <h3>Ramayana Summer Camp</h3>
+      <h5>July 19th - 29th</h5>
+  <p class="product-price">$99.00</p>
+<!--  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>-->
+  <div class="flex-container">
+        <div style="width: 50%">
+            <form action="/ramayana/buy1" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="pref" value="July 19th - 29th">
+          <p><button style="background-color: green">Buy Now</button></p>
+                </form>
+        </div>
+        <div style="width: 50%">
+        <form method="get" target='_blank' action="{% static 'mainapp/ramayana/Ramayana_Flyer.pdf' %}">
+                {% csrf_token %}
+                <p><button>View Details</button></p>
+            </form>
+        </div>
+      </div>
+
+</div>
+      <div class="product-card">
+	<a href="www.google.com" >
+  <img src="{% static 'mainapp/ramayana/rama-and-sita.jpeg' %}" alt="Denim Jeans" style="width:100%;height: 400px">
+  </a>
+  <h3>Ramayana Summer Camp</h3>
+      <h5>August 03rd - 13th</h5>
+  <p class="product-price">$99.00</p>
+<!--  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>-->
+  <div class="flex-container">
+        <div style="width: 50%">
+          <form action="/ramayana/buy1" method="POST">
+              {% csrf_token %}
+                <input type="hidden" name="pref" value="August 03rd - 13th">
+          <p><button style="background-color: green">Buy Now</button></p>
+                </form>
+        </div>
+        <div style="width: 50%">
+            <form method="get" target='_blank' action="{% static 'mainapp/ramayana/Ramayana_Flyer.pdf' %}">
+                {% csrf_token %}
+                <p><button>View Details</button></p>
+            </form>
+        </div>
+      </div>
+
+</div>
+
+
+<!--    <div class="product-card">-->
+<!--	<a href="www.google.com" >-->
+<!--  <img src="{% static 'mainapp/ramayana/lordrama.jpeg' %}" alt="Denim Jeans" style="width:100%">-->
+<!--  </a>-->
+<!--  <h1>Tailored Jeans</h1>-->
+<!--  <p class="product-price">$99.00</p>-->
+<!--  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>-->
+<!--  <p><button >Add to Cart</button></p>-->
+<!--  <p><button style="margin-top: 2px">View Details</button></p>-->
+<!--</div>-->
     </div>
-  </div>
-  </div>
+</div>
 </div>
 
   <div id="Testimonials" class="w3-content" >

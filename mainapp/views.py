@@ -44,6 +44,23 @@ def thankyou(request):
     template = loader.get_template('mainapp/thankyou.html')
     return HttpResponse(template.render({}, request))
 
+def buy_page_1(request):
+    from .forms import BatchPreference
+    form = BatchPreference(request.POST)
+
+    context = {}
+    if form.is_valid():
+        pref = form.data['pref']
+        context['pref'] = pref
+        template = loader.get_template('mainapp/buy_page_1.html')
+        return HttpResponse(template.render(context, request))
+    else:
+        print ('form is not valid {}'.format(form))
+        return confirm_ramayana(request)
+
+def buy_page_2(request):
+    return confirm_ramayana(request)
+
 def confirm_ramayana(request):
     from django.core.mail import send_mail
     from vvpsite.settings import EMAIL_HOST_USER
@@ -59,20 +76,25 @@ def confirm_ramayana(request):
         grade = form.data['grade']
         email = form.data['email']
         city = form.data['city']
-        p1 = form.data['pref_1']
-        p2 = form.data['pref_2']
-        p3 = form.data['pref_3']
+        pref = form.data['pref']
+        # p2 = form.data['pref_2']
+        # p3 = form.data['pref_3']
         subject = \
-            'Camp Confirmation:{} {} {} {} {} {} {} {}'.\
-                format(child, parent, grade, city, email, p1,p2,p3)
+            'Camp Confirmation:{} {} {} {} {} {}'.\
+                format(child, parent, grade, city, email, pref)
         send_mail(subject,
                   "", EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
         context['registered'] = True
-
-        template = loader.get_template('mainapp/show-payment-2.html')
+        context['name'] = parent
+        context['child'] = child
+        context['grade'] = grade
+        context['city'] = city
+        context['email'] = email
+        context['pref'] = pref
+        template = loader.get_template('mainapp/buy_page_2.html')
         return HttpResponse(template.render(context, request))
     else:
-        print ('form is not valid {} and form has {}'.format(form.errors, form))
+        print ('form is not valid {}'.format(form))
         template = loader.get_template('mainapp/ramayana-register.html')
     return HttpResponse(template.render(context, request))
 
