@@ -108,6 +108,7 @@ body {
   height: 100vh;
   position: relative;
   background-color: #ccc5b9;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -118,6 +119,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: -2rem 2rem 3.2rem rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
 }
 
 .product-left {
@@ -238,9 +240,8 @@ body {
 
 <div class="wrapper">
   <div class="card">
-
     <div class="product-right">
-      <img src="{% static 'mainapp/ramayana/lordrama.jpeg' %}" alt="">
+      <img src="{% static 'mainapp/ramayana/monkey-army.jpeg' %}" width="100%" alt="">
     </div>
       <div class="product-left">
       <div class="header">

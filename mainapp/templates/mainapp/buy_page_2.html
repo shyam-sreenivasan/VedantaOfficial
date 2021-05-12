@@ -118,6 +118,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: -2rem 2rem 3.2rem rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
 }
 
 .product-left {
@@ -277,44 +278,7 @@ body {
 
 <div class="wrapper">
   <div class="card">
-      <div class="product-right">
-<h3 style="margin-top: 10px; text-align: center;">Payment (Paypal or Credit Card)</h3>
-<table class="styled-table">
-    <thead>
-        <tr>
-            <th>Item</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Ramayana Summer Camp(Regular Price)</td>
-            <td>$149.00</td>
-        </tr>
 
-        <tr>
-            <td>Service charges @3%</td>
-            <td>$2.97</td>
-        </tr>
-        <tr>
-            <td>Early-bird discount</td>
-            <td>-$50.00</td>
-        </tr>
-        <tr class="active-row">
-            <td>Total due today</td>
-            <td>$101.97</td>
-        </tr>
-        <!-- and so on... -->
-    </tbody>
-</table>
-          <br>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="2WF39SDU3J56C">
-<center><input type="image" src="{% static 'mainapp/icons/paypalbtn.png' %}"  width=250 name="submit" alt="PayPal - The safer, easier way to pay online!"></center>
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-    </div>
 
       <div class="product-left">
       <div class="header">
@@ -358,7 +322,45 @@ body {
 
 
     </div>
+<div class="product-right">
+<h3 style="margin-top: 10px; text-align: center;">Payment (Paypal or Credit Card)</h3>
+    <center>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ramayana Summer Camp(Regular Price)</td>
+            <td>$149.00</td>
+        </tr>
 
+        <tr>
+            <td>Service charges @3%</td>
+            <td>$2.97</td>
+        </tr>
+        <tr>
+            <td>Early-bird discount</td>
+            <td>-$50.00</td>
+        </tr>
+        <tr class="active-row">
+            <td>Total due today</td>
+            <td>$101.97</td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+</table> </center>
+          <br>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="2WF39SDU3J56C">
+<center><input type="image" src="{% static 'mainapp/icons/paypalbtn.png' %}"  width=250 name="submit" alt="PayPal - The safer, easier way to pay online!"></center>
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+    </div>
 
 
 
