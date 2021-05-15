@@ -10,6 +10,7 @@ urlpatterns = [
     path('ramayana/buy1', views.buy_page_1, name='buy_ramayana'),
     path('ramayana/buy2', views.buy_page_2, name='buy_ramayana'),
     path('ramayana/thankyou', views.thankyou, name='ramayana_ty'),
+    path('ramayana/trial', views.trial, name='ramayana_trial'),
     path('ramayana/send_message', views.send_message, name="send_message"),
     path('manage', views.manage, name='manage'),
     path('manage/<str:group>/', views.manage, name='manage'),

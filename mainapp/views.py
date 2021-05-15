@@ -17,6 +17,14 @@ def ramayana(request, context={}):
     template = loader.get_template('mainapp/ayodhya.html')
     return HttpResponse(template.render(context, request))
 
+def trial(request):
+    tlist = Testimonial.objects.all()
+    context = {}
+    context['testimonials'] = tlist
+    template = loader.get_template('mainapp/storyrsvp.html')
+    return HttpResponse(template.render(context, request))
+
+
 def send_message(request):
     print ('sending message')
     from django.core.mail import send_mail
@@ -76,12 +84,13 @@ def confirm_ramayana(request):
         grade = form.data['grade']
         email = form.data['email']
         city = form.data['city']
+        phone = form.data['phone']
         pref = form.data['pref']
         # p2 = form.data['pref_2']
         # p3 = form.data['pref_3']
         subject = \
-            'Camp Confirmation:{} {} {} {} {} {}'.\
-                format(child, parent, grade, city, email, pref)
+            'Camp Confirmation:{} {} {} {} {} {} {}'.\
+                format(child, parent, grade, city, phone, email, pref)
         send_mail(subject,
                   "", EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
         context['registered'] = True
@@ -90,6 +99,7 @@ def confirm_ramayana(request):
         context['grade'] = grade
         context['city'] = city
         context['email'] = email
+        context['phone'] = phone
         context['pref'] = pref
         template = loader.get_template('mainapp/buy_page_2.html')
         return HttpResponse(template.render(context, request))
