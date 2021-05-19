@@ -75,3 +75,9 @@ class Testimonial(models.Model):
     rating = models.IntegerField()
     date = models.DateField(default='2021-05-05')
 
+class StoryCatalogue(models.Model):
+    title = models.CharField(max_length=250)
+    description = models.CharField(max_length=250, null=True)
+    date = models.CharField(max_length=250, null=True)
+    img = models.CharField(max_length=250)
+    wished = models.IntegerField()

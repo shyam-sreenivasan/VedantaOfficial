@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Group,Course, Lesson, GroupMember, GroupCourse, GroupLesson, Testimonial
+from .models import Group,Course, Lesson, \
+    GroupMember, GroupCourse, GroupLesson, Testimonial, \
+    StoryCatalogue
+
 
 
 admin.site.register(Group)
@@ -9,4 +12,5 @@ admin.site.register(GroupLesson)
 admin.site.register(Course)
 admin.site.register(Lesson)
 admin.site.register(Testimonial)
+admin.site.register(StoryCatalogue)
 # Register your models here.

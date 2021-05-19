@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'mainapp/story/storyboard.css' %}">
+<link rel="stylesheet" href="{% static 'mainapp/ramayana/cards.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="{% static 'mainapp/js/tabs.js' %}"></script>
+
+</head>
+{% load static %}
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Story')">Story</button>
+  <button class="tablinks" onclick="openCity(event, 'Awards')">My Awards</button>
+</div>
+<div id="Story" class="tabcontent" style="display: block;">
+<div class="container">
+{% for story in storylist %}
+<div class="col-xs-12 col-md-6">
+	<!-- First product box start here-->
+	<div class="prod-info-main prod-wrap clearfix">
+		<div class="row">
+				<div class="col-md-5 col-sm-12 col-xs-12">
+					<div class="product-image">
+						<img src="{% static 'mainapp/story/images/'|add:story.img %}" class="img-responsive">
+						<span class="tag2 hot">
+							HOT
+						</span>
+					</div>
+				</div>
+				<div class="col-md-7 col-sm-12 col-xs-12">
+				<div class="product-deatil">
+						<h5 class="name">
+							<a href="#">
+								{{story.title}}
+							</a>
+							<a href="#">
+								<span>Epic</span>
+							</a>
+
+						</h5>
+						<p class="price-container">
+							<span>$199</span>
+						</p>
+						<span class="tag1"></span>
+				</div>
+				<div class="description">
+					<p>A Short product description here </p>
+				</div>
+				<div class="product-info smart-form">
+					<div class="row">
+						<div class="col-md-12">
+							<a href="javascript:void(0);" class="btn btn-danger">Add to cart</a>
+                            <a href="javascript:void(0);" class="btn btn-info">More info</a>
+						</div>
+						<div class="col-md-12">
+							<div class="rating">Rating:
+								<label for="stars-rating-5"><i class="fa fa-star text-danger"></i></label>
+								<label for="stars-rating-4"><i class="fa fa-star text-danger"></i></label>
+								<label for="stars-rating-3"><i class="fa fa-star text-danger"></i></label>
+								<label for="stars-rating-2"><i class="fa fa-star text-warning"></i></label>
+								<label for="stars-rating-1"><i class="fa fa-star text-warning"></i></label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end product -->
+
+</div>
+    {% endfor %}
+
+</div>
+</div>
+
+<div id="Awards" class="tabcontent center" >
+	<p>This is a tab</p>
+	<div class="product-card" style="float: left; margin-right: 10px;">
+	<a href="www.google.com" >
+  <img src="{% static 'mainapp/icons/lock.png' %}" alt="Denim Jeans" >
+  </a>
+  <h3>Ramayana</h3>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--	{% load static %}-->
+<!--	<link rel="stylesheet" href="{% static 'mainapp/story/storyboard.css' %}">-->
+<!--	<link rel="stylesheet" href="{% static 'mainapp/ramayana/cards.css' %}">-->
+<!--	<script src="{% static 'mainapp/js/tabs.js' %}"></script>-->
+<!--	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+<!--</head>-->
+<!--<body>-->
+
+<!--<br>-->
+<!--<br>-->
+<!--<div class="tab">-->
+<!--  <button class="tablinks" onclick="openCity(event, 'Story')">Story</button>-->
+<!--  <button class="tablinks" onclick="openCity(event, 'Awards')">My Awards</button>-->
+<!--</div>-->
+
+<!--<div id="Story" class="tabcontent" style="display: block;">-->
+<!--    <div class="flex-container">-->
+<!--	{% for story in storylist %}-->
+<!--	  <div class="product-card" style="float: left; margin-top: 20px; margin-right: 10px;">-->
+
+<!--	<a href="www.google.com" >-->
+
+<!--  <img src="{% static 'mainapp/story/images/'|add:story.img %}" alt="Denim Jeans" width="100%">-->
+
+<!--  </a>-->
+<!--  <h3>{{story.title}}</h3>-->
+
+<!--</div>-->
+<!--	{% endfor %}-->
+<!--        </div>-->
+<!--  </div>-->
+
+
+<!--<div id="Awards" class="tabcontent">-->
+<!--  <h3>My Awards</h3>-->
+<!--  <div class="product-card" style="float: left; margin-right: 10px;">-->
+<!--	<a href="www.google.com" >-->
+<!--  <img src="{% static 'mainapp/icons/lock.png' %}" alt="Denim Jeans" >-->
+<!--  </a>-->
+<!--  <h3>Ramayana</h3>-->
+<!--</div>-->
+<!--	<div class="product-card" style="float: left; margin-right: 10px;">-->
+<!--	<a href="www.google.com" >-->
+<!--  <img src="{% static 'mainapp/icons/lock.png' %}" alt="Denim Jeans" >-->
+<!--  </a>-->
+<!--  <h3>Ramayana</h3>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+
+<!--</body>-->
+<!--</html>-->

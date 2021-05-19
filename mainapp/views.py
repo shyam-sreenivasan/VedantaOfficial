@@ -7,9 +7,17 @@ import json
 import html
 from django.core import serializers
 from bs4 import BeautifulSoup
-from .models import GroupLesson, Group, Course, Lesson, Progress
+from .models import GroupLesson, Group, Course, Lesson, Progress, StoryCatalogue
 from .forms import CourseSelector
 from .models import Testimonial
+
+
+def view_story_dboard(request):
+    context = {}
+    sl = StoryCatalogue.objects.all()
+    context['storylist'] = sl
+    template = loader.get_template('mainapp/storydashboard.html')
+    return HttpResponse(template.render(context, request))
 
 def ramayana(request, context={}):
     tlist = Testimonial.objects.all()
