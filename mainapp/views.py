@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from .models import GroupMember
+from django.core.mail import send_mail
+from vvpsite.settings import EMAIL_HOST_USER
+
 import requests
 import json
 import html
@@ -35,8 +38,7 @@ def trial(request):
 
 def send_message(request):
     print ('sending message')
-    from django.core.mail import send_mail
-    from vvpsite.settings import EMAIL_HOST_USER
+
     from .forms import EmailMessage
     form = EmailMessage(request.POST)
 
@@ -57,6 +59,17 @@ def send_message(request):
         return confirm_ramayana(request)
 
 def thankyou(request):
+    pinfo = ""
+    try:
+        for key in request.GET:  # "for key in request.GET" works too.
+            # Add filtering logic here.
+            pinfo += "{}: {}\n".format(key,request.GET.getlist(key)[0])
+        subject = 'Payment Info'
+        send_mail(subject,
+                  str(pinfo), EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
+    except:
+        print ('Exception occurred while sending email {}'.format(pinfo))
+
     template = loader.get_template('mainapp/thankyou.html')
     return HttpResponse(template.render({}, request))
 
