@@ -5,7 +5,7 @@ from django.db import models
 class Story(models.Model):
     short_name = models.CharField(max_length=250)
     title = models.CharField(max_length=250)
-    description = models.CharField(max_length=250, null=True)
+    description = models.CharField(max_length=5000, null=True)
     date = models.CharField(max_length=250, null=True)
     wished = models.IntegerField()
 
