@@ -25,11 +25,13 @@ urlpatterns = [
     path('rewards/', include('rewards.urls')),
     path('main/', include('mainapp.urls')),
     path('ramayana/', include('mainapp.urls')),
+    path('story/', include('story.urls')),
     path('community/', include('community.urls')),
     path('blogs/', include('blogs.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout', include('django.contrib.auth.urls')),
+
     #path('whoami/', include('courses.urls')),
     #path('audio/', include('audio.urls')),
 
