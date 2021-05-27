@@ -27,12 +27,14 @@ def about(request, id):
 
 def review(request, id):
     from .forms import Review
+    import datetime
     form = Review(request.POST)
     if form.is_valid():
         rev = StoryReview()
         rev.name = form.data['name']
         rev.rating = form.data['rating']
         rev.comment = form.data['comment']
+        rev.date = datetime.datetime.now()
         rev.story = Story.objects.filter(id=id).first()
         rev.save()
     else:
