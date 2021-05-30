@@ -8,6 +8,7 @@ class Story(models.Model):
     description = models.CharField(max_length=5000, null=True)
     date = models.CharField(max_length=250, null=True)
     wished = models.IntegerField()
+    category = models.CharField(max_length=250, default='General')
 
 class StoryReview(models.Model):
     story = models.ForeignKey(Story, on_delete=models.CASCADE)

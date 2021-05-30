@@ -16,12 +16,20 @@ def about(request, id):
     story = Story.objects.filter(id=id).first()
     story.max_rating = range(1,6)
     reviews = StoryReview.objects.filter(story__id=id)
-    rating = int(reviews.aggregate(Avg('rating'))['rating__avg'])
+    rating = 0
+    if len(reviews) > 0:
+        rating = int(reviews.aggregate(Avg('rating'))['rating__avg'])
 
     context = {'story' : story,
                'reviews' : reviews,
                'review_count' : len(reviews),
                'rating' : rating}
+    recent = Story.objects.filter(id=1).first()
+    rec_reviews = StoryReview.objects.filter(story__id=1)
+    if len(rec_reviews) > 0:
+        rec_rating = int(rec_reviews.aggregate(Avg('rating'))['rating__avg'])
+    context['recent'] = recent
+    context['rec_rating'] = rec_rating
     template = loader.get_template('story/about.html')
     return HttpResponse(template.render(context, request))
 

@@ -64,7 +64,7 @@
 			<div class="col-sm-3">
                 <br>
                 <div class="figure">
-                <p><img class="scaled" src="{% static 'story/'|add:story.short_name %}"
+                <p><img class="scaled" src="{{story.short_name}}"
                     alt="Story">
                     <h6></h6>
                     <br>
@@ -79,7 +79,6 @@
 							</button>
 						{% endif %}
 					{% endfor %}
-
 					 <br>
 					({{review_count}} reviews)
                 </div>
@@ -163,6 +162,42 @@
 		</div>
 
     </div> <!-- /container -->
+
+    <br>
+    <br>
+    <hr>
+    {% if recent.id != story.id %}
+    <div class="container">
+        <h3>Recent Stories</h3>
+		<div class="row">
+
+			<div class="col-sm-3">
+                <br>
+                <div class="figure">
+                    <a href="/story/about/{{recent.id}}">
+                <p><img class="scaled" src="{{recent.short_name}}"
+                    alt="Story">
+                        </a>
+                    <h6>{{recent.title}}</h6>
+                    <br>
+					{% for i in story.max_rating %}
+					   {% if i <= rec_rating %}
+							<button type="button"  class="btn btn-warning btn-sm" aria-label="Left Align">
+							  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+							</button>
+						{% else %}
+							<button type="button" class="btn btn-warning btn-grey btn-sm" aria-label="Left Align">
+							  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+							</button>
+						{% endif %}
+					{% endfor %}
+					 <br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
