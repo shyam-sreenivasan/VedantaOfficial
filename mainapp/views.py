@@ -46,12 +46,12 @@ def send_email(request):
     if form.is_valid():
         name = form.data['name']
         email = form.data['email']
-        message = "Subject: ".format(form.data['subject']) + "\n" + "Message: ".format(form.data['message'])
+        message = "Subject: ".format(form.data['subject']) + "\n" + "Message: ".format(form.data['content'])
 
         subject = \
             'Message from Customer: {} {}'.format(name, email)
         send_mail(subject,
-                  message, EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
+                  message, EMAIL_HOST_USER, ["anjayparth09@gmail.com"], fail_silently=False)
         return HttpResponseRedirect("https://Scrolling-animation.anjay.repl.co")
 
 

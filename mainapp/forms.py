@@ -24,7 +24,8 @@ class CampConfirmation(forms.Form):
 class EmailMessage(forms.Form):
     name = forms.CharField(label="name", required=True)
     email = forms.CharField(label="email", required=True)
-    message = forms.CharField(label="message", required=True)
+    subject = forms.CharField(label="subject", required=True)
+    content = forms.CharField(label="content", required=True)
 
 class BatchPreference(forms.Form):
     pref = forms.CharField(label="pref", required=True)
