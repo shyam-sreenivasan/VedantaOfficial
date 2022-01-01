@@ -52,7 +52,7 @@ def send_email(request):
             'Message from Customer: {} {}'.format(name, email)
         send_mail(subject,
                   message, EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
-        return HttpResponseRedirect("https://Scrolling-animation.anjay.repl.co")()
+        return HttpResponseRedirect("https://Scrolling-animation.anjay.repl.co")
 
 
 def send_message(request):
