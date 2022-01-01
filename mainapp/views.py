@@ -51,7 +51,7 @@ def send_email(request):
         subject = \
             'Message from Customer: {} {}'.format(name, email)
         send_mail(subject,
-                  message, EMAIL_HOST_USER, ["anjayparth09@gmail.com"], fail_silently=False)
+                  message, EMAIL_HOST_USER, ["anjaypartha09@gmail.com"], fail_silently=False)
         return HttpResponseRedirect("https://Scrolling-animation.anjay.repl.co")
 
 
