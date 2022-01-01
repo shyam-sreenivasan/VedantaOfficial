@@ -35,6 +35,8 @@ def trial(request):
     template = loader.get_template('mainapp/storyrsvp.html')
     return HttpResponse(template.render(context, request))
 
+def send_email(request):
+    pass
 
 def send_message(request):
     print ('sending message')
