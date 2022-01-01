@@ -4,6 +4,7 @@ from django.template import loader
 from .models import GroupMember
 from django.core.mail import send_mail
 from vvpsite.settings import EMAIL_HOST_USER
+from django.views.decorators.csrf import csrf_exempt
 
 import requests
 import json
@@ -36,8 +37,16 @@ def trial(request):
     return HttpResponse(template.render(context, request))
 
 def send_email(request):
-    pass
+    from .forms import EmailMessage
+    form = EmailMessage(request.POST)
 
+    content = "Message: {}".format( form.data['content'])
+    content += "Email: {}".format(form.data["email"]) + "\n"
+
+    send_mail(form.data['subject'], content
+                  , EMAIL_HOST_USER, ["parthavbiz@gmail.com"], fail_silently=False)
+
+@csrf_exempt
 def send_message(request):
     print ('sending message')
 
