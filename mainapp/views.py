@@ -46,7 +46,7 @@ def send_email(request):
     if form.is_valid():
         name = form.data['name']
         email = form.data['email']
-        message = "Subject: ".format(form.data['subject']) + "\n" + "Message: ".format(form.data['content'])
+        message = "Subject: {}".format(form.data['subject']) + "\n" + "Message: {}".format(form.data['content'])
 
         subject = \
             'Message from Customer: {} {}'.format(name, email)
