@@ -5,6 +5,7 @@ from .models import GroupMember
 from django.core.mail import send_mail
 from vvpsite.settings import EMAIL_HOST_USER
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
 
 import requests
 import json
@@ -36,17 +37,24 @@ def trial(request):
     template = loader.get_template('mainapp/storyrsvp.html')
     return HttpResponse(template.render(context, request))
 
+@csrf_exempt
 def send_email(request):
+
     from .forms import EmailMessage
     form = EmailMessage(request.POST)
 
-    content = "Message: {}".format( form.data['content'])
-    content += "Email: {}".format(form.data["email"]) + "\n"
+    if form.is_valid():
+        name = form.data['name']
+        email = form.data['email']
+        message = "Subject: ".format(form.data['message']) + "\n" + "Content: ".format(form.data['content'])
 
-    send_mail(form.data['subject'], content
-                  , EMAIL_HOST_USER, ["parthavbiz@gmail.com"], fail_silently=False)
+        subject = \
+            'Message from Customer: {} {}'.format(name, email)
+        send_mail(subject,
+                  message, EMAIL_HOST_USER, ["vvpeetam@gmail.com"], fail_silently=False)
+        return HttpResponseRedirect("https://Scrolling-animation.anjay.repl.co")()
 
-@csrf_exempt
+
 def send_message(request):
     print ('sending message')
 

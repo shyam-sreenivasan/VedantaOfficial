@@ -13,9 +13,12 @@ urlpatterns = [
     path('ramayana/thankyou', views.thankyou, name='ramayana_ty'),
     path('ramayana/trial', views.trial, name='ramayana_trial'),
     path('ramayana/send_message', views.send_message, name="send_message"),
+
     path('manage', views.manage, name='manage'),
     path('manage/<str:group>/', views.manage, name='manage'),
     path('manage/addcourse/<str:group>/', views.add_course, name='addcourse'),
     path('manage/update_lesson_status/<str:group>/<str:lesson>/', views.update_lesson_status),
-    path('members/<str:name>/', views.view_member, name='view_member')
+    path('members/<str:name>/', views.view_member, name='view_member'),
+
+    path('anjay/send_email', views.send_email, name="send_email")
 ]
