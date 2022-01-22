@@ -20,5 +20,9 @@ urlpatterns = [
     path('manage/update_lesson_status/<str:group>/<str:lesson>/', views.update_lesson_status),
     path('members/<str:name>/', views.view_member, name='view_member'),
 
-    path('anjay/send_email', views.send_email, name="send_email")
+    path('anjay/send_email', views.send_email, name="send_email"),
+    path('voice', views.voice_query, name="voice"),
+    path('story', views.get_story, name="story"),
+    path('catalogue', views.get_movies_catalogue, name="catalogue"),
+    path('movie', views.get_movie_details, name="movie")
 ]

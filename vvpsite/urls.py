@@ -34,6 +34,7 @@ urlpatterns = [
     path('logout', include('django.contrib.auth.urls')),
 
     path('anjay/', include('mainapp.urls')),
+
     #path('whoami/', include('courses.urls')),
     #path('audio/', include('audio.urls')),
 

@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from vvpsite.settings import EMAIL_HOST_USER
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
-
+from django.http import JsonResponse
 import requests
 import json
 import html
@@ -15,6 +15,8 @@ from bs4 import BeautifulSoup
 from .models import GroupLesson, Group, Course, Lesson, Progress, StoryCatalogue
 from .forms import CourseSelector
 from .models import Testimonial
+from .voice import query_wiki, query_story
+from .wiki import get_catalogue, get_movie
 
 
 def view_story_dboard(request):
@@ -36,6 +38,29 @@ def trial(request):
     context['testimonials'] = tlist
     template = loader.get_template('mainapp/storyrsvp.html')
     return HttpResponse(template.render(context, request))
+
+
+@csrf_exempt
+def voice_query(request):
+    name = request.GET.get('name', 'Obama')
+    query = request.GET.get('query', 'who')
+    return JsonResponse(query_wiki(name,query), json_dumps_params={'indent': 2})
+
+@csrf_exempt
+def get_story(request):
+    name = request.GET.get('name', 'Obama')
+    query = request.GET.get('query', 'who')
+    return JsonResponse(query_story(name, query), json_dumps_params={'indent': 2})
+
+@csrf_exempt
+def get_movies_catalogue(request):
+    return JsonResponse(get_catalogue(), json_dumps_params={'indent': 2}, safe=False)
+
+
+@csrf_exempt
+def get_movie_details(request):
+    name = request.GET.get('id', 'Abraham Lincoln')
+    return JsonResponse(get_movie(name), json_dumps_params={'indent': 2}, safe=False)
 
 @csrf_exempt
 def send_email(request):
