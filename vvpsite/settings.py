@@ -27,7 +27,7 @@ SECRET_KEY = 'd8t4y34q6=k$-!3ru-1oon-)@=o!yi767g3wzhz!t9wph-p%ef'
 
 
 ALLOWED_HOSTS = ['hidden-cove-56796.herokuapp.com','www.vedantapeetam.org',
-                 '127.0.0.1', 'localhost']
+                 '127.0.0.1', 'localhost', '172.25.1.3']
 
 
 # Application definition

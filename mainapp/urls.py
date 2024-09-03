@@ -24,5 +24,6 @@ urlpatterns = [
     path('voice', views.voice_query, name="voice"),
     path('story', views.get_story, name="story"),
     path('catalogue', views.get_movies_catalogue, name="catalogue"),
-    path('movie', views.get_movie_details, name="movie")
+    path('movie', views.get_movie_details, name="movie"),
+    path('featured-movies', views.get_featured_movies, name="featured-movies")
 ]

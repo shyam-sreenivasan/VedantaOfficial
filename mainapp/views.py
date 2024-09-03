@@ -16,7 +16,7 @@ from .models import GroupLesson, Group, Course, Lesson, Progress, StoryCatalogue
 from .forms import CourseSelector
 from .models import Testimonial
 from .voice import query_wiki, query_story
-from .wiki import get_catalogue, get_movie
+from .wiki import get_catalogue, get_movie, get_featured_movie_list
 
 
 def view_story_dboard(request):
@@ -61,6 +61,9 @@ def get_movies_catalogue(request):
 def get_movie_details(request):
     name = request.GET.get('id', 'Abraham Lincoln')
     return JsonResponse(get_movie(name), json_dumps_params={'indent': 2}, safe=False)
+
+def get_featured_movies(request):
+    return JsonResponse(get_featured_movie_list(), json_dumps_params={'indent': 2}, safe=False)
 
 @csrf_exempt
 def send_email(request):

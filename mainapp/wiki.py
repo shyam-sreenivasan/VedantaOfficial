@@ -6,39 +6,79 @@ def get_catalogue():
         'by_category': [
             {
                 'category': 'Biography',
-                'movies': [
-                    {
-                        'id': 1001,
-                        'title': 'Abraham Lincoln',
-                        'brief': 'The gripping story of Lincoln who started his career as a Store clerk, taught Law to himself and went on to become the President of United States.',
-                        'thumbNailURL': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Abraham_Lincoln_by_Byers%2C_1858_-_crop.jpg/340px-Abraham_Lincoln_by_Byers%2C_1858_-_crop.jpg'
+                'title1' : 'Abraham Lincoln',
+                'title2' : 'Steve Jobs',
+                'title3': 'Narendra Modi',
+                'thumbNailURL1' : 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Abraham_Lincoln_by_Byers%2C_1858_-_crop.jpg/340px-Abraham_Lincoln_by_Byers%2C_1858_-_crop.jpg',
+                'thumbNailURL2': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/440px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg',
+                'thumbNailURL3': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Official_portrait_of_the_Prime_Minister_Narendra_Modi%2C_November_2020_%28cropped%29.jpg/440px-Official_portrait_of_the_Prime_Minister_Narendra_Modi%2C_November_2020_%28cropped%29.jpg',
+                'properties' : {
+                    "title1" : {
+                        "fontSize" : "16"
                     },
-                    {
-                        'id': 1002,
-                        'title': 'Steve Jobs',
-                        'brief': 'From being a mischief monger at school to a high-school dropout and then on to an entreprenuer and finally an all time legend, Steve Jobs\'s story is a must read. ',
-                        'thumbNailURL': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/440px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg'
+                    "title2": {
+                        "fontSize": "16"
                     },
-                    {
-                        'id': 1003,
-                        'title': 'Narendra Modi',
-                        'brief': 'Modi was the chief minister of Gujarat from 2001 to 2014 and is the Member of Parliament from Varanasi. He is a member of the Bharatiya Janata Party (BJP) and of the ...',
-                        'thumbNailURL': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Official_portrait_of_the_Prime_Minister_Narendra_Modi%2C_November_2020_%28cropped%29.jpg/440px-Official_portrait_of_the_Prime_Minister_Narendra_Modi%2C_November_2020_%28cropped%29.jpg'
+                    "title3": {
+                        "fontSize": "16"
                     },
-                    {
-                        'id': 1004,
-                        'title': 'Dwayne Johnson',
-                        'brief': 'Dwayne Douglas Johnson (born May 2, 1972), also known by his ring name The Rock,[3] is an American actor, businessman, and former professional wrestler.',
-                        'thumbNailURL': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/440px-Dwayne_Johnson_2014_%28cropped%29.jpg'
-                    },
-                    {
-                        'id': 1005,
-                        'title': 'Tom Cruise',
-                        'brief': 'Thomas Cruise Mapother IV (born July 3, 1962) is an American actor and producer. One of the world\'s highest-paid actors,[1] he has received various accolades throughout his career, including three Golden Globe Awards, ',
-                        'thumbNailURL': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Tom_Cruise_by_Gage_Skidmore_2.jpg/440px-Tom_Cruise_by_Gage_Skidmore_2.jpg'
+                    "category" : {
+                        "textColor" : "#FFFF00"
                     }
-                ]
+                }
+            },
+            {
+                'category': 'The famous Rockbands',
+                'title1': 'The Beatles',
+                'title2': 'Radiohead',
+                'title3': 'Porcupine',
+                'thumbNailURL1': "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/The_Beatles_performing_at_The_Ed_Sullivan_Show_%28cropped_2%29.jpg/2880px-The_Beatles_performing_at_The_Ed_Sullivan_Show_%28cropped_2%29.jpg",
+                'thumbNailURL2': "https://upload.wikimedia.org/wikipedia/commons/5/5f/Radiohead_Coachella_2004_cropped.jpg",
+                'thumbNailURL3': "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/ColdplayBBC071221_%2853_of_53%29_%2851740659597%29.jpg/2880px-ColdplayBBC071221_%2853_of_53%29_%2851740659597%29.jpg",
+                'properties': {
+                    "title1": {
+                        "fontSize": "16"
+                    },
+                    "title2": {
+                        "fontSize": "16"
+                    },
+                    "title3": {
+                        "fontSize": "16"
+                    },
+                    "category": {
+                        "textColor": "#FFFF00"
+                    }
+                }
             }
+            # {
+            #     'category' : 'The famous Rockbands',
+            #     'movies' : [
+            #         {
+            #             'title' : 'The Beatles',
+            #             'brief' : '',
+            #             'thumbNailURL' : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/The_Beatles_performing_at_The_Ed_Sullivan_Show_%28cropped_2%29.jpg/2880px-The_Beatles_performing_at_The_Ed_Sullivan_Show_%28cropped_2%29.jpg"
+            #         },
+            #         {
+            #             'title': 'Radiohead',
+            #             'brief': '',
+            #             'thumbNailURL': "https://upload.wikimedia.org/wikipedia/commons/5/5f/Radiohead_Coachella_2004_cropped.jpg"
+            #         },
+            #         {
+            #             'title': 'Radiohead',
+            #             'brief': '',
+            #             'thumbNailURL': "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/ColdplayBBC071221_%2853_of_53%29_%2851740659597%29.jpg/2880px-ColdplayBBC071221_%2853_of_53%29_%2851740659597%29.jpg"
+            #         },
+            #         {
+            #             'title': 'Radiohead',
+            #             'brief': '',
+            #             'thumbNailURL': "https://upload.wikimedia.org/wikipedia/commons/c/c0/Porcupine_Tree_%40_Poznan%2C_Poland_2007_04.jpg"
+            #         }
+            #
+            #
+            #
+            #                 ]
+            # }
+
         ]
     }
     return catalog
@@ -96,3 +136,18 @@ def get_movie(movie):
         }
     }
     return movie['Abraham Lincoln']
+
+def get_featured_movie_list():
+    return {
+        "featuredMovies" : [
+            {
+                "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/The_Beatles_performing_at_The_Ed_Sullivan_Show_%28cropped_2%29.jpg/2880px-The_Beatles_performing_at_The_Ed_Sullivan_Show_%28cropped_2%29.jpg"
+            },
+            {
+                "image" : "https://upload.wikimedia.org/wikipedia/commons/5/5f/Radiohead_Coachella_2004_cropped.jpg"
+            },
+            {
+                "image" : "https://upload.wikimedia.org/wikipedia/commons/c/c0/Porcupine_Tree_%40_Poznan%2C_Poland_2007_04.jpg"
+            }
+        ]
+    }

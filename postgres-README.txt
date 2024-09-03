@@ -9,6 +9,18 @@ createuser --interactive --pwprompt -p 19999
 Create database:
 CREATE DATABASE vvpdb;
 
+
+# Connecting to database
+\c <dbname>
+
+# show tables
+\dt
+
+# clear data in table
+truncate table_name
+
+
+
 # Creating user on django login
 python manage.by createsuperuser
 

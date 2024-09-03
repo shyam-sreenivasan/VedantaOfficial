@@ -158,6 +158,7 @@ lawyer = [
     {
         "text": "Lincoln argued that the testimony involved a dying declaration and was not subject to the hearsay rule",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Illinois_Supreme_Court.JPG/2880px-Illinois_Supreme_Court.JPG"
+
     },
     {
         "text": "Instead of holding Lincoln in contempt of court as expected, the judge, a Democrat, reversed his ruling and admitted the testimony into evidence, resulting in Harrison's acquittal.",

@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on localhost:8000
+From: webmaster@localhost
+To: info@vedantapeetam.org
+Date: Mon, 08 Mar 2021 05:24:14 -0000
+Message-ID: <161518105477.74984.928634697869030619@PARTHASARATHYs-iMac.local>
+
+
+You're receiving this email because you requested a password reset for your user account at localhost:8000.
+
+Please go to the following page and choose a new password:
+
+http://localhost:8000/logoutreset/MTc/aj6f0e-543f43b6a9ff146ac01e2221cab608af/
+
+Your username, in case you’ve forgotten: vvpadmin
+
+Thanks for using our site!
+
+The localhost:8000 team
+
+
+
+-------------------------------------------------------------------------------
